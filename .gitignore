@@ -1,0 +1,7 @@
+/app/etc/local.xml
+/var
+/var_
+*.zip
+*.sql
+/media
+.ftpquota
