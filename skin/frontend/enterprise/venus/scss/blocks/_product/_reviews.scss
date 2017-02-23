@@ -1,0 +1,141 @@
+.reviews-form {
+    margin: 20px 0 40px 0;
+    &__header {
+        margin-bottom: 20px;
+        color: $primary-color;
+        font-size: 18px;
+    }
+    &__wrapper {
+        padding-top: 20px;
+        border-top: 1px solid #000;
+        @include clearfix;
+    }
+    &__stars {
+        width: 100%;
+        float: left;
+        font-size: 0;
+        @include screen($screen-m, $screen-l) {
+            width: 42%;
+            padding: 80px 50px;
+
+        }
+        @include min-screen($screen-l) {
+            width: 42%;
+            padding: 80px;
+        }
+        &-header {
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #000;
+        }
+    }
+    &__star {
+        display: inline-block;
+        vertical-align: top;
+        &-input {
+            display: none;
+            &.checked {
+                & + .reviews-form__star-label {
+                    polygon {
+                        fill: $primary-color;
+                    }
+                }
+            }
+        }
+        &-label {
+            display: block;
+            width: 35px !important;
+            max-width: 100% !important;
+            height: 30px;
+            padding-left: 0 !important;
+            cursor: pointer;
+            svg {
+                width: 100%;
+                height: 100%;
+                polygon {
+                    fill: #000;
+                }
+            }
+        }
+    }
+    &__inputs {
+        width: 100%;
+        float: left;
+        margin-top: 20px;
+        @include min-screen($screen-m) {
+            width: 58%;
+        }
+    }
+    &__row {
+        margin-bottom: 10px;
+        @include clearfix;
+        &-label {
+            margin-bottom: 3px;
+            font-weight: 300;
+            color: #000;
+        }
+        &-input {
+            width: 100%;
+            color: #000;
+        }
+        &-button {
+            width: 100%;
+            float: right;
+            @include min-screen($screen-s) {
+                width: auto;
+            }
+        }
+        .validation-advice {
+            padding-left: 0;
+            font-weight: normal;
+        }
+        .validation-failed {
+            border: 1px solid #dddddd !important;
+        }
+    }
+}
+
+.reviews-list {
+    margin: 20px 0 40px 0;
+    &__header {
+        margin-bottom: 20px;
+        color: $primary-color;
+        font-size: 18px;
+    }
+    &__wrapper {
+        padding-top: 20px;
+        border-top: 1px solid #000;
+        @include clearfix;
+    }
+    &__item {
+        margin-bottom: 30px;
+        @include clearfix;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &-title {
+            width: 100%;
+            float: left;
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 300;
+            text-transform: uppercase;
+            @include min-screen($screen-m) {
+                width: 60%;
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__author {
+        float: left;
+        margin-top: 5px;
+        color: #bdbdbd;
+        font-size: 12px;
+    }
+    &__content {
+        width: 100%;
+        float: left;
+        margin-top: 10px;
+    }
+}

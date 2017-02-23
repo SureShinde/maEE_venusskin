@@ -1,0 +1,224 @@
+<?php
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php
+$_helper       = $this->helper('catalog/output');
+$themeOptions  = $this->helper('idstore');
+$_product      = $this->getProduct();
+$_layout       = $themeOptions->getProductLayout();
+$productHelper = $this->helper('idstore/product');
+$productHelper->initLayout($_layout);
+?>
+<script type="text/javascript">
+var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+
+<div class="product-spec-popup">
+    <div class="overlay"></div>
+    <div class="popup-info">
+        <div class="controls">
+            <div class="close-button">
+                <i class="icon icon-remove"></i>
+            </div>
+        </div>
+        <div class="pdf-display">
+            <object data="<?= $this->getSkinUrl($this->__('images/product_specs/%s.pdf', $_product->getFirstProductPdf())); ?>" type="application/pdf" width="100%" height="100%" class="hidden pdf pdf-1"></object>
+            <object data="<?= $this->getSkinUrl($this->__('images/product_specs/%s.pdf', $_product->getSecondProductPdf())); ?>" type="application/pdf" width="100%" height="100%" class="hidden pdf pdf-2"></object>
+            <object data="<?= $this->getSkinUrl($this->__('images/product_specs/%s.pdf', $_product->getThirdProductPdf())); ?>" type="application/pdf" width="100%" height="100%" class="hidden pdf pdf-3"></object>
+            <object data="<?= $this->getSkinUrl($this->__('images/product_specs/%s.pdf', $_product->getFourthProductPdf())); ?>" type="application/pdf" width="100%" height="100%" class="hidden pdf pdf-4"></object>
+            <object data="<?= $this->getSkinUrl($this->__('images/product_specs/%s.pdf', $_product->getFifthProductPdf())); ?>" type="application/pdf" width="100%" height="100%" class="hidden pdf pdf-5"></object>
+        </div>
+    </div>
+</div>
+
+<div id="messages_product_view"><?= $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view">
+    <form data-current-action="<?= $this->getSubmitUrl($_product) ?>" action="<?= $this->getSubmitUrl($_product) ?>" class="product-view__form" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?= $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+        <div class="product-image">
+            <img id="image" src="<?= $this->helper('catalog/image')->init($_product, 'image')->resize(1200, 1000); ?>" alt="<?= $this->stripTags($_product->getName(), null, true); ?>">
+            <script type="text/javascript">
+            jQuery(document).ready(function () {
+                jQuery('#image')
+                    .wrap('<span style="display:inline-block"></span>')
+                    .css('display', 'block')
+                    .parent()
+                    .zoom();
+            });
+            </script>
+            <div class="ratings-summary ratings-summary--main ratings-summary--desktop">
+                <?= $this->getReviewsSummaryHtml($_product, false, true) ?>
+            </div>
+            <div class="product-social-links product-social-links--desktop">
+                <?php $_helper = $this->helper('catalog/output'); ?>
+                <?php $_productName = urlencode(trim($_helper->productAttribute($_product, $_product->getName(), 'name')))?>
+                <?php $_productImageUrl = urlencode(trim($this->helper('catalog/image')->init($_product, 'image')))?>
+                <?php $_productUrl = urlencode(trim($_product->getProductUrl()))?>
+                <?php $_u = 'p[url]=' . $_productUrl . '&p[images][0]=' . $_productImageUrl . '&p[title]=' . $_productName . '&p[summary]=' . urlencode(trim($_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description'))); ?>
+                <a class="product-social-links__button" href="<?= 'http://www.facebook.com/sharer.php?s=100&' . $_u; ?>">
+                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/fb.svg'; ?>
+                </a>
+                <a class="product-social-links__button" href="<?= 'http://twitter.com/home?status=' . $_productName . '+' . $_productUrl; ?>">
+                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/twitter.svg'; ?>
+                </a>
+                <a class="product-social-links__button" href="https://pinterest.com/venusskin/">
+                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/pinterest.svg'; ?>
+                </a>
+            </div>
+        </div>
+        <div class="product-shop">
+            <div class="product-shop__data">
+                <h1 class="product-shop__name">
+                    <?= $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                </h1>
+                <?php if(!empty(trim($_helper->productAttribute($_product, ($_product->getSkinTypes()), 'skin_types')))): ?>
+                    <div class="product-shop__skin-types">
+                        <?= $this->__('Skin types') ?>:
+                        <?= $_helper->productAttribute($_product, ($_product->getSkinTypes()), 'skin_types'); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if(!empty(trim($_helper->productAttribute($_product, ($_product->getSkinConditions()), 'skin_conditions')))): ?>
+                    <div class="product-shop__skin-conditions">
+                        <?= $this->__('Skin conditions'); ?>:
+                        <?= $_helper->productAttribute($_product, ($_product->getSkinConditions()), 'skin_conditions'); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if(!empty(trim($_helper->productAttribute($_product, ($_product->getShortDescription()), 'short_description')))): ?>
+                    <div class="product-shop__short-description">
+                        <?= $_helper->productAttribute($_product, ($_product->getShortDescription()), 'short_description'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <?php if (!$_product->isGrouped()): ?>
+                <?= $this->getChildHtml('product_type_data'); ?>
+            <?php endif; ?>
+            <?= $this->getChildChildHtml('container2', '', true, true) ?>
+            <div class="ratings-summary ratings-summary--main">
+                <?= $this->getReviewsSummaryHtml($_product, false, true) ?>
+            </div>
+            <div class="product-social-links">
+                <a class="product-social-links__button" href="#">
+                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/fb.svg'; ?>
+                </a>
+                <a class="product-social-links__button" href="#">
+                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/twitter.svg'; ?>
+                </a>
+                <a class="product-social-links__button" href="#">
+                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/pinterest.svg'; ?>
+                </a>
+            </div>
+        </div>
+        <?php $keyActivesId = explode(',', $_product->getKeyActives()); ?>
+        <?php if(!empty($keyActivesId)): ?>
+            <?php
+                $keyActivesCollection = Mage::getModel('contentmanager/content')
+                    ->getCollection('product_key_actives')
+                    ->addAttributeToFilter('status', 1)
+                    ->addAttributeToFilter('ka_related_attr', array('in' => $keyActivesId))
+                    ->addAttributeToSelect('ka')
+                    ->addAttributeToSelect('ka_description')
+                    ->setOrder('ka_order')
+                    ->exportToArray();
+            ?>
+        <?php endif; ?>
+        <div class="product-tabs">
+            <ul id="product-tabs" class="product-tabs__trigers">
+                <li class="product-tabs__trigers-item active">
+                    <?= $this->__('Product details') ?>
+                </li>
+                <?php if(!empty($keyActivesId)): ?>
+                    <?php if(!empty($keyActivesCollection)): ?>
+                        <li class="product-tabs__trigers-item">
+                            <?= $this->__('Key actives') ?>
+                        </li>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if (trim(strip_tags($_product->getIngredients()))): ?>
+                    <li class="product-tabs__trigers-item">
+                        <?= $this->__('Ingredients') ?>
+                    </li>
+                <?php endif; ?>
+                <?php if (trim(strip_tags($_product->getApplication()))): ?>
+                    <li class="product-tabs__trigers-item">
+                        <?= $this->__('Application') ?>
+                    </li>
+                <?php endif; ?>
+            </ul>
+            <div class="product-tabs__content">
+                <div class="product-tabs__item active">
+                    <?php if ($_product->getShortDescription()): ?>
+                        <?= $_helper->productAttribute($_product, ($_product->getDescription()), 'description'); ?>
+                    <?php endif; ?>
+                </div>
+                <?php if(!empty($keyActivesId)): ?>
+                    <?php if(!empty($keyActivesCollection)): ?>
+                        <div class="product-tabs__item">
+                            <div class="product-key-actives">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <?= $this->__('Key actives') ?>
+                                        </th>
+                                        <th>
+                                            <?= $this->__('Mechanism of action') ?>
+                                        </td>
+                                    </tr>
+                                    <?php foreach($keyActivesCollection as $content): ?>
+                                        <tr>
+                                            <td>
+                                                <?= $content['ka'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $content['ka_description'] ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </table>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if (trim(strip_tags($_product->getIngredients()))): ?>
+                    <div class="product-tabs__item">
+                        <?= $_helper->productAttribute($_product, ($_product->getIngredients()), 'ingredients'); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (trim(strip_tags($_product->getApplication()))): ?>
+                    <div class="product-tabs__item">
+                        <?= $_helper->productAttribute($_product, ($_product->getApplication()), 'application'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <?php if ($_product->isGrouped()): ?>
+            <?= $this->getChildHtml('product_type_data') ?>
+        <?php endif; ?>
+
+        <?= $this->getChildHtml('extra_buttons') ?>
+        <?= $this->getChildHtml('other'); ?>
+
+        <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+            <?= $this->getChildChildHtml('container1', '', true, true) ?>
+        <?php endif; ?>
+    </form>
+    <?= $this->getChildHtml('relatedProducts') ?>
+    <?= $this->getChildHtml('review_form') ?>
+    <?= $this->getChildHtml('reviews') ?>
+</div>
+    <div class="row product-collateral">
+        <?= $this->getChildHtml('info_tabs') ?>
+        <?= $this->getChildHtml('product_additional_data') ?>
+    </div>
+    <div class="mobile-upsell-area">
+        <?= $this->getChildHtml('upsell_products'); ?>
+    </div>
+</div>

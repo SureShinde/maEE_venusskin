@@ -1,0 +1,100 @@
+<div class="customer-care-section customer-care-contact">
+    <div class="customer-care-section__container">
+        <form action="<?php echo $this->getUrl('contacts/index/post'); ?>" id="contactForm" method="post">
+            <div class="fieldset">
+                <div class="form-header">
+                    <h1 class="customer-care-contact__heading">
+                        <?php echo Mage::helper('contacts')->__('Contact Venus skin'); ?>
+                    </h1>
+                    <p class="customer-care-contact__description">
+                        <?php echo $this->__('Please supply us with your contact information so that we can tell you more about our amazing skincare line and enroll you in our program.'); ?>
+                    </p>
+                    <div class="customer-care-contact__info">
+                        <div class="customer-care-contact__mail">
+                            <i class="icon icon-envelope" aria-hidden="true"></i>
+                            <?php echo $this->__('4556 North Hiatus Road, Sunrise, FL 33351, United States') ?>
+                        </div>
+                        <div class="customer-care-contact__phone">
+                            <i class="icon icon-phone" aria-hidden="true"></i>
+                            <?php echo $this->__('1.888.907.0115') ?>
+                        </div>
+                    </div>
+                    <h2 class="customer-care-contact__sub-heading"><?php echo Mage::helper('contacts')->__('Send us a message'); ?></h2>
+                </div>
+                <div class="customer-care-contact__form">
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="field">
+                                <label for="name" class="required">
+                                    <em>*</em><?php echo Mage::helper('contacts')->__('Name') ?>
+                                </label>
+                                <div class="input-box">
+                                    <input name="name" id="name"
+                                           title="<?php echo Mage::helper('contacts')->__('Name') ?>"
+                                           value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>"
+                                           class="input-text required-entry" type="text"/>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="email" class="required">
+                                    <em>*</em><?php echo Mage::helper('contacts')->__('Email') ?>
+                                </label>
+                                <div class="input-box">
+                                    <input name="email" id="email"
+                                           title="<?php echo Mage::helper('contacts')->__('Email') ?>"
+                                           value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>"
+                                           class="input-text required-entry validate-email" type="email"/>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="telephone">
+                                    <?php echo Mage::helper('contacts')->__('Telephone') ?>
+                                </label>
+                                <div class="input-box">
+                                    <input name="telephone" id="telephone"
+                                           title="<?php echo Mage::helper('contacts')->__('Telephone') ?>" value=""
+                                           class="input-text" type="text"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="wide">
+                            <div class="field">
+                                <label for="region">
+                                    <?php echo Mage::helper('contacts')->__('State/Province') ?>
+                                </label>
+                                <div class="input-box">
+                                    <input name="region" id="region"
+                                           title="<?php echo Mage::helper('contacts')->__('State/Province') ?>" value=""
+                                           class="input-text" type="text"/>
+                                </div>
+                            </div>
+                            <label for="comment">
+                                <?php echo Mage::helper('contacts')->__('Comment') ?>
+                            </label>
+                            <div class="input-box">
+                            <textarea name="comment" id="comment"
+                                      title="<?php echo Mage::helper('contacts')->__('Comment') ?>" class="input-text"
+                                      cols="5" rows="3"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="buttons-set">
+                        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;"/>
+
+                        <p class="required left"><?php echo Mage::helper('contacts')->__('Required Fields *') ?></p>
+                        <button type="submit" title="<?php echo Mage::helper('contacts')->__('Send message') ?>"
+                                class="button right">
+                            <span><span><?php echo Mage::helper('contacts')->__('Send message') ?></span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var contactForm = new VarienForm('contactForm', false);
+        //]]>
+    </script>
+</div>

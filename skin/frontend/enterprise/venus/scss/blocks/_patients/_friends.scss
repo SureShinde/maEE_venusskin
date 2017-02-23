@@ -1,0 +1,89 @@
+.patients-friends {
+    text-align: center;
+    background: url("../images/media/patients/friends.jpg") no-repeat center center / cover transparent;
+    position: relative;
+    min-height: 550px;
+    @include max-screen($screen-m) {
+        background-position: right -50px top 0;
+        background-size: auto 550px;
+    }
+    @include max-screen($screen-s + 1) {
+        min-height: 420px;
+        background-position: right -190px top 0;
+        background-size: auto 420px;
+    }
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(#0cabd9, 0.5);
+        @include max-screen($screen-s + 1) {
+            height: 420px;
+        }
+    }
+
+    &__content {
+        position: relative;
+        padding-top: 25px;
+        @include min-screen($screen-s) {
+            padding-top: 150px;
+        }
+        @include max-screen($screen-s) {
+            padding-top: 50px;
+        }
+    }
+    &__description {
+        margin: 0 auto 15px;
+        padding-bottom: 40px;
+        color: #fff;
+        font-size: 25px;
+        font-weight: normal;
+        line-height: 1.4;
+        position: relative;
+        text-transform: uppercase;
+        font-family: $helveticaNeueLTProRoman;
+        @include screen($screen-s, $screen-m) {
+            font-size: 18px;
+        }
+        @include max-screen($screen-s) {
+            font-size: 16px;
+        }
+        &:after {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            border-style: solid;
+            border-width: 3px 0 0 500px;
+            width: 0;
+            height: 0;
+            content: "";
+            @include max-screen($screen-s + 1) {
+                border-width: 3px 0 0 200px;
+            }
+        }
+    }
+    &__link {
+        padding: 5px 15px;
+        display: inline-block;
+        color: #fff;
+        border: 3px solid #fff;
+        transition: all 0.2s;
+        &:hover {
+            color: $primary-color;
+            background-color: #fff;
+        }
+        @include min-screen($screen-s + 1) {
+            margin-top: 25px;
+        }
+        @include max-screen($screen-s + 1) {
+            margin-top: 25px;
+        }
+    }
+}

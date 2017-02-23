@@ -1,0 +1,13 @@
+<?php
+/** @var Venus_Theme_Helper_Adminhtml_Dashboard_Data $helper */
+$helper = $this->helper('theme/adminhtml_dashboard_data');
+$array  = $helper->getMonthlyReportDates();
+?>
+
+<p class="switcher a-right" style="padding:5px 10px;margin:20px;"><?php echo $this->__('Select Range'); ?>:
+	<select name="period" id="order_<?php echo $this->getHtmlId() ?>_period" onchange="changeDiagramsPeriod(this);">
+		<?php foreach ($array as $_value => $_label): ?>
+			<option value="<?php echo $_value ?>" <?php if ($this->getRequest()->getParam('period') == $_value): ?> selected="selected"<?php endif; ?>><?php echo $_label ?></option>
+		<?php endforeach; ?>
+	</select>
+</p>

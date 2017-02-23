@@ -1,0 +1,70 @@
+<?php
+/**
+ * @var Mage_Core_Block_Template $this
+ */
+?>
+<div id="mobile-menu" class="mobile-menu inactive">
+	<?php echo $this->getChildHtml('mobile_menu_links'); ?>
+</div>
+<script>
+jQuery(function ($) {
+	$(document).on('mouseup', function (e) {
+		$mobileMenu = $('#mobile-menu');
+
+		if ($mobileMenu.hasClass('active') && !$mobileMenu.is(e.target) && $mobileMenu.has(e.target).length === 0) {
+			$('#mobile-menu-close-button').trigger('click');
+		}
+	});
+
+	$('#mobile-menu-open-button').on('click', function () {
+		$this = $(this);
+		if ($this.hasClass('animating')) {
+			return;
+		} else {
+			$this.addClass('animating');
+		}
+
+		$page = $('.page');
+
+		if ($page.hasClass('inactive')) {
+			$page.removeClass('inactive').addClass('active');
+			$('#mobile-menu').removeClass('active').addClass('inactive');
+		} else {
+			$page.removeClass('active').addClass('inactive');
+			$('#mobile-menu').removeClass('inactive').addClass('active');
+		}
+
+		setTimeout(function () {
+			$this.removeClass('animating');
+		}, 500)
+	});
+
+	$('#mobile-menu-close-button').on('click', function () {
+		$button = $('.mobile-menu-button');
+		if ($button.hasClass('animating')) {
+			return;
+		} else {
+			$button.addClass('animating');
+		}
+
+		$('.page').removeClass('inactive').addClass('active');
+		$('#mobile-menu').removeClass('active').addClass('inactive');
+
+		setTimeout(function () {
+			$button.removeClass('animating');
+		}, 500)
+	});
+
+	$('#mobile-menu-product-dropdown').on('click', function () {
+		if ($('#mobile-dropdown-products-list').hasClass('collapsed') || $('#product-dropdown-arrow').hasClass('collapsed')) {
+			$('#mobile-dropdown-products-list').removeClass('collapsed');
+			$('#product-dropdown-arrow').removeClass('collapsed');
+		} else {
+			$('#mobile-dropdown-products-list').addClass('collapsed');
+			$('#product-dropdown-arrow').addClass('collapsed');
+		}
+	}).delegate('#mobile-dropdown-products-list', 'click', function (e) {
+		e.stopImmediatePropagation();
+	});
+});
+</script>

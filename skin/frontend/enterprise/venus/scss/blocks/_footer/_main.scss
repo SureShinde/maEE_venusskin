@@ -1,0 +1,119 @@
+.footer {
+    padding: 35px 0;
+    background-color: #000;
+    &__container {
+        @include container;
+        @include clearfix;
+    }
+    &__logo {
+        float: left;
+        width: 100%;
+        text-align: center;
+        @include min-screen($screen-l) {
+            width: auto;
+            margin-right: 35px;
+        }
+        img {
+            display: inline-block;
+        }
+    }
+}
+
+.footer-links {
+    width: 100%;
+    float: left;
+    margin: 35px 0;
+    @include min-screen($screen-l) {
+        width: auto;
+        margin: 18px 0 0;
+        @include clearfix;
+        li {
+            @include min-screen($screen-l) {
+                float: left;
+                margin-right: 20px;
+            }
+        }
+    }
+    &__item {
+        display: block;
+        padding: 6px 0;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: #fff;
+        @include min-screen($screen-l) {
+            font-size: 12px;
+            transition: all 0.5s ease;
+        }
+    }
+}
+
+.footer-social {
+    float: left;
+    width: 100%;
+    text-align: center;
+    @include min-screen($screen-l) {
+        width: auto;
+        float: right;
+        margin-top: 9px;
+    }
+    &__item {
+        width: 45px;
+        display: inline-block;
+        margin: 0 3px;
+        padding: 8px 0;
+        border-radius: 5px;
+        vertical-align: top;
+        background-color: #fff;
+        @include min-screen($screen-l) {
+            width: 35px;
+            padding: 5px 0;
+            transition: all 0.5s ease;
+            &:hover {
+                background-color: #c0c0c0;
+            }
+        }
+        &--instagram {
+            height: 42px;
+            padding: 0;
+            box-sizing: border-box;
+            @include min-screen($screen-l) {
+                height: 31px;
+            }
+            svg {
+                width: 100%;
+                height: 100%;
+                padding: 9px;
+                box-sizing: border-box;
+                @include min-screen($screen-l) {
+                    padding: 7px;
+                }
+            }
+        }
+        &--you-tube {
+            height: 42px;
+            padding: 0;
+            @include min-screen($screen-l) {
+                height: 31px;
+            }
+            svg {
+                width: 100%;
+                height: 100%;
+                padding: 9px;
+                box-sizing: border-box;
+                @include min-screen($screen-l) {
+                    padding: 7px;
+                }
+            }
+        }
+        i {
+            vertical-align: middle;
+            font-size: 24px;
+            color: #000;
+            @include min-screen($screen-l) {
+                font-size: 18px;
+            }
+        }
+    }
+}

@@ -1,0 +1,200 @@
+.product-view {
+    margin-bottom: 20px;
+    * {
+        box-sizing: border-box;
+    }
+    &__form {
+        @include clearfix;
+    }
+}
+
+.product-image {
+    float: left;
+    @include min-screen($screen-m) {
+        width: 40%;
+        margin-right: 2%;
+    }
+}
+
+.product-shop {
+    float: left;
+    @include clearfix;
+    @include min-screen($screen-m) {
+        width: 58%;
+    }
+    &__data {
+        margin: 20px 0;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #000;
+        @include min-screen($screen-m) {
+            margin-top: 0;
+        }
+    }
+    &__name {
+        margin-bottom: 20px;
+        line-height: 27px;
+        color: $primary-color;
+        font-weight: 300;
+        font-family: $helveticaNeueLTProRoman;
+    }
+    &__skin-types {
+        font-size: 14px;
+        font-weight: 300;
+        color: #000;
+        text-transform: uppercase;
+        font-family: $helveticaNeueLTProTh;
+    }
+    &__skin-conditions {
+        margin-top: 15px;
+        font-size: 14px;
+        font-weight: 300;
+        color: #000;
+        text-transform: uppercase;
+        font-family: $helveticaNeueLTProTh;
+    }
+    &__short-description {
+        margin-top: 15px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 300;
+        font-family: $helveticaNeueLTProTh;
+    }
+    &__row {
+        width: 100%;
+        float: left;
+        margin-bottom: 20px;
+        @include clearfix;
+    }
+    &__price {
+        float: left;
+        @include clearfix;
+        .price-box {
+            float: left;
+            @include clearfix;
+        }
+        .old-price,
+        .special-price {
+            display: block;
+            float: left;
+            width: auto;
+            vertical-align: baseline;
+            line-height: 8px;
+            .price-label,
+            .price {
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 14px;
+                text-transform: uppercase;
+                color: #000;
+                font-family: $helveticaNeueLTProTh;
+            }
+        }
+        .old-price {
+            margin-right: 10px;
+            padding-right: 10px;
+            border-right: 1px solid #000;
+        }
+    }
+    &__vip {
+        float: right;
+        &-button {
+            text-transform: uppercase;
+            color: $primary-color;
+            vertical-align: top;
+            font-family: $helveticaNeueLTProRoman;
+        }
+    }
+    &__qty {
+        width: 100%;
+        float: left;
+        margin-bottom: 20px;
+        @include min-screen($screen-m) {
+            width: auto;
+            margin-bottom: 0;
+        }
+        &-label {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #000;
+            font-family: $helveticaNeueLTProTh;
+        }
+        &-select {
+            display: inline-block;
+            height: auto;
+            width: 50px;
+            border: none;
+            font-size: 14px;
+            font-weight: 300;
+            font-family: $helveticaNeueLTProTh;
+            background: url("../images/product-select-arrow.jpg") no-repeat scroll 100% -45% !important;
+        }
+    }
+    &__actions {
+        width: 100%;
+        float: left;
+        margin: 20px 0;
+        &-to-cart {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 15px;
+            letter-spacing: 1px;
+            line-height: 28px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: all 250ms ease-in-out 0s;
+            white-space: nowrap;
+            color: #fff;
+            background-color: $primary-color;
+            font-family: $helveticaNeueLTProRoman;
+            @include min-screen($screen-m) {
+                width: auto;
+                padding: 3px 15px;
+                padding-top: 7px;
+                font-size: 20px;
+                &:hover {
+                    background-color: #25c5f3;
+                }
+            }
+        }
+    }
+}
+
+.catalog-product-view .main {
+    .product-options {
+        width: auto;
+        padding: 0;
+        @include min-screen($screen-m) {
+            margin-left: 20px;
+        }
+        dt {
+            display: none;
+        }
+        dd {
+            margin: 0;
+            select {
+                margin-top: 1px;
+                width: 270px;
+                display: inline-block;
+                height: auto;
+                padding-left: 0;
+                border: none;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 300;
+                color: #000;
+                font-family: $helveticaNeueLTProTh;
+                background: url("../images/product-select-arrow.jpg") no-repeat scroll 100% -45% !important;
+            }
+        }
+    }
+    .product-options-bottom {
+        float: left;
+        width: 100%;
+        margin-top: 20px;
+    }
+}

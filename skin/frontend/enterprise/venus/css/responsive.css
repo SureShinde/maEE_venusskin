@@ -1,0 +1,1595 @@
+#xpayment-iframe-block iframe {
+	width: 100%;
+	height: 255px;
+}
+
+.checkout-onepage-index .col-right {
+	width: auto;
+	max-width: 18%;
+}
+/*********************************************************************************************
+    990px-1175px
+ ********************************************************************************************/
+@media only screen and (max-width: 1175px) {
+	.header-content .site-nav ul li {
+		padding: 20px 10px;
+	}
+
+	.main,
+	.main .main-inner,
+	.fullwidth-banner .fullwidth-banner-inner,
+	.cms-orders-and-returns .main-container .main .inner { width: 984px; }
+
+	.breadcrumbs-wrapper {
+		margin: 0 auto;
+		padding: 0 15px;
+		max-width: 1170px;
+		min-width: 320px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.breadcrumbs-wrapper .breadcrumbs {
+		width: 100%;
+	}
+
+	.col2-left-layout .col-main { width: 725px; }
+
+	.col2-left-layout .col-left.sidebar { width: 175px; }
+
+	/* Contact Us - 1175-PAG-CONTACT */
+	.contact-page-content .contact-block { min-height: 342px; }
+
+	.contact-block-left { width: 335px; }
+
+	.contact-block-right { width: 495px; }
+
+	/* Home - 1175-CMS-HOME */
+	.cms-home .info-panels { width: 984px; }
+
+	.info-panels .panel { width: 308px; }
+
+	.intro h2 { font-size: 38px; }
+
+	.featured-products .viewport .category-view { width: 984px; }
+
+	.featured-products-container ul li { width: 223px; }
+
+	.product-info a.button { padding: 0 10px; }
+
+	/* Login - 1175-PAG-LOGIN */
+	.registered-users, .new-users { width: 400px !important; }
+
+	.col-2.new-users { float: left; margin-left: 60px; }
+
+	/* Register - 1175 PAG-REGISTER */
+	.account-create .fieldset { width: 430px; }
+
+	/* Product Detail - 1175-PAG-DETAIL */
+	.img-upsell-section { width: 624px !important; }
+
+	/* Header - 1175-CMP-HEADER */
+	.header-panel-content, .header-content { width: 975px; }
+
+	/* Cart - 1175-PAG-CART */
+	.col-coupon, .col-shipping, .col-totals,
+	.cart .discount input.input-text, .cart .shipping .form-list select, .cart .shipping .form-list input.input-text { width: 295px; }
+
+	#shipping-zip-form fieldset .form-list li input[type=text] { width: 273px; }
+
+	/* For Physicians - 1175-PAG-PHYSICIANS */
+	.physicians-info .col2-set { width: 1150px; }
+
+	.physicians-info .col2-set .col-1 { width: 45%; }
+
+	.physicians-info .col2-set .col-2 { float: left; width: 50%; }
+
+	.physicians-info .banner-text { padding-top: 0; }
+
+	.physicians-info .banner-text p { width: 975px; }
+
+	.physicians-info .info-panel .physician-info-list { max-width: 325px; }
+
+	.banner-video-embed iframe { position: relative; left: -98px; width: 50%; }
+
+	.info-panel.faq ul.faq { max-width: 82%; }
+
+	/* Account Dashboard - 1175-PAG-DASHBOARD */
+	.col2-left-layout .col-main { width: 725px; }
+
+	.dashboard .data-table tr td.last { min-width: 100px; }
+
+	.my-account .form-list .field { width: 352px; }
+
+	/* Manage Cards */
+	.sp-methods select.month { width: 200px !important; }
+
+	.sp-methods select.year { width: 100px !important; }
+
+	/* Bottom Banner - 1175-CMP-BTMBANNER */
+	.patients-info .banner-text > p { width: 90%; }
+
+	.footer-block { width: 223px; min-height: 0; }
+
+	.after-footer-container { width: 975px; }
+
+	/* One-Page Checkout - 1175-PAG-OPC */
+	.col2-right-layout .col-main { width: 725px; }
+	.checkout-onepage-index .col-right{ max-width: 22%; }
+
+	#checkout-step-login .col2-set .col-1, #checkout-step-login .col2-set .col-2 { width: 310px; }
+
+	.opc .step .form-list .field, .opc .step .form-list .wide { width: 331px; }
+
+	/* Send to Friend - 1175-PAG-SENDFRIEND */
+	.fieldset.sender { width: 514px; }
+
+	.fieldset.recipient { width: 470px; }
+
+	/* Advanced Search Results - 1175-PAG-ADV-RESULT */
+	.results-view .product-info a { padding: 0; }
+
+	.results-view ul.products-grid li.item { max-width: 268px; }
+
+	.results-view ul.products-grid li.item .actions button.button { left: 45px; }
+
+	/* Products (CMS) - PAG-PRODUCTS */
+	.carousel-full-viewport, .carousel-full-item { width: 900px !important; }
+
+	.product-carousel.carousel-full-viewport { height: 500px; }
+
+	.product-carousel.carousel-full-viewport .product-image { width: 450px; }
+
+        /* add before after slider styles*/
+	.main-inner.before-after-wrapper {width: 50%;min-width: 800px;}
+
+	.cms-forphysicians iframe {height: 525px;}
+
+    .main-inner .before-after-slider { height: 400px; width: 800px;}
+}
+
+/*********************************************************************************************
+    791px-989px
+ ********************************************************************************************/
+@media only screen and (max-width: 989px) {
+
+	.cart-collaterals .col-group {
+		float: left;
+	}
+
+	.cms-forphysicians iframe {
+		height: 425px;
+	}
+
+	.physicians-info .physicians-top-banner a {
+		padding: 2px 14px;
+		font-size: 12px;
+	}
+
+	.header-container a.header-signup-button.mobile-size { display: block; }
+
+	.header-container a.header-signup-button:not(.mobile-size) { display: none; }
+
+	.product-spec-popup .popup-info {
+		width: 750px;
+		margin-left: -375px;
+	}
+
+	/* Multiple Addresses Checkout */
+	.multiple-checkout .col2-set .col-2 { width: 450px !important; }
+
+	.main,
+	.main .main-inner,
+	.breadcrumbs,
+	.fullwidth-banner .fullwidth-banner-inner,
+	.cms-orders-and-returns .main-container .main .inner { width: 759px; }
+
+	.col2-left-layout .col-main { width: 100%; }
+
+	.col2-left-layout .col-left.sidebar { width: 175px; }
+
+	/* Contact Us - 989-PAG-CONTACT */
+	.contact-page-content .contact-block { min-height: 0; }
+
+	.contact-block-left { width: 697px; margin: 0 0 30px; min-height: 0; }
+
+	.contact-block-left p { float: left; width: 100%; margin-right: 100px; }
+
+	.contact-block-left ul { float: left; }
+
+	.contact-block-right { width: 697px; }
+
+	/* Home - 989-CMS-HOME */
+	.cms-home .info-panels { width: 759px; }
+
+	.info-panels .panel { width: 233px; }
+
+	.cms-home .intro { padding: 60px 0; }
+
+	.intro h2 { font-size: 32px; line-height: 40px; }
+
+	.intro p { width: 90%; }
+
+	.product-info a.button { padding: 0 20px; }
+
+	.featured-products .viewport .category-view { width: 759px; }
+
+	.category-view .products-grid .item { margin-right: 15px; }
+
+	.featured-products-container ul li { width: 243px; }
+
+	.featured-products .viewport ul {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.info-panels.moneyback {
+		width: 100%;
+		padding: 10px 20px;
+		box-sizing: border-box;
+	}
+
+	/* Login - 989-PAG-LOGIN */
+	.registered-users, .new-users { width: 302px !important; }
+
+	.col-2.new-users { margin-left: 30px; }
+
+	.registered-users .buttons-set button { width: 150px; }
+
+	/* For Physicians - 989-PAG-PHYSICIANS */
+	.physicians-info .banner-text p { width: auto; }
+
+	.physicians-info .col2-set .col-1 { width: 33%; }
+
+	.physicians-info .info-panel img { width: 50px; }
+
+	.physicians-info .info-panel .physician-info-list { width: 70%; }
+
+	.physician-contact-block { padding: 25px; top: 65px; }
+
+	.contact-banner { height: 665px; }
+
+	.banner-video-embed iframe { left: -205px; width: 40%; height: 450px; }
+
+	.info-panel.faq ul.faq { margin: 0 auto; }
+
+	.cms-forphysicians .benefits-list {
+		width: 80%;
+		margin-bottom: 20px;
+	}
+
+	.cms-forphysicians .benefits-list .carousel-item img {
+		display: block;
+		max-width: 150px;
+		margin: 0 auto 40px auto;
+		float: none;
+	}
+
+	.cms-forphysicians .benefits-list .carousel-item .physician-info-list {
+		display: block;
+		margin: 0 auto;
+		float: none !important;
+	}
+
+	.cms-forphysicians .benefits-list .owl-nav { display: block; }
+
+	/* Account Dashboard - 989-PAG-DASHBOARD */
+	.col2-left-layout .col-main { width: 550px; }
+
+	.dashboard .data-table tr td.last { min-width: 130px; }
+
+	.my-account .form-list .field { width: 265px; }
+
+	/* Manage Cards */
+	.sp-methods select.month { width: 150px !important; }
+
+	.sp-methods select.year { width: 80px !important; }
+
+	/* Register - 989-PAG-REGISTER */
+	.account-create .fieldset { width: 718px; float: none !important; min-height: 0; }
+
+	.account-create .buttons-set { width: 100%; }
+
+	/* Product Detail - 989-PAG-DETAIL */
+	.img-upsell-section { width: 399px !important; }
+
+	.included-products-grid ul.products-grid li.item { max-width: 28%; }
+
+	/* Header - 989-CMP-HEADER */
+	.header-panel-content, .header-content { width: 775px; }
+
+	.header-content .site-nav ul li { padding: 20px 3px; }
+
+	.welcome-message { display: none; }
+
+	/* Cart - 989-PAG-CART */
+	.col-coupon { margin-bottom: 30px; float: none !important; }
+
+	.col-shipping { float: left !important; }
+
+	.col-totals { float: right !important; position: relative; }
+
+	/* Account Dashboard - 989-PAG-DASHBOARD */
+	.recent-orders .data-table tr td { max-width: 225px; }
+
+	/* Bottom Banner - 989-CMP-BTMBANNER */
+	.banner-text > h2 { line-height: 50px; margin-top: 50px; }
+
+	.footer-block { width: 347px; margin-right: 20px; min-height: 0; }
+
+	.after-footer-container { width: 775px; }
+
+	#after-footer-menu { width: 525px; }
+
+	#after-footer-payments img { margin-top: 25px; }
+
+	/* One-Page Checkout - 989-PAG-OPC */
+	.col2-right-layout .col-main { width: 500px; }
+	.checkout-onepage-index .col-right { max-width: 30%; }
+
+	#checkout-step-login .col2-set .col-1, #checkout-step-login .col2-set .col-2 { width: 458px; }
+
+	#checkout-step-login .col2-set .col-2 { margin-top: 20px; }
+
+	#checkout-step-login .col2-set .col-2 fieldset .buttons-set.register-set { padding-top: 0; }
+
+	.opc .step .form-list .field, .opc .step .form-list .wide { width: 219px; }
+
+	#checkoutSteps > li > div > form, .payment-info-border, .order-review { padding: 12px; }
+
+	/* Send to Friend - 989-PAG-SENDFRIEND */
+	.fieldset.sender li.fields .field,
+	.fieldset.recipient li.fields .field { width: 100%; }
+
+	.fieldset.sender li .input-box textarea { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; }
+
+	.fieldset.sender,
+	.fieldset.recipient { width: 350px; }
+
+	#product-sendtofriend-form .fieldset.recipient { float: right; }
+
+	/* Advanced Search Results - 989-PAG-ADV-RESULT */
+	.results-view ul.products-grid li.item { max-width: 193px; }
+
+	.results-view ul.products-grid li.item .actions button.button { left: 14px; padding: 0 5px; }
+
+	.results-view ul.products-grid li.item .actions button.button span span { font-size: 10px; }
+
+	/* Parallax - CMP-PARALLAX */
+	.parallax {
+		background-position: 0 0 !important;
+		background-attachment: scroll !important;
+		background-size: cover !important;
+	}
+
+	.parallax.parallax-home { height: auto; }
+
+	.parallax.parallax-home .banner-text {
+		padding: 40px 20px;
+		box-sizing: border-box;
+	}
+
+	.parallax.parallax-home .banner-text h2 {
+		width: auto;
+		margin: 0 0 40px 0;
+		font-size: 22px;
+	}
+
+	.parallax.parallax-home .banner-text h2:nth-of-type(2) {
+		font-size: 32px;
+	}
+
+	.cms-index-index .parallax.parallax-bottom,
+	.cms-forpatients .parallax.parallax-bottom { height: auto; }
+
+	.cms-index-index .parallax.parallax-bottom h2,
+	.cms-forpatients .parallax.parallax-bottom h2 { margin-top: 0; }
+
+	.cms-index-index .parallax.parallax-bottom .banner-text,
+	.cms-forpatients .parallax.parallax-bottom .banner-text { padding: 40px 20px; }
+
+	/* Products (CMS) - PAG-PRODUCTS */
+	.carousel-full-viewport, .carousel-full-item { width: 780px !important; }
+
+	.product-carousel.carousel-full-viewport .product-image { width: 350px; }
+
+	.cms-products .owl-carousel { width: 80%; }
+
+	/* add before after slider styles*/
+
+	.main-inner.before-after-wrapper {width: 800px!important;min-width: auto;}
+}
+
+/*********************************************************************************************
+    630px-790px
+ ********************************************************************************************/
+@media only screen and (max-width: 790px) {
+
+	.physicians-info .physicians-top-banner a {
+		padding: 0 14px;
+		bottom: 8%;
+	}
+
+	.benefits-list {
+		margin-bottom: 60px;
+	}
+
+	.physicians-info .banner2 {
+		padding: 0;
+	}
+
+	.physicians-info .col2-set {
+		width: 90%;
+	}
+
+	.benefits-list > ul > li,
+	.benefits-list > ul > li .physician-info-list {
+		margin: 0 !important;
+	}
+
+	.benefits-list > ul > li .physician-info-list {
+		max-width: none !important;
+		width: 100% !important;
+	}
+
+	.benefits-list > ul > li {
+		width: 100%;
+	}
+
+	.benefits-list > ul > li ul {
+		margin: 0 15% !important;
+	}
+
+	.physicians-info .how .info-panel {
+		margin: 0 10px 20px;
+	}
+
+	.cms-products .vip-banner h2 {
+		margin-top: 80px;
+		line-height: normal;
+	}
+
+	dl.faq.accordion {
+		padding: 15px;
+	}
+
+	.signup-banner .banner-text p {
+		max-width: 70%;
+	}
+
+	.product-spec-popup .popup-info {
+		width: 100%;
+		margin-left: 0;
+		left: 0;
+	}
+
+	.product-spec-popup .close-button {
+		display: block;
+	}
+
+	/* Multiple Addresses Checkout */
+	.multiple-checkout .col2-set .col-2 { width: 350px !important; }
+
+	.main,
+	.breadcrumbs,
+	.fullwidth-banner .fullwidth-banner-inner,
+	.cms-orders-and-returns .main-container .main .inner { width: 624px; }
+
+	/* Contact Us - 790-PAG-CONTACT */
+	.contact-block-left,
+	.contact-block-right { width: 562px; }
+
+	/* Home - 1175-CMS-HOME */
+	.info-panels { width: 624px; height: auto; padding: 40px 0 0; }
+
+	.info-panels .panel {
+		float: none !important;
+		width: 369px;
+		margin: 0 auto 40px;
+	}
+
+	.info-panels .panel div { height: auto; }
+
+	.info-panels .row:first-of-type .panel img { width: 80px; }
+
+	.featured-products .viewport .category-view { width: 624px; }
+
+	.featured-products-container ul li { width: 270px; }
+
+	.category-view .products-grid .item { margin: 0 28px; }
+
+	.category-view .products-grid .item.last { margin-left: 0; }
+
+	.info-panels.faq {
+		padding: 0 10px;
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	/* Login - 790-PAG-LOGIN */
+	.registered-users, .new-users { width: 90% !important; }
+
+	.col-2.new-users { margin: 40px 0 10px 0; }
+
+	/* For Physicians - 790-PAG-PHYSICIANS */
+	.physicians-info .info-panel img { width: 70px; }
+
+	.physicians-info .col2-set .col-1,
+	.physicians-info .col2-set .col-2 { width: 100%; }
+
+	.physicians-info .info-panel { float: none; min-height: 0; padding-bottom: 20px; }
+
+	.physicians-info .info-panel .physician-info-list { max-width: 485px; }
+
+	.banner-video-embed iframe { left: -277px; width: 32%; height: 375px; }
+
+	.contact-banner { background: none; width: auto; height: auto; margin: 0; position: static; }
+
+	.physician-contact-block {
+		margin: 0;
+		position: static;
+		width: 100%;
+		border: 0 none;
+		border-top: 2px solid #e9e9e9;
+		padding: 80px 0;
+	}
+
+	.cms-forphysicians form#contactForm {
+		padding: 15px;
+	}
+
+	#contactForm li { width: 100%; }
+
+	.physicians-info .banner2 .image,
+	.physicians-info .banner2 .info-panel {
+		width: 100%;
+		padding: 0;
+	}
+
+	.physicians-info .banner2 .image img {
+		max-width: 50%;
+	}
+
+	.patients-info .col3-set .col-1,
+	.patients-info .col3-set .col-2,
+	.patients-info .col3-set .col-3 { width: 100%; margin: 0; }
+
+	.patients-info .info-panel {
+		margin-bottom: 50px;
+		min-height: 190px;
+	}
+
+	/* Account Dashboard - 790-PAG-DASHBOARD */
+	.customer-account-index .main,
+	.customer-address-index .main,
+	.customer-address-form .main,
+	.customer-account-edit .main,
+	.sales-order-history .main,
+	.sales-order-view .main,
+	.sales-order-invoice .main,
+	.sales-order-shipment .main,
+	.oauth-customer-token-index .main,
+	.newsletter-manage-index .main,
+	.enterprise-customerbalance-info-index .main,
+	.enterprise-giftcardaccount-customer-index .main,
+	.enterprise-invitation-index-index .main,
+	.enterprise-invitation-index-send .main,
+	.enterprise-rma-return-view .main,
+	.enterprise-rma-return-history .main { width: 90%; padding: 80px 0 0; }
+
+	.enterprise-invitation-index-index .main,
+	.enterprise-invitation-index-send .main { padding-bottom: 50px; }
+
+	.col2-left-layout .col-main { width: 100%; }
+
+	.col2-left-layout .col-left.sidebar { width: 90%; position: absolute; top: 164px; }
+
+	#dashboard-mobile-nav { display: block; width: 100%; }
+
+	#dashboard-nav,
+	.col-left.sidebar .block-title { display: none; }
+
+	.my-account .form-list .field { width: 49%; }
+
+	.field.name-firstname, .field.telephone, .field.city, .field.postal-code, .field.password { margin-right: 1%; }
+
+	.field.name-lastname, .field.fax, .field.state-province, .field.country, .field.confirm { margin-left: 1%; }
+
+	.my-account .buttons-set .back-link { display: none; }
+
+	.oauth-customer-token-index .my-account,
+	.enterprise-giftcardaccount-customer-index .my-account { margin-bottom: 25px; }
+
+	.account-balance p { margin-bottom: 25px; }
+
+	/* Register - 790-PAG-REGISTER */
+	.account-create .fieldset { width: 580px; min-height: 0; }
+
+	/* Product Detail - 790-PAG-DETAIL */
+	.img-upsell-section { width: 264px !important; }
+
+	.included-products-grid h1 { line-height: 1em; }
+
+	.included-products-grid ul.products-grid li.item { max-width: 43%; }
+
+	/* Header - 790-CMP-HEADER */
+	.header-panel-content, .header-content { width: 625px; }
+
+	.mobile-menu-button { display: inline !important; }
+
+	.logo { float: right !important; }
+
+	.account-nav { width: auto !important; }
+
+	.account-nav > div > .links { display: none !important; }
+
+	.col-coupon { float: left !important; width: 245px; margin: 0; }
+
+	.col-totals { position: static; }
+
+	.cart .discount input.input-text { width: 245px; }
+
+	/* Cart - 790-PAG-CART */
+	.page-title.title-buttons .checkout-types .btn-checkout,
+	.col-shipping,
+	#shopping-cart-table thead,
+	.cart-table .product-unit-price,
+	.cart-table .btn-continue { display: none; }
+
+    td.product-edit,
+    .quantity-box-button-down,
+    .quantity-box-button-up { display: none; }
+
+	.footer-block { width: 272px; margin-left: 10px; min-height: 320px; }
+
+	.footer-block:nth-of-type(2) { clear: right; }
+
+	.footer-block:nth-of-type(3) { clear: left; }
+
+	.after-footer-container { width: 625px; }
+
+	#after-footer-menu { width: 435px; margin-left: 10px; }
+
+	#after-footer-payments { width: 175px; }
+
+	#after-footer-payments img { margin-top: 50px; }
+
+	/* One-Page Checkout - 790-PAG-OPC */
+	.col-right.sidebar { display: none; }
+
+	.col2-right-layout .col-main { width: 100%; }
+
+	#checkout-step-login .col2-set .col-1, #checkout-step-login .col2-set .col-2 { width: 582px; }
+
+	.opc .step .form-list .field, .opc .step .form-list .wide { width: 281px; }
+
+	#checkout-step-payment dd li input.validate-cc-number, #checkout-step-payment dd li input#ccsave_cc_owner,
+	.step .form-list .input-box select.validate-cc-type-select { width: 100%; }
+
+	.v-fix { width: 50%; }
+
+	.sp-methods select.month { width: 100% !important; }
+
+	.sp-methods select.year { width: 90% !important; margin-left: 10%; }
+
+	.sp-methods input.cvv { width: 92%; }
+
+	#checkoutSteps > li > div > form, .payment-info-border, .order-review { padding: 20px; }
+
+	/* Send to Friend - 790-PAG-SENDFRIEND */
+	.fieldset.sender,
+	.fieldset.recipient { width: 285px; }
+
+	/* Advanced Search Results - 790-PAG-ADV-RESULT */
+	.results-view ul.products-grid li.item { margin-right: 22px; }
+
+	/* Products (CMS) - PAG-PRODUCTS */
+	.carousel-full-viewport {
+		width: 90% !important;
+		margin: 0 5% !important;
+		box-sizing: border-box !important;
+	}
+
+	.carousel-full-item { width: 100% !important; }
+
+	.product-story-container { display: none; }
+
+	.product-story-container-responsive {
+		display: block;
+		padding: 0 20px;
+		margin-bottom: 80px;
+	}
+
+	.product-story-container-responsive h3 {
+		padding-bottom: 0;
+		margin-bottom: 0;
+		border: none;
+	}
+
+	.product-story-container-responsive .accordion dt:before { content: "\f055"; }
+
+	.product-story-container-responsive .accordion dt.active:before { content: "\f056"; }
+
+	.product-story-container-responsive .inner .text {
+		display: block;
+		width: 100%;
+	}
+
+	.product-carousel.carousel-full-viewport { height: 775px; }
+
+	.product-carousel.carousel-full-viewport .product-image {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.product-carousel .product-info { position: relative; }
+
+	.product-carousel .button.btn-cart {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+
+	/* Manage My Cards - PAG-MANAGECARDS */
+	.authnetcim-manage-index .page-title { display: none; }
+
+	/* add before after slider styles*/
+	.main-inner.before-after-wrapper{min-width: inherit;}
+
+	.cms-forphysicians iframe {height: 525px;}
+
+	.main-inner .before-after-slider {float: none; height: auto; width: auto; margin: 0 auto;}
+}
+
+/*********************************************************************************************
+    350px-600px;
+ ********************************************************************************************/
+@media only screen and (min-width: 600px) {
+	.btn-desktop { display: initial; }
+	.btn-mobile { display: none; }
+}
+@media only screen and (max-width: 600px) {
+	.btn-mobile { display: initial; }
+	.btn-desktop { display: none; }
+}
+
+
+/*********************************************************************************************
+    350px-629px;
+ ********************************************************************************************/
+@media only screen and (max-width: 629px) {
+	.button.continue-button {
+		width: 100%;
+	}
+
+	.limiter select {
+		background: url('../images/arrow_down.png') no-repeat 98% 60% #ffffff !important;
+	}
+
+	.button-container a { width: 100%; }
+
+	.registration-form-content .field {
+		width: 100% !important;
+	}
+
+	.cart-collaterals .col-group {
+		width: 100%;
+	}
+
+	.no-mobile {
+		display: none;
+	}
+
+	.order-info li,
+	#rma_create_form ul.order-info li,
+	#registrant_options div.field,
+	.additional-fields div.field,
+	.enterprise-rma-return-view .col2-set .col-1,
+	.enterprise-rma-return-view .col2-set .col-2,
+	.order-info li .button {
+		width: 100%;
+	}
+
+	#rma_create_form ul.order-info li {
+		margin-bottom: 10px;
+	}
+
+	.cms-forphysicians iframe {
+		height: 280px;
+	}
+
+	.cms-forphysicians .benefits-list .carousel-item {
+		width: 100%;
+	}
+
+	.cms-forphysicians .benefits-list .owl-controls {
+		display: none;
+	}
+
+	.physicians-info .physicians-top-banner a {
+		display: none;
+	}
+
+	.physicians-info .banner2 .info-panel ul {
+		padding: 15px;
+	}
+
+	.physicians-info .banner2 .info-panel a {
+		margin: 15px;
+	}
+
+	.benefits-list {
+		margin-bottom: 60px;
+	}
+
+	.owl-nav {
+		display: none;
+	}
+
+	.cms-products ul.products-grid.grid-3 li.item {
+		width: 100%;
+		padding: 0 0 15px;
+	}
+
+	.single-products .owl-item a img {
+		max-width: 65%;
+	}
+
+	.cms-products .banner-text > h2,
+	.cms-products .faq-header h4 {
+		margin-top: 0;
+		font-size: 26px;
+		letter-spacing: 2px;
+		line-height: normal;
+	}
+
+	.physicians-info .how.col2-set .info-panel {
+		min-height: 0;
+	}
+
+	.physicians-info .revenue.info-panel .image {
+		max-width: 30%;
+		padding: 0;
+	}
+
+	.physicians-info .banner2 .image {
+		width: 50%;
+		padding: 0;
+		display: block;
+		margin: 80px auto 0;
+	}
+
+	.physicians-info .banner2 .info-panel {
+		padding: 15px 0;
+	}
+
+	.physicians-info .banner3 {
+		padding: 60px 0;
+	}
+
+	.cms-forphysicians .main {
+		margin: 0;
+	}
+
+	.img-upsell-section .included-products-grid {
+		display: none;
+	}
+
+	.mobile-upsell-area {
+		display: block
+	}
+
+	.included-products-grid ul.products-grid li.item {
+		width: 100%;
+		max-width: none;
+		margin: 10px 0 !important;
+	}
+
+	.patients-top-banner {
+		margin: 0;
+	}
+
+	.fullwidth-banner .fullwidth-banner-inner { width: 100%; }
+
+	.parallax.parallax-home .banner-text h2 {
+		font-size: 18px;
+	}
+
+	.parallax.parallax-home .banner-text h2:nth-of-type(2) {
+		font-size: 26px;
+	}
+
+	.cms-home .moneyback-container .info-panels.moneyback p {
+		max-width: 100%;
+	}
+
+	.access-code-popup .popup-info {
+		width: 100%;
+		height: 55%;
+		top: 0;
+		left: 0;
+		margin: 0;
+	}
+
+	.sales-guest-view .main { padding-bottom: 0; }
+
+	.data-table tr td { font-size: 12px; }
+
+	/* Multiple Addresses Checkout */
+	.checkout-progress li.active { border: 2px solid #222222; border-left: 0 none; }
+
+	ul.checkout-progress li { width: 100%; }
+
+	button.button.multishipping-new-address-button,
+	table#multiship-addresses-table button.button { width: 100%; }
+
+	table#multiship-addresses-table tbody tr td { padding: 5px; }
+
+	.multiple-checkout p.back-link { display: none; }
+
+	.multiple-checkout .col2-set .col-2,
+	.multiple-checkout .col2-set .col-1 { width: 100% !important; }
+
+	#multishipping-billing-form .col2-set .col-2 { margin-top: 30px; }
+
+	#checkout-review-submit p.grand-total { padding: 8px; }
+
+	.checkout-multishipping-overview .price { font-size: 10px; }
+
+	.multiple-checkout h2 { letter-spacing: 4px; font-weight: 700; }
+
+	.main,
+	.main .main-inner,
+	.breadcrumbs { width: 90%; margin-bottom: 0; }
+
+	.fullwidth-banner {
+		width: 100%;
+		position: static;
+		box-sizing: border-box;
+	}
+
+	.fullwidth-banner .fullwidth-banner-inner {
+		box-sizing: border-box;
+		margin: 0;
+	}
+
+	.main-container { width: 100%; }
+
+	.breadcrumbs a.back-to { display: none; }
+
+	/* Login - 629-PAG-LOGIN */
+	.registered-users, .new-users { width: 100% !important; border: 0 none; padding: 30px 0; }
+
+	.account-login button.button { width: 100%; margin-top: 15px; }
+
+	.account-login .buttons-set a { margin-bottom: 20px; }
+
+	/* Home Page - 629-PAG-HOME */
+	.cms-home .info-panels { width: 100%; }
+
+	.banner-block, .intro { width: 100% !important; height: auto !important; position: static !important; }
+
+	.nivoSlider, .info-panels { width: 100% !important; height: auto !important; }
+
+	.nivo-controlNav { display: none; }
+
+	.featured-products .viewport .category-view { width: 90%; }
+
+	.featured-products-container ul li { float: none !important; margin: 0 auto !important; }
+
+	.cms-home .intro { padding: 30px 0; }
+
+	.intro h2 { width: 90%; line-height: 40px; font-size: 22px; letter-spacing: 4px; }
+
+	.intro hr { color: #222222; margin: 30px auto 40px; width: 60%; }
+
+	.intro h1 { width: 90%; line-height: 28px; font-size: 20px; font-weight: 700; }
+
+	.intro p { width: 90%; line-height: 28px; font-size: 16px; }
+
+	.cms-home .featured-products .products-grid .item {
+		width: 100%;
+	}
+
+	.cms-orders-and-returns ul.steps li {
+		width: 100%;
+	}
+
+	.cms-orders-and-returns ul.steps li,
+	.cms-orders-and-returns ul.steps {
+		margin-bottom: 50px;
+	}
+
+	/* For Patients */
+	.cms-forpatients .main,
+	.cms-orders-and-returns .main-container .main .inner { width: 100%; }
+
+	.cms-forpatients .patients-info,
+	.cms-forpatients .signup-banner {
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+
+	.cms-forpatients .main {
+		padding: 0;
+	}
+
+	.product-carousel.carousel-full-viewport {
+		font-size: 30px;
+	}
+
+	.cms-forpatients .product-carousel .product-info > div {
+		display: none;
+	}
+
+	.cms-forpatients .product-carousel.carousel-full-viewport {
+		height: 460px;
+	}
+
+	.cms-forpatients .carousel-full-item .inner {
+		padding: 0;
+	}
+
+	.cms-forpatients .members-banner .image {
+		width: 100%;
+		display: block;
+		text-align: center;
+		float: left;
+		height: 100px;
+		margin-bottom: 30px;
+	}
+
+	.cms-forpatients .members-banner .image > img {
+		max-height: 100%;
+		width: auto;
+		height: 100%;
+	}
+
+	.cms-forpatients .members-banner .info-panel {
+		width: 95%;
+		padding: 0 15px;
+		float: none;
+	}
+
+	/* For Physicians - 629-PAG-PHYSICIANS */
+	.cms-forphysicians .main,
+	.fullwidth-banner .fullwidth-banner-inner { width: 100%; }
+
+	.fullwidth-banner.banner1 .fullwidth-banner-inner .image { display: none; }
+
+	.cms-forphysicians .faq-header h4 { font-size: 28px; letter-spacing: 2px; line-height: normal; margin: 0; }
+
+	.faq-header hr { margin: 30px auto; }
+
+	.physicians-info .banner-text { padding: 0 20px; }
+
+	.physicians-info .faq-header { margin: 80px 20px; }
+
+	.banner-video-embed { width: 100%; position: static; padding-bottom: 50px; }
+
+	.banner-video-embed iframe { position: static; width: 90%; }
+
+	.physicians-info .banner-text { margin-bottom: 0; padding-top: 0; }
+
+	.physicians-info .banner-text h2 { font-size: 28px; }
+
+	.physicians-info .banner-text hr { margin: 40px auto; }
+
+	.physicians-info .banner-text h3 { line-height: 40px; font-size: 20px; }
+
+	.physicians-info .banner-text p { font-size: 14px; }
+
+	.physicians-info .info-panel img { width: 50px; }
+
+	.physicians-info .info-panel h4 { margin-top: 0; }
+
+	.physicians-info .info-panel .physician-info-list { margin-left: 15px; float: left !important; }
+
+	.physicians-info .info-panel.faq { min-height: 0; }
+
+	.physicians-info .faq-header p { width: auto; }
+
+	.contact-banner { width: 90%; margin: 0 auto 50px; }
+
+	#contactForm .fieldset .form-list li.wide { margin-top: 0; }
+
+	.physician-contact-block .fieldset .form-header p { width: auto; font-size: 14px; }
+
+	.physician-contact-block h4 { line-height: normal; font-size: 26px; letter-spacing: 2px; margin-top: 0; }
+
+	/* Account Dashboard - 629-PAG-DASHBOARD */
+	.customer-account-index .col2-set .col-1,
+	.customer-account-index .col2-set .col-2 { width: 100%; }
+
+	.customer-account-index #my-orders-table thead tr th.first,
+	.customer-account-index #my-orders-table thead tr th.last,
+	.customer-account-index #my-orders-table tbody tr td.first,
+	.customer-account-index #my-orders-table tbody tr td.last { display: none; }
+
+	.dashboard .data-table th, .dashboard .data-table td, .dashboard .table th, .dashboard .table td { padding: 5px 0; }
+
+	.data-table th.ship-to,
+	.data-table td.ship-to { padding-left: 15px; min-width: 75px; }
+
+	.data-table span.price { font-size: 12px; }
+
+	.my-account .dashboard .col2-set { margin-bottom: 0; }
+
+	address { margin-bottom: 20px; }
+
+	.box-title span.separator,
+	.sub-title span.separator,
+	.box-title a,
+	.sub-title a { display: none; }
+
+	.my-account .form-list .field { margin: 10px 0 0; width: 100%; }
+
+	.my-account .buttons-set { padding-top: 20px; }
+
+	button.button.new-address-button { width: 100%; position: relative; top: -15px; }
+
+	.col2-set.addresses-list .addresses-primary,
+	.col2-set.addresses-list .addresses-additional { width: 100%; }
+
+	.order-page .col2-set .col-1,
+	.order-page .col2-set .col-2 { width: 100%; }
+
+	.order-page .title-buttons span.separator,
+	.order-page .title-buttons a:not(.return-button) { display: none; }
+
+	.box-content { min-height: 0; }
+
+	.order-page .col2-set { margin-bottom: 0; }
+
+	.order-items h4.product-name { font-size: 12px; }
+
+	.order-items tfoot tr td.a-right,
+	.order-items #my-orders-table tfoot tr td.a-right strong { font-weight: 700 !important; }
+
+	.order-items #my-orders-table thead tr th.sku,
+	.order-items #my-orders-table tbody tr td.sku,
+	.order-items #my-orders-table thead tr th.price,
+	.order-items #my-orders-table tbody tr td.price { display: none; }
+
+	.order-items #my-orders-table tfoot tr { display: table-row-group; }
+
+	.order-items #my-orders-table tfoot tr td { text-align: left !important; padding-right: 15px; }
+
+	.order-items #my-orders-table tfoot tr td.last { text-align: right !important; padding-right: 15px; }
+
+	.order-items .buttons-set p.back-link { display: block; position: relative; top: -15px; font-size: 16px; }
+
+	.sales-order-history #my-orders-table thead tr th.first,
+	.sales-order-history #my-orders-table thead tr th.status,
+	.sales-order-history #my-orders-table thead tr th.last,
+	.sales-order-history #my-orders-table thead tr th.name,
+	.sales-order-history #my-orders-table tbody tr td.first,
+	.sales-order-history #my-orders-table tbody tr td.status,
+	.sales-order-history #my-orders-table tbody tr td.last span.separator,
+	.sales-order-history #my-orders-table tbody tr td.name,
+	.sales-order-history #my-orders-table tbody tr td.last a.link-reorder { display: none; }
+
+	.sales-order-history #my-orders-table tbody tr td.date,
+	.sales-order-history #my-orders-table tbody tr td.price,
+	.sales-order-history #my-orders-table tbody tr td.last { min-width: 70px; }
+
+	.sales-order-history #my-orders-table tbody tr td.last { text-align: right !important; }
+
+	.my-account .limiter select { width: 100%; }
+
+	#giftcard-form .buttons-set button.button { margin: 0 0 20px; }
+
+	/* Contact Us - 629-PAG-CONTACT */
+	.contact-page-content .page-title h1 { margin-left: 20px !important; }
+
+	#map.google-map { width: 100%; margin: 0 auto 30px; float: none !important; }
+
+	.contact-page-content .contact-block { width: 100%; height: auto; margin: 0 auto 30px; float: none !important; border: 0 none; padding: 0; }
+
+	.contact-block-left p { float: none; margin-right: 0; width: 100%; }
+
+	.contact-block-left ul { float: none; }
+
+	.contact-block-right #contactForm li { width: 100%; }
+
+	.contact-block-right #contactForm li .field { margin-top: 5px; }
+
+	#contactForm p.required { float: left !important; }
+
+	#contactForm button.button { float: none !important; width: 100%; margin: 0; }
+
+	/* Register - 629 PAG-REGISTER */
+	.account-create .fieldset { width: 100%; padding: 30px 0; border: 0 none; }
+
+	.buttons-set button.button { float: none !important; width: 100%; margin: 0;}
+
+	.buttons-set .back-link { top: 100px; font-size: 26px; }
+
+	/* For Patients - 629-PAG-PATIENTS */
+	.cms-forpatients .get-give-banner .faq-header p {
+		font-size: 16px;
+	}
+
+	.patients-info .banner-text { padding: 0; }
+
+	.patients-info .banner-text h2 { font-size: 28px; letter-spacing: 2px; line-height: normal; }
+
+	.patients-info .banner-text hr { margin: 30px auto 50px !important; }
+
+	.patients-info .banner-text h3 { line-height: 40px; }
+
+	.patients-info .banner-text p { font-size: 14px; width: 90%; }
+
+	.patients-info .col3-set .col-1,
+	.patients-info .col3-set .col-2,
+	.patients-info .col3-set .col-3 { width: 100%; margin: 0; }
+
+	.signup-banner { background: none; width: auto; height: auto; margin: 0; padding: 0; position: static; }
+
+	.signup-banner .banner-text { padding-top: 0; width: 90%; border-top: 2px solid #e9e9e9; margin-bottom: 50px; }
+
+	.signup-banner .banner-text h2 { margin-top: 40px; }
+
+	.signup-banner .banner-text p { max-width: 100%; }
+
+	.signup-banner .banner-text a { width: 100%; padding: 10px 0; }
+
+	/* Password Recovery Form */
+	.customer-account-forgotpassword .buttons-set .back-link { top: 85px; }
+
+	.customer-account-forgotpassword .buttons-set button.button { width: 100%; }
+
+	/* Product Detail - 629-PAG-DETAIL */
+	.img-upsell-section { width: 100% !important; margin-bottom: 20px; }
+
+	.product-view .product-top .quantitybox { display: none; }
+
+	.add-to-box .button.right { width: 49%; }
+
+	.add-to-box .button.left { width: 49%; padding: 10px 0; }
+
+	/* Header - 629-CMP-HEADER */
+	.header-panel-content, .header-content { width: 90%; margin: 0 auto; }
+
+	.account-nav { display: none !important; }
+
+	.site-search { float: none !important; margin: 0 auto; }
+
+	.mobile-menu-button { padding-right: 0; }
+
+	#top-cart.top-cart { float: none !important; text-align: center; }
+
+	.top-cart .cart-popup { width: 250px; }
+
+	#top-cart .cart-popup a > img { display: none; }
+
+	#top-cart .product-name { width: 60%; }
+
+	#top-cart .product-name { font-weight: 700; font-size: 18px; }
+
+	#top-cart .item .item-info { width: 60%; margin-left: 15px; }
+
+	.products-small .item .product-details > a { font-size: 25px; }
+
+	.products-small .item .product-details > a.icon-remove { position: relative; top: -5px; }
+
+	.products-small .item .product-details > a.icon-edit { float: right; position: relative; top: 35px; left: 33px; }
+
+	#top-cart button.btn-checkout { background-position: 90% center; }
+
+	/* Cart - 629-PAG-CART */
+	.cart-table .btn-empty,
+	.cart-table .btn-update { width: 100%; margin-top: 5px; }
+
+    td.product-thumbnail { display: none; }
+
+	td.td-product-name { width: 50%; }
+
+	td.td-product-name h2 { line-height: 14px; letter-spacing: 0; }
+
+	td.td-product-name h2 > a { font-size: 12px !important; }
+
+	.cart-table td.product-qty,
+	.cart-table td.product-delete { padding: 0; }
+
+	#shopping-cart-table tbody tr td a { font-size: 28px; }
+
+	.col-coupon {
+		width: 100%;
+		border: 0 none;
+		padding: 15px 0 30px;
+		border-top: 1px solid #e9e9e9;
+	}
+
+	.col-coupon div.v-fix,
+	.col-coupon div.v-fix input#coupon_code.input-text { width: 100%; }
+
+	.col-totals,
+	.col-totals .totals,
+	button.btn-proceed-checkout { width: 100% !important; }
+
+	.col-totals .totals ul.checkout-types { padding: 0; }
+
+	.col-totals .totals table#shopping-cart-totals-table { margin: 30px 0; }
+
+	.col-totals .totals .checkout-types li a { font-size: 16px; position: relative; top: 10px; }
+
+	/* Orders and Returns - 629-PAG-OAR */
+	.form-list select,
+	#oar_widget_orders_and_returns_form .form-list input,
+	#oar_widget_orders_and_returns_form .form-list select { width: 100%; }
+
+	.buttons-set button.button { width: 100%; padding: 10px 0; }
+
+	/* Bottom Banner - 629-CMP-BTMBANNER */
+	.bottom-banner { height: auto; width: 100%; }
+
+	.bottom-banner .banner-text { padding: 30px 0 60px; }
+
+	.bottom-banner .banner-text h2 { width: 80%; margin: 25px auto 0; font-size: 22px; letter-spacing: 6px; line-height: 35px; }
+
+	.bottom-banner .banner-text hr { margin-top: 40px; }
+
+	.bottom-banner .banner-text p { width: 80%; font-size: 14px; text-align: center; line-height: 28px; }
+
+	.footer-block { width: 80%; margin: 0 auto 25px; float: none !important; min-height: 0; }
+
+	.after-footer-container { width: 100%; }
+
+	#after-footer-menu, #after-footer-payments { width: 80%; margin: 0 auto; float: none !important; }
+
+	#after-footer-menu .links,
+	#after-footer-menu .footer-copyright,
+	#after-footer-payments { text-align: center; }
+
+	#after-footer-payments img { float: none !important; margin-top: 25px; }
+
+	/* One-Page Checkout - 629-PAG-OPC */
+	.opc .step-title h1 { line-height: 26px; }
+
+	#checkout-step-login .col2-set .col-1, #checkout-step-login .col2-set .col-2 { border: 0 none; padding: 0; width: 100%; }
+
+	#checkout-step-login .col2-set .col-1 { margin-bottom: 30px; }
+
+	#login-form fieldset ul li a.left { padding: 5px; border: 1px solid #222222; color: #222222; margin: 10px 0; }
+
+	button.button.onepage-button { padding: 10px 0; }
+
+	.opc .step .form-list .field, .opc .step .form-list .wide { margin: 0 0 8px; width: 100%; }
+
+	div#billing-buttons-container button.button,
+	div#shipping-buttons-container button.button,
+	div#shipping-method-buttons-container button.button,
+	div#payment-buttons-container button.button,
+	button.button.btn-checkout { padding: 10px 0; }
+
+	.opc .buttons-set .please-wait { height: 45px; line-height: 55px; }
+
+	div#shipping-buttons-container p.back-link { top: 90px; }
+
+	div#shipping-method-buttons-container p.back-link { display: none; }
+
+	.sp-methods input.cvv { width: 88%; }
+
+	#checkout-review-table thead { display: none; }
+
+	.order-review { padding: 0; border: 0 none; }
+
+	#opc-review .data-table tr td { padding: 15px 0 !important; }
+
+	#opc-review .data-table tr td.a-center { padding: 0 13px !important; }
+
+	#opc-review .data-table tr td.a-center.qty::before { content: 'x'; }
+
+	#opc-review .data-table tfoot tr td { text-align: left !important; font-size: 14px; }
+
+	#opc-review .data-table tfoot tr td.last { text-align: right !important; }
+
+	#opc-review .data-table tbody tr td.a-right { padding-left: 0; }
+
+	#review-buttons-container p.forgot-item { margin-bottom: 40px; }
+
+	/* Send to Friend - 629-PAG-SENDFRIEND */
+	.fieldset.sender { margin-bottom: 25px; }
+
+	.fieldset.sender,
+	.fieldset.recipient { width: 100%; }
+
+	.fieldset.recipient li.add-row p.btn-remove { top: 8px; left: -7px; }
+
+	button.button#add_recipient_button { margin: 20px 0; }
+
+	.sendfriend-product-send .buttons-set p.back-link { font-size: 14px; top: 110px; }
+
+	.sendfriend-product-send .page-title h1 { margin-left: 0 !important; }
+
+	/* Advanced Search - 629-PAG-ADV-SEARCH */
+	#advanced-search-list li div.field { width: 100%; }
+
+	/* Advanced Search Results - 629-PAG-ADV-RESULT */
+	.toolbar .limiter, .toolbar .view-mode, .toolbar .sort-by { float: none !important; }
+
+	.toolbar .view-mode { margin: 15px 0 !important; }
+
+	.toolbar .limiter select { margin: 0 10px !important; }
+
+	.modify-search a { display: block; margin: 0; }
+
+	.results-view ul.products-grid li.item { width: 100%; max-width: 100%; margin-right: 0; }
+
+	.results-view .price-options .price-box { float: left; }
+
+	.results-view .price-options .actions { float: right; }
+
+	.results-view ul.products-grid li.item .actions button.button { left: -10px; padding: 0 20px; top: 8px; }
+
+	.catalogsearch-advanced-result button.btn-cart { width: 100%; }
+
+	/* Products (CMS) - PAG-PRODUCTS */
+	.product-carousel.carousel-full-viewport { height: 780px; }
+
+	.product-carousel .product-image {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	/* Product Details Page - PAG-DETAIL */
+	.product-options-bottom .add-to-cart .button {
+		box-sizing: border-box;
+		display: inline-block;
+	}
+
+	.product-options-bottom .add-to-cart .button span {
+		padding: 20px 10px;
+	}
+
+	.product-carousel .product-info,
+	.product-carousel .button.btn-cart { position: static; }
+
+	/* Manage My Cards - PAG-MANAGECARDS */
+	.authnetcim-manage-index .col-1,
+	.authnetcim-manage-index .col-2 {
+		width: 100%;
+	}
+
+	.authnetcim-manage-index .addresses-list li.item { padding: 10px 0; }
+}
+
+@media only screen and (max-width: 480px) {
+	.referral-stats-table .referrals {
+		max-height: 275px;
+		overflow: scroll;
+	}
+
+	.cms-forpatients .main .main-inner {
+		margin: 80px auto 0;
+	}
+
+	.contact-us-banner {
+		display: none;
+	}
+
+	.physicians-info .banner2 .image img {
+		max-width: 100%;
+	}
+
+	ul.products-grid li.item .product-info,
+	.single-products .owl-item .product-info {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.cms-forpatients .faq-header h4 {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.lite-modal-container {
+		overflow-y: scroll;
+	}
+
+	.catalog-product-view .lite-modal-container .lite-modal,
+	.cms-products .lite-modal-container .lite-modal {
+		padding: 5px 25px;
+	}
+
+	.catalog-product-view .lite-modal-container .lite-modal .vip-modal h2,
+	.cms-products .lite-modal-container .lite-modal .vip-modal h2 {
+		font-size: 30px;
+		line-height: normal;
+		margin-top: 20px;
+	}
+
+	.catalog-product-view .lite-modal-container .lite-modal .vip-modal hr,
+	.cms-products .lite-modal-container .lite-modal .vip-modal hr {
+		margin: 20px auto;
+	}
+
+	/* fix x-payments for mobile */
+	#checkoutSteps > li > div > form, .payment-info-border, .order-review {
+		padding: 0;
+		border: 0;
+	}
+
+	#checkoutSteps #xpayment-iframe-block iframe {
+		padding-left: 0;
+	}
+
+	#checkoutSteps #payment_form_xpayments > li {
+		padding-left: 0;
+	}
+}
+
+
+@media only screen and (max-width: 320px) {
+	#checkout-payment-method-load #xpayment-iframe-block iframe {
+		margin-left: -25px;
+	}
+	#checkoutSteps #xpayment-iframe-block iframe {
+		margin-left: -20px;
+		width: 310px;
+	}
+}
+/*********************************************************************************************
+    Special case for order detail tables
+ ********************************************************************************************/
+@media only screen and (max-width: 400px) {
+	.order-items #my-orders-table thead tr th.qty,
+	.order-items #my-orders-table tbody tr td.qty { display: none; }
+
+	.cms-products .vip-banner h2 {
+		margin-top: 110px;
+		font-size: 40px;
+	}
+}
+
+/*********************************************************************************************
+    Special case for info panels on Homepage
+ ********************************************************************************************/
+@media only screen and (max-width: 369px) {
+	.info-panels .panel { width: 90%; }
+}
+
+/*********************************************************************************************
+    0-349px;
+ ********************************************************************************************/
+@media only screen and (max-width: 349px) {
+	/* Home - 349-PAG-HOME */
+	.featured-products .viewport .control { color: #222222; border-radius: 10px; padding: 0 5px; }
+
+	/* Product Detail - 349-PAG-DETAIL */
+	.add-to-box .button.right { width: 100%; margin-top: 10px; background-color: #424242; }
+
+	.add-to-box .button.left { width: 100%; padding: 10px 0; }
+
+	.banner-give-get .inner h2 { font-size: 22px; }
+
+	/* Header - 349-CMP-HEADER */
+	.mobile-menu-button { font-size: 38px; top: 18px; }
+
+	.logo { width: 175px; margin-top: 14px; }
+
+	/* One-Page Checkout - 349-PAG-OPC */
+	.sp-methods input.cvv { width: 85%; }
+
+	/* CMP-ADDTOCART : Add to... buttons */
+	.product-options-bottom .add-to-cart > a {
+		margin: 0 0 10px 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.product-options-bottom .add-to-cart button.button.add-to-cart {
+		width: 100% !important;
+	}
+
+	/* Products (CMS) - PAG-PRODUCTS */
+	.product-carousel.carousel-full-viewport { height: 1000px; }
+}
+
+@media only screen and (max-width: 768px) {
+	.mobile-menu-button { font-size: 38px; top: 18px; }
+}

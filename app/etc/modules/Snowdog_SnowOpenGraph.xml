@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_SnowOpenGraph>
+            <active>true</active>
+            <codePool>community</codePool>
+            <version>0.1.0</version>
+            <depends>
+                <Venus_Theme />
+            </depends>
+        </Snowdog_SnowOpenGraph>
+    </modules>
+</config>

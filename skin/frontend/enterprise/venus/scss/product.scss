@@ -1,0 +1,14 @@
+// Variables
+@import "variables";
+
+// Mixins
+@import "mixins/media-queries";
+@import "mixins/container";
+@import "mixins/clearfix";
+
+// Product page
+@import "blocks/_product/main";
+@import "blocks/_product/recomended-products";
+@import "blocks/_product/tabs";
+@import "blocks/_product/reviews";
+@import "blocks/_product/social-links";

@@ -1,0 +1,414 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Venus_Theme>
+			<version>1.1.0</version>
+		</Venus_Theme>
+	</modules>
+
+	<global>
+		<resources>
+			<theme_customer_setup>
+				<setup>
+					<module>Venus_Theme</module>
+					<class>Mage_Customer_Model_Resource_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</theme_customer_setup>
+
+			<theme_admin_setup>
+				<setup>
+					<module>Venus_Theme</module>
+					<class>Mage_Core_Model_Resource_Setup</class>
+				</setup>
+			</theme_admin_setup>
+
+			<theme_content_setup>
+				<setup>
+					<module>Venus_Theme</module>
+				</setup>
+			</theme_content_setup>
+		</resources>
+
+		<blocks>
+			<enterprise_rma>
+				<rewrite>
+					<return_view>Venus_Theme_Block_Enterprise_Rma_Return_View</return_view>
+					<adminhtml_customer_edit_tab_rma>Venus_Theme_Block_Enterprise_Rma_Adminhtml_Customer_Edit_Tab_Rma</adminhtml_customer_edit_tab_rma>
+				</rewrite>
+			</enterprise_rma>
+
+			<enterprise_invitation>
+				<rewrite>
+					<customer_list>Venus_Theme_Block_Enterprise_Invitation_Customer_List</customer_list>
+				</rewrite>
+			</enterprise_invitation>
+
+			<adminhtml>
+				<rewrite>
+					<sales_order_create_items_grid>Venus_Theme_Block_Adminhtml_Sales_Order_Create_Items_Grid</sales_order_create_items_grid>
+					<sales_order_create_search_grid>Venus_Theme_Block_Adminhtml_Sales_Order_Create_Search_Grid</sales_order_create_search_grid>
+					<sales_order_create_form_account>Venus_Theme_Block_Adminhtml_Sales_Order_Create_Form_Account</sales_order_create_form_account>
+					<dashboard_tab_customers_newest>Venus_Theme_Block_Adminhtml_Dashboard_Tab_Customers_Newest</dashboard_tab_customers_newest>
+					<dashboard_tab_customers_most>Venus_Theme_Block_Adminhtml_Dashboard_Tab_Customers_Most</dashboard_tab_customers_most>
+					<dashboard_grids>Venus_Theme_Block_Adminhtml_Dashboard_Grids</dashboard_grids>
+					<dashboard>Venus_Theme_Block_Adminhtml_Dashboard</dashboard>
+					<widget_grid_column_filter_price>Venus_Theme_Block_Adminhtml_Widget_Grid_Column_Filter_Price</widget_grid_column_filter_price>
+					<customer_edit_tabs>Venus_Theme_Block_Adminhtml_Customer_Edit_Tabs</customer_edit_tabs>
+					<customer_grid>Venus_Theme_Block_Adminhtml_Customer_Grid</customer_grid>
+					<customer_edit>Venus_Theme_Block_Adminhtml_Customer_Edit</customer_edit>
+				</rewrite>
+			</adminhtml>
+
+			<theme>
+				<class>Venus_Theme_Block</class>
+			</theme>
+
+			<catalog>
+				<rewrite>
+					<product_list>Venus_Theme_Block_Catalog_Product_List</product_list>
+				</rewrite>
+			</catalog>
+
+			<api2>
+				<rewrite>
+					<adminhtml_permissions_user_edit_tab_roles>Venus_Theme_Block_Api2_Adminhtml_Permissions_User_Edit_Tab_Roles</adminhtml_permissions_user_edit_tab_roles>
+				</rewrite>
+			</api2>
+
+			<sales>
+				<rewrite>
+					<adminhtml_recurring_profile_grid>Venus_Theme_Block_Sales_Adminhtml_Recurring_Profile_Grid</adminhtml_recurring_profile_grid>
+					<adminhtml_customer_edit_tab_recurring_profile>Venus_Theme_Block_Sales_Adminhtml_Customer_Edit_Tab_Recurring_Profile</adminhtml_customer_edit_tab_recurring_profile>
+				</rewrite>
+			</sales>
+
+			<enterprise_invitation>
+				<rewrite>
+					<link>Venus_Theme_Block_Invitation_Link</link>
+				</rewrite>
+			</enterprise_invitation>
+		</blocks>
+
+		<helpers>
+			<theme>
+				<class>Venus_Theme_Helper</class>
+			</theme>
+
+			<adminhtml>
+				<rewrite>
+					<dashboard_data>Venus_Theme_Helper_Adminhtml_Dashboard_Data</dashboard_data>
+				</rewrite>
+			</adminhtml>
+		</helpers>
+
+		<models>
+			<usa>
+				<rewrite>
+					<shipping_carrier_fedex>Venus_Theme_Model_Usa_Shipping_Carrier_Fedex</shipping_carrier_fedex>
+				</rewrite>
+			</usa>
+
+			<sales>
+				<resourceModel>sales_resource</resourceModel>
+
+				<rewrite>
+					<order_pdf_shipment>Venus_Theme_Model_Sales_Order_Pdf_Shipment</order_pdf_shipment>
+					<order_pdf_items_shipment_default>Venus_Theme_Model_Sales_Order_Pdf_Items_Shipment_Default</order_pdf_items_shipment_default>
+				</rewrite>
+			</sales>
+
+			<sales_resource>
+				<rewrite>
+					<report_bestsellers_collection>Venus_Theme_Model_Sales_Resource_Report_Bestsellers_Collection</report_bestsellers_collection>
+				</rewrite>
+			</sales_resource>
+
+			<reports>
+				<resourceModel>reports_resource</resourceModel>
+			</reports>
+
+			<reports_resource>
+				<rewrite>
+					<customer_collection>Venus_Theme_Model_Reports_Resource_Customer_Collection</customer_collection>
+					<order_collection>Venus_Theme_Model_Reports_Resource_Order_Collection</order_collection>
+				</rewrite>
+			</reports_resource>
+
+			<enterprise_invitation>
+				<rewrite>
+					<invitation>Venus_Theme_Model_Enterprise_Invitation_Invitation</invitation>
+				</rewrite>
+			</enterprise_invitation>
+
+			<theme>
+				<class>Venus_Theme_Model</class>
+				<resourceModel>theme_resource</resourceModel>
+			</theme>
+
+			<theme_resource>
+				<class>Venus_Theme_Model_Resource</class>
+			</theme_resource>
+		</models>
+
+		<events>
+			<controller_action_postdispatch_contacts_index_post>
+				<observers>
+					<venus_contactsredirect_model_observer>
+						<type>singleton</type>
+						<class>theme/observer</class>
+						<method>redirect</method>
+					</venus_contactsredirect_model_observer>
+				</observers>
+			</controller_action_postdispatch_contacts_index_post>
+
+			<controller_action_layout_generate_blocks_after>
+				<observers>
+					<venus_addmessages_observer>
+						<type>singleton</type>
+						<class>theme/observer</class>
+						<method>addMessages</method>
+					</venus_addmessages_observer>
+				</observers>
+			</controller_action_layout_generate_blocks_after>
+
+			<cataloginventory_stock_item_save_after>
+				<observers>
+					<venus_lowstock_observer>
+						<type>singleton</type>
+						<class>theme/observer</class>
+						<method>sendLowStockEmail</method>
+					</venus_lowstock_observer>
+				</observers>
+			</cataloginventory_stock_item_save_after>
+
+			<adminhtml_dashboard_clinic_join_account_to_referral>
+				<observers>
+					<magestore_affiliatepluslevel_observer>
+						<type>singleton</type>
+						<class>affiliatepluslevel/observer</class>
+						<method>joinAccountToReferral</method>
+					</magestore_affiliatepluslevel_observer>
+				</observers>
+			</adminhtml_dashboard_clinic_join_account_to_referral>
+
+			<checkout_submit_all_after>
+				<observers>
+					<venus_theme_observer>
+						<class>theme/observer</class>
+						<method>checkCouponUsage</method>
+					</venus_theme_observer>
+				</observers>
+			</checkout_submit_all_after>
+		</events>
+
+		<sales>
+			<quote>
+				<totals>
+					<nominal>
+						<class>theme/sales_quote_address_total_nominal</class>
+						<admin_renderer>theme/adminhtml_sales_order_create_totals_nominal</admin_renderer>
+					</nominal>
+				</totals>
+			</quote>
+		</sales>
+
+		<template>
+			<email>
+				<venus_theme_notify_stock_qty_email_template translate="label" module="theme">
+					<label>Low Stock Notification Email</label>
+					<file>venus/notify_stock_qty.html</file>
+					<type>html</type>
+				</venus_theme_notify_stock_qty_email_template>
+
+				<sales_email_order_inactivity_template translate="label" module="theme">
+					<label>Order Inactivity Email</label>
+					<file>venus/order_inactivity_email.html</file>
+					<type>html</type>
+				</sales_email_order_inactivity_template>
+
+				<sales_email_order_inactivity_vip_template translate="label" module="theme">
+					<label>VIP Program Incentive Email</label>
+					<file>venus/vip_program_incentive_email.html</file>
+					<type>html</type>
+				</sales_email_order_inactivity_vip_template>
+
+				<sales_email_order_inactivity_followup_template translate="label" module="theme">
+					<label>Recurring Profile Followup Email</label>
+					<file>venus/recurring_profile_followup_email.html</file>
+					<type>html</type>
+				</sales_email_order_inactivity_followup_template>
+
+				<sales_email_order_inactivity_one_week_warning_template translate="label" module="theme">
+					<label>Coupon Expiry Warning Email (One Week)</label>
+					<file>venus/coupon_expiry_one_week.html</file>
+					<type>html</type>
+				</sales_email_order_inactivity_one_week_warning_template>
+
+				<sales_email_order_inactivity_one_day_warning_template translate="label" module="theme">
+					<label>Coupon Expiry Warning Email (One Day)</label>
+					<file>venus/coupon_expiry_one_day.html</file>
+					<type>html</type>
+				</sales_email_order_inactivity_one_day_warning_template>
+
+				<admin_emails_account_email_template>
+					<label>New Admin Email</label>
+					<file>venus/new_admin.html</file>
+					<type>html</type>
+				</admin_emails_account_email_template>
+			</email>
+		</template>
+	</global>
+
+	<stores>
+		<admin>
+			<design>
+				<theme>
+					<skin>venus</skin>
+					<default>enterprise</default>
+				</theme>
+			</design>
+		</admin>
+	</stores>
+
+	<admin>
+		<routers>
+			<theme>
+				<use>admin</use>
+				<args>
+					<module>Venus_Theme</module>
+					<frontName>theme</frontName>
+				</args>
+			</theme>
+
+			<adminhtml>
+				<args>
+					<modules>
+						<enterprise_rma before="Mage_Adminhtml">Enterprise_Rma_Adminhtml</enterprise_rma>
+						<Venus_Theme before="Mage_Adminhtml">Venus_Theme_Rewrite_Adminhtml</Venus_Theme>
+						<Venus_Theme before="Enterprise_Invitation_Adminhtml">Venus_Theme_Rewrite_Invitation_Adminhtml</Venus_Theme>
+						<Venus_Theme before="Enterprise_Rma_Adminhtml">Venus_Theme_Rewrite_Rma_Adminhtml</Venus_Theme>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+
+	<frontend>
+		<routers>
+			<contacts>
+				<use>standard</use>
+				<args>
+					<module>Mage_Contacts</module>
+					<frontName>contact</frontName>
+					<modules>
+						<Venus_Theme before="Mage_Contacts">Venus_Theme_Rewrite_Contacts</Venus_Theme>
+					</modules>
+				</args>
+			</contacts>
+
+			<customer>
+				<args>
+					<modules>
+						<Venus_Theme before="Mage_Customer">Venus_Theme_Rewrite_Customer</Venus_Theme>
+					</modules>
+				</args>
+			</customer>
+
+			<newsletter>
+				<args>
+					<modules>
+						<Venus_Theme before="Mage_Newsletter">Venus_Theme_Rewrite_Newsletter</Venus_Theme>
+					</modules>
+				</args>
+			</newsletter>
+
+			<sales>
+				<args>
+					<modules>
+						<Venus_Theme before="Mage_Sales">Venus_Theme_Rewrite_Sales</Venus_Theme>
+					</modules>
+				</args>
+			</sales>
+		</routers>
+
+		<events>
+			<custom_quote_process>
+				<observers>
+					<venus_theme>
+						<type>singleton</type>
+						<class>theme/observer</class>
+						<method>customQuoteProcess</method>
+					</venus_theme>
+				</observers>
+			</custom_quote_process>
+		</events>
+	</frontend>
+
+	<adminhtml>
+		<events>
+			<admin_user_save_after>
+				<observers>
+					<venus_theme_admin_user_save_after>
+						<type>singleton</type>
+						<class>theme/observer</class>
+						<method>sendNewAdminEmail</method>
+					</venus_theme_admin_user_save_after>
+				</observers>
+			</admin_user_save_after>
+		</events>
+	</adminhtml>
+
+	<default>
+		<admin>
+			<emails>
+				<account_email_template>admin_emails_account_email_template</account_email_template>
+				<account_email_identity>general</account_email_identity>
+			</emails>
+		</admin>
+
+		<venus_theme>
+			<notify_stock_qty_email>
+				<identity>general</identity>
+				<template>venus_theme_notify_stock_qty_email_template</template>
+			</notify_stock_qty_email>
+		</venus_theme>
+
+		<sales_email>
+			<order_inactivity>
+				<step>30</step>
+				<salesrule_id>6</salesrule_id>
+				<template>sales_email_order_inactivity_template</template>
+				<vip_template>sales_email_order_inactivity_vip_template</vip_template>
+				<followup_template>sales_email_order_inactivity_followup_template</followup_template>
+				<one_week_warning_template>sales_email_order_inactivity_one_week_warning_template</one_week_warning_template>
+				<one_day_warning_template>sales_email_order_inactivity_one_day_warning_template</one_day_warning_template>
+			</order_inactivity>
+		</sales_email>
+	</default>
+
+	<crontab>
+		<jobs>
+			<venus_theme>
+				<schedule>
+					<cron_expr>0 6 * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>theme/cron::sendUnshippedOrdersAlertEmail</model>
+				</run>
+			</venus_theme>
+
+			<order_inactivity>
+				<schedule>
+					<cron_expr>0 9 * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>theme/cron::prepareOrderInactivityEmails</model>
+				</run>
+			</order_inactivity>
+		</jobs>
+	</crontab>
+</config>

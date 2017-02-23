@@ -1,0 +1,33 @@
+.related-products {
+    &__title {
+        color: $primary-color;
+        border-bottom: 1px solid #000;
+        padding-bottom: 20px;
+        margin: 30px 0 20px;
+        font-family: $helveticaNeueLTProRoman;
+    }
+    &__products {
+        @include clearfix();
+    }
+    &__product {
+        margin-bottom: 20px !important;
+        padding: 0 20px !important;
+        .product-image {
+            height: auto !important;
+        }
+        .product-name {
+            box-sizing: content-box;
+            a {
+                font-family: $helveticaNeueLTProTh;
+                text-transform: none;
+            }
+        }
+        @include min-screen($screen-l) {
+            float: left;
+            width: 25%;
+        }
+        @include screen($screen-s, $screen-l) {
+            width: 50%;
+        }
+    }
+}

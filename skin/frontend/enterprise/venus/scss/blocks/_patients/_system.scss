@@ -1,0 +1,81 @@
+.patients-system {
+    &__row {
+        @include clearfix();
+        padding-bottom: 60px;
+        padding-top: 100px;
+        margin-bottom: 40px;
+        margin-top: 30px;
+        border-bottom: 1px solid #000;
+        border-top: 1px solid #000;
+        @include max-screen($screen-m) {
+            padding-top: 30px;
+        }
+    }
+    &__col {
+        box-sizing: border-box;
+        @include min-screen($screen-l) {
+            float: left;
+        }
+        &--image {
+            @include min-screen($screen-l) {
+                width: 63%;
+            }
+        }
+        &--content {
+            @include min-screen($screen-l) {
+                width: 37%;
+            }
+        }
+    }
+    &__container {
+        margin-bottom: 50px;
+    }
+    &__image {
+        padding-right: 60px;
+        padding-top: 30px;
+        @include max-screen($screen-l) {
+            text-align: center;
+            img {
+                width: 600px;
+                display: inline-block;
+            }
+        }
+    }
+    &__title {
+        color: $primary-color;
+        @include max-screen($screen-s + 1) {
+            padding-top: 30px;
+        }
+    }
+    &__subtitle {
+        font-size: 20px;
+        color: $primary-color;
+        border: none;
+        margin: 30px 0 0 0;
+        padding: 0;
+        font-family: $helveticaNeueLTProTh;
+        @include max-screen($screen-m) {
+            font-size: 16px;
+        }
+    }
+    &__description {
+        font-family: $helveticaNeueLTProTh;
+    }
+    &__steps {
+        @include clearfix();
+    }
+    &__step {
+        @include screen($screen-s, $screen-l) {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 0 50px;
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.customer-care-contact {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    &__heading {
+        @extend .customer-care-section__title
+    }
+    &__info {
+        max-width: 90%;
+        margin: 30px auto;
+        overflow: hidden;
+        font-size: 19px;
+    }
+    &__sub-heading {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    &__phone {
+        @include min-screen($screen-m) {
+            float: right;
+        }
+    }
+    &__mail {
+        @include min-screen($screen-m) {
+            float: left;
+        }
+    }
+    &__form {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_CancelOrderEmail>
+            <version>0.1.0</version>
+        </Snowdog_CancelOrderEmail>
+    </modules>
+    <global>
+        <helpers>
+            <cancelorderemail>
+                <class>Snowdog_CancelOrderEmail_Helper</class>
+            </cancelorderemail>
+        </helpers>
+        <models>
+            <cancelorderemail>
+                <class>Snowdog_CancelOrderEmail_Model</class>
+                <resourceModel>cancelorderemail_mysql4</resourceModel>
+            </cancelorderemail>
+        </models>
+        <events>
+            <order_cancel_after>
+                <observers>
+                    <order_cancel_after_handler>
+                        <type>model</type>
+                        <class>cancelorderemail/observer</class>
+                        <method>sendCancelEmail</method>
+                    </order_cancel_after_handler>
+                </observers>
+            </order_cancel_after>
+        </events>
+        <template>
+            <email>
+                <cancel_order_email module="cancelorderemail">
+                    <label>Cancel order email</label>
+                    <file>cancel_order_email.html</file>
+                    <type>html</type>
+                </cancel_order_email>
+            </email>
+        </template>
+    </global>
+</config> 

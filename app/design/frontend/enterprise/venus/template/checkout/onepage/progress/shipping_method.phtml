@@ -1,0 +1,51 @@
+<?php
+/**
+ * @var Mage_Checkout_Block_Onepage_Progress $this
+ */
+?>
+<?php if ($this->getCheckout()->getStepData('shipping_method', 'complete')): ?>
+	<dt class="complete">
+		<?php echo $this->__('Shipping Method') ?>
+		<span class="changelink">
+			<span class="separator">|</span>
+			<a href="#shipping_method" onclick="checkout.changeSection('opc-shipping_method'); return false;"><?php echo $this->__('Change') ?></a>
+		</span>
+	</dt>
+	<dd class="complete">
+		<?php if ($this->getShippingMethod()): ?>
+			<?php echo $this->getShippingDescription() ?>
+
+			<?php
+			$_excl = $this->getQuote()->getShippingAddress()->getShippingAmount();
+			$_incl = $this->getQuote()->getShippingAddress()->getShippingInclTax();
+
+			$nominalItems = $this->getQuote()->getShippingAddress()->getAllNominalItems();
+			foreach ($nominalItems as $nominalItem) {
+				$this->getQuote()->getShippingAddress()->requestShippingRates($nominalItem);
+
+				$_excl += $nominalItem->getBaseShippingAmount();
+				$_incl += $nominalItem->getBaseShippingAmount();
+			}
+
+			$_excl = $this->formatPrice($_excl);
+			$_incl = $this->formatPrice($_incl);
+			?>
+			<?php if ($this->helper('tax')->displayShippingPriceIncludingTax()): ?>
+				<?php echo $_incl; ?>
+			<?php else: ?>
+				<?php echo $_excl; ?>
+			<?php endif; ?>
+			<?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+				(<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+			<?php endif; ?>
+
+		<?php else: ?>
+			<?php echo $this->__('Shipping method has not been selected yet') ?>
+		<?php endif; ?>
+	</dd>
+<?php else: ?>
+	<dt>
+		<?php echo $this->__('Shipping Method') ?>
+	</dt>
+<?php endif; ?>
+

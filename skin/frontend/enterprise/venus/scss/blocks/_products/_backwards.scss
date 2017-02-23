@@ -1,0 +1,77 @@
+.products-backwards {
+    background: url("../images/media/products/backwards.jpg") no-repeat top center / cover transparent;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    @include min-screen($screen-m) {
+        min-height: 550px;
+    }
+    @include screen($screen-s, $screen-m) {
+        min-height: 400px;
+    }
+    @include max-screen($screen-s + 1) {
+        background-size: $screen-s + 60 auto;
+        background-position: right 0;
+        padding-top: 320px;
+    }
+    &__container {
+        @include container();
+    }
+    &__content {
+        padding-top: 25px;
+        @include min-screen($screen-m) {
+            width: 100%;
+            max-width: 610px;
+        }
+        @include min-screen($screen-s) {
+            padding-top: 115px;
+        }
+    }
+    &__title {
+        font-size: 50px;
+        line-height: 1.3;
+        font-weight: 400;
+        font-family: $helveticaNeueLTProRoman;
+        position: relative;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        @include max-screen($screen-m) {
+            font-size: 30px;
+            line-height: 1.1;
+        }
+        &--small {
+            font-size: 20px;
+            font-weight: normal;
+            display: block;
+            margin-bottom: 15px;
+            @include max-screen($screen-m) {
+                font-size: 15px;
+            }
+        }
+        &:after {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            border-style: solid;
+            border-width: 3px 0 0 240px;
+            width: 0;
+            height: 0;
+            content: "";
+        }
+    }
+    &__description {
+        color: #000;
+        font-size: 19px;
+        font-weight: normal;
+        line-height: 1.4;
+        font-family: $helveticaNeueLTProRoman;
+        margin-bottom: 25px;
+        @include max-screen($screen-s + 1) {
+            color: #000;
+            font-size: 16px;
+        }
+    }
+}

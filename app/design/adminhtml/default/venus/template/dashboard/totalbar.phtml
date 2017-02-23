@@ -1,0 +1,20 @@
+<?php if (sizeof($this->getTotals()) > 0): ?>
+	<div class="box" id="dashboard_diagram_totals">
+		<div class="entry-edit">
+			<table cellspacing="0" width="100%">
+				<tr>
+					<?php foreach ($this->getTotals() as $_total): ?>
+						<td class="a-center bold">
+							<span><?php echo $_total['label'] ?></span><br />
+							<a href="<?php echo $this->getUrl('affiliateplusadmin/adminhtml_transaction', array('sort' => 'created_time', 'dir' => 'desc')); ?>" class="totals-link">
+								<span class="nowrap" style="font-size:18px; color:#EA7601;"><?php echo $_total['value'] ?>
+									<span style="font-size:14px; color:#DE8946;"><?php echo $_total['decimals'] ?></span>
+								</span>
+							</a>
+						</td>
+					<?php endforeach; ?>
+				</tr>
+			</table>
+		</div>
+	</div>
+<?php endif; ?>

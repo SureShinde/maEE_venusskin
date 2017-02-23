@@ -1,0 +1,246 @@
+<?php echo $this->getTemplatesHtml() ?>
+
+<script type="text/javascript">
+//<![CDATA[
+var firstStepTemplate = '<div class="layer-box" id="layer_{{id}}">'+
+            '<table id="<?php echo $this->getFieldId() ?>_{{id}}" class="layer-header" cellpadding="0" cellspacing="0">'+
+            '<input type="hidden" id="<?php echo $this->getFieldId() ?>_{{id}}_is_delete" name="<?php echo $this->getFieldName() ?>[{{id}}][is_delete]" value="" />'+
+            '<input type="hidden" id="<?php echo $this->getFieldId() ?>_{{id}}_previous_type" name="<?php echo $this->getFieldName() ?>[{{id}}][previous_type]" value="{{type}}" />'+
+            '<input type="hidden" id="<?php echo $this->getFieldId() ?>_{{id}}_id" name="<?php echo $this->getFieldName() ?>[{{id}}][id]" value="{{id}}" />'+
+            '<input type="hidden" id="<?php echo $this->getFieldId() ?>_{{id}}_layer_id" name="<?php echo $this->getFieldName() ?>[{{id}}][layer_id]" value="{{layer_id}}" />'+
+            '<thead>'+
+                '<tr>'+
+                    '<th class="layer-name"><?php echo Mage::helper('catalog')->__('Name') ?></th>'+
+                    '<th class="layer-type"><?php echo Mage::helper('catalog')->__('Layer Type') ?> <span class="required">*</span></th>'+
+                    '<th class="layer-appearancetime"><?php echo Mage::helper('catalog')->__('Appearance Time') ?></th>'+
+                    '<th class="layer-order"><?php echo Mage::helper('catalog')->__('Layer Order') ?></th>'+
+                    '<th class="a-right"><?php echo $this->jsQuoteEscape($this->getDeleteButtonHtml()) ?></th>'+
+                '</tr>'+
+            '</thead>'+
+            '<tr>'+
+                '<td><input type="text" class="input-text" id="<?php echo $this->getFieldId() ?>_{{id}}_name" name="<?php echo $this->getFieldName() ?>[{{id}}][name]" value="{{name}}">{{checkboxScopeName}}</td>'+
+                '<td><?php echo $this->getTypeSelectHtml() ?></td>'+
+                '<td><input type="text" class="validate-zero-or-greater input-text" name="<?php echo $this->getFieldName() ?>[{{id}}][appearance_time]" value="{{appearance_time}}"></td>'+
+                '<td><input type="text" class="validate-zero-or-greater input-text" name="<?php echo $this->getFieldName() ?>[{{id}}][order]" value="{{order}}"></td>'+
+                '<td>&nbsp;</td>'+
+            '</tr></table></div>';
+
+var Layer = {
+    div : $('slide_layers_container_top'),
+    templateSyntax : /(^|.|\r|\n)({{(\w+)}})/,
+    templateText : firstStepTemplate,
+    itemCount : 1,
+    add : function(data) {
+        this.template = new Template(this.templateText, this.templateSyntax);
+
+        if(!data.id) {
+            data = {};
+            data.id  = this.itemCount;
+            data.type = '';
+            data.option_id = 0;
+        } else {
+            this.itemCount = data.item_count;
+        }
+
+        Element.insert(this.div, {'after': this.template.evaluate(data)});
+
+        //set selected type
+        if (data.type) {
+            $A($('<?php echo $this->getFieldId() ?>_'+data.id+'_type').options).each(function(option) {
+                if (option.value==data.type) option.selected = true;
+            });
+        }
+
+        this.itemCount++;
+        this.bindRemoveButtons();
+        LayerType.bindSelectInputType();
+    },
+    remove : function(event) {
+        var element = $(Event.findElement(event, 'div'));
+        if(element) {
+            $('slide_'+element.readAttribute('id')+'_'+'is_delete').value = '1';
+            element.addClassName('no-display');
+            element.addClassName('ignore-validate');
+            element.hide();
+        }
+    },
+    bindRemoveButtons : function() {
+        var buttons = $$('div.slide-layers .delete-layer');
+        for(var i = 0; i < buttons.length; i++) {
+            if(!$(buttons[i]).binded) {
+                $(buttons[i]).binded = true;
+                Event.observe(buttons[i], 'click', this.remove.bind(this));
+            }
+        }
+        var inputs = $$('div.slide-layers button', 'div.slide-layers input', 'div.slide-layers select', 'div.slide-layers textarea');
+        inputs.each(function(el) { Event.observe(el, 'change', el.setHasChanges.bind(el));  } )
+    },
+}
+
+
+var LayerType = {
+    templateSyntax : /(^|.|\r|\n)({{(\w+)}})/,
+    
+    //on layer type select change
+    loadStepTwo : function(event) {
+        var element = $(Event.findElement(event, 'select'));
+
+        var type = '';
+        var previousTypeElm = $(element.readAttribute('id').sub('_type', '_previous_type'));
+
+        switch(element.getValue()) {
+            case 'text':
+                template = LayerTemplateText;
+                type = 'text';
+                break;
+            case 'image':
+                template = LayerTemplateImage;
+                type = 'image';
+                break;
+            case 'video':
+                template = LayerTemplateVideo;
+                type = 'video';
+                break;
+            default:
+                template = '';
+                type = 'unknown';
+                break;
+        }
+        
+        //different type has been selected, need to change template
+        if (previousTypeElm != type) {
+            
+            //if there is already some element with type stored in previouisType - hide it
+            if ($(element.readAttribute('id')+'_'+previousTypeElm.getValue())) {
+                formElements = $(element.readAttribute('id')+'_'+previousTypeElm.getValue()).descendants();
+                formElements.each(function(elem) {
+                    if (elem.tagName == 'input' || elem.tagName == 'select') 
+                        elem.name = '__delete__'+elem.readAttribute('name');
+                });
+                
+                $(element.readAttribute('id')+'_'+previousTypeElm.getValue()).addClassName('no-display');
+                $(element.readAttribute('id')+'_'+previousTypeElm.getValue()).addClassName('ignore-validate');
+                $(element.readAttribute('id')+'_'+previousTypeElm.getValue()).hide();
+            }
+            
+            //store current type to previous state
+            previousTypeElm.value = type;
+            
+            //if there is template with current type but it's hidden now - show it
+            if ($(element.readAttribute('id')+'_'+type)) {
+                formElements = $(element.readAttribute('id')+'_'+type).descendants();
+                formElements.each(function(elem) {
+                    if (elem.tagName == 'input' || elem.tagName == 'select')
+                        elem.name = elem.readAttribute('name').sub('__delete__', '');
+                });
+                
+                $(element.readAttribute('id')+'_'+type).removeClassName('no-display');
+                $(element.readAttribute('id')+'_'+type).removeClassName('ignore-validate');
+                $(element.readAttribute('id')+'_'+type).show();
+            }
+            
+            //else create and assign the template for new type
+            else {
+                template = '<div id="'+element.readAttribute('id')+'_'+type+'" class="grid tier form-list">'+template+'</div>';
+                this.secondTemplate = new Template(template, this.templateSyntax);
+                data = {};
+                if (!data.option_id) {
+                    data = {};
+                    data.option_id = $(element.readAttribute('id').sub('_type', '_id')).getValue();
+                }
+                var result = this.secondTemplate.evaluate(data);
+                Element.insert(element.readAttribute('id').sub('_type', ''), {'after': result});
+            }
+        }
+
+    },
+
+    addDataToValues : function(data) {
+
+        switch(data.type) {
+            case 'text':
+                template = LayerTemplateText;
+                type = 'text';
+                break;
+            case 'image':
+                template = LayerTemplateImage;
+                type = 'image';
+                break;
+            case 'video':
+                template = LayerTemplateVideo;
+                type = 'video';
+                break;
+            default:
+                template = '';
+                type = 'unknown';
+                break;
+        }
+
+        $('<?php echo $this->getFieldId() ?>_'+data.id+'_previous_type').value = type;
+        
+        
+
+        template = '<div id="<?php echo $this->getFieldId() ?>_{{id}}_type_'+type+'" class="grid tier form-list">'+template+'</div>';
+
+        this.secondTemplate = new Template(template, this.templateSyntax);
+        
+        var result = this.secondTemplate.evaluate(data);
+        r = new RegExp('checked=""', 'g');
+        result = result.replace(r, '');
+        Element.insert($('<?php echo $this->getFieldId() ?>_'+data.option_id), {'after': result});
+        this.postProcessSelects(data);
+    },
+    
+    postProcessSelects: function(data) {
+        id = data.id;
+        var selects = $$('.select-slide-layer-'+id);
+        selects.map(function(select) {
+            select.value = select.readAttribute('data-value');
+        });
+    },
+    
+    bindSelectInputType : function() {
+        var types = $$('.select-slide-layer-type');
+        for(var i=0;i<types.length;i++) {
+            if(!$(types[i]).binded) {
+                $(types[i]).binded = true;
+                Event.observe(types[i], 'change', function(event) {
+                    LayerType.loadStepTwo(event);
+                });
+            }
+        }
+    }
+}
+
+
+if($('option_panel')) {
+    $('option_panel').remove();
+}
+
+Layer.bindRemoveButtons();
+
+if($('<?php echo $this->getAddButtonId() ?>')) {
+    Event.observe('<?php echo $this->getAddButtonId() ?>', 'click', Layer.add.bind(Layer));
+}
+
+//validation for selected input type
+Validation.addAllThese([
+    ['required-option-select', <?php echo $this->helper('core')->jsonEncode(Mage::helper('catalog')->__('Select type of option')) ?>, function(v, elm) {
+        if (elm.getValue() == '') {
+            return false;
+        }
+        return true;
+}]]);
+
+//adding data to templates
+<?php foreach ($this->getLayers() as $_layer): ?>
+    Layer.add(<?php echo $_layer->toJson() ?>);
+    LayerType.addDataToValues(<?php echo $_layer->toJson() ?>);
+<?php endforeach; ?>
+
+</script>
+
+<?php /*
+<div><?php if (!$this->isReadonly()):?><input type="hidden" name="affect_product_custom_options" value="1" /><?php endif;?></div>
+*/
+?>

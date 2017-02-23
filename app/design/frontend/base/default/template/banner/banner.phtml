@@ -1,0 +1,28 @@
+<?php
+$result = $this->getBlockData();
+
+if ($result['block'] && $result['banners']) :
+
+	$block   = $result['block'];
+	$banners = $result['banners'];
+
+	if (count($banners) && $block['status'] == 1) :
+		$styles = array();
+		if ($block['width'] > 0) : $styles[] = 'width: ' . $block['width'] . 'px;'; endif;
+		if ($block['height'] > 0) : $styles[] = 'height: ' . $block['height'] . 'px'; endif; ?>
+		<div id="banner-block-<?php echo $block['alias']; ?>" class="banner-block" style="<?php echo implode(';', $styles); ?>">
+			<?php
+			switch ($block['display_method']) {
+				case 'SLIDER':
+					echo $this->getLayout()->createBlock('banner/default')->setBlockData($result)->setTemplate('banner/slider.phtml')->toHtml();
+					break;
+				default:
+					echo $this->getLayout()->createBlock('banner/default')->setBlockData($result)->setTemplate('banner/normal.phtml')->toHtml();
+					break;
+			}
+			?>
+		</div>
+	<?php
+	endif;
+endif;
+?>

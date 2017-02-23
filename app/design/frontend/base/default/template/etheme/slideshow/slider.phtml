@@ -1,0 +1,76 @@
+<pre>
+<?php 
+$slider = $this->getSlider($this->getId());
+var_dump($slider);
+?>
+</pre>
+<h1>
+<?php echo $slider->getGfontFamily() ?>
+</h1>
+
+
+<?php
+
+$slider = $this->getSlider($this->getId());
+?>
+<?php if ($slider): ?>
+    <h1>Slider: <?php echo $slider->getName() ?></h1>
+    <table class="data-table slider">
+        <thead>
+            <tr><td>key</td><td>value</td></tr>
+        </thead>
+        <tbody>
+            <tr><td>some_setting_here</td><td><?php echo $slider->getSomeSettingHere() ?></td></tr>
+            <tr><td>another_one</td><td><?php echo $slider->getAnotherOne() ?></td></tr>
+        </tbody>
+    </table>
+    <h1 style="margin-top: 50px;">Slides in <?php echo $slider->getName() ?>(<?php $slider->getId()?>)</h1>
+    <?php foreach ($this->getSlides() as $slide): ?>
+        <?php if ($slide->getIsActive()): ?>
+            <h2>slide: <?php echo $slide->getName() ?></h2>
+            <table class="data-table slide">
+                <thead>
+                    <tr><td>key</td><td>value</td></tr>
+                </thead>
+                <tbody>
+                    <tr><td>html</td><td><?php echo $slide->getHtml() ?></td></tr>
+                    <tr><td>some_option</td><td><?php echo $slide->getSomeOption() ?></td></tr>
+                    <tr><td>another_option</td><td><?php echo $slide->getAnotherOption() ?></td></tr>
+                </tbody>
+            </table>
+            <?php if ($layers = $slide->getLayers()): ?>
+            <?php foreach($layers as $layer): ?>
+                <br />
+                <h3>layer: <?php echo $layer['id'] ?></h3>
+                <table class="data-table slide">
+                <thead>
+                    <tr><td>key</td><td>value</td></tr>
+                </thead>
+                <tbody>
+                    <tr><td>id</td><td><?php echo $layer['id'] ?></td></tr>
+                    <tr><td>name</td><td><?php echo $layer['name'] ?></td></tr>
+                    <tr><td>sortorder</td><td><?php echo $layer['sortorder'] ?></td></tr>
+                    <tr><td>animation</td><td><?php echo $layer['animation'] ?></td></tr>
+                    <tr><td>easing</td><td><?php echo $layer['easing'] ?></td></tr>
+                    <tr><td>type</td><td><?php echo $layer['type'] ?></td></tr>
+                    <?php if ($layer['type'] == 'image'): ?>
+                    <tr><td>image</td><td><img src="<?php echo $slide->getLayerImageUrl($layer['id']) ?>" /></td></tr>
+                    <?php elseif ($layer['type'] == 'text'): ?>
+                    <tr><td>text</td><td><?php echo $layer['type'] ?></td></tr>
+                    <?php elseif ($layer['type'] == 'video'): ?>
+                    <tr><td>video</td><td><?php echo $layer['type'] ?></td></tr>
+                    <?php endif ?>
+                </tbody>
+                </table>
+                <br />
+            <?php endforeach ?>
+            <?php endif ?>
+        <?php endif ?>
+        <br /><br />
+        <hr />
+        <br /><br />
+    <?php endforeach ?>
+<?php else: ?>
+    <h1>No slider with id = <?php echo $this->getId() ?> found</h1>
+<?php endif ?>
+

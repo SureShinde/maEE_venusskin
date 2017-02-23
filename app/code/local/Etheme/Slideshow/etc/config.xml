@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Etheme_Slideshow>
+            <version>0.0.1</version>
+        </Etheme_Slideshow>
+    </modules>
+    
+    <global>
+    
+        <blocks>
+            <etheme_slideshow>
+                <class>Etheme_Slideshow_Block</class>
+            </etheme_slideshow>
+        </blocks>
+        
+        <helpers>
+            <etheme_slideshow>
+                <class>Etheme_Slideshow_Helper</class>
+            </etheme_slideshow>
+        </helpers>
+        
+        <models>
+            <etheme_slideshow>
+                <class>Etheme_Slideshow_Model</class>
+                <resourceModel>etheme_slideshow_resource</resourceModel>
+            </etheme_slideshow>
+            <etheme_slideshow_resource>
+                <class>Etheme_Slideshow_Model_Mysql4</class>
+                <entities>
+                    <slider><table>etheme_slideshow_sliders</table></slider>
+                    <slide><table>etheme_slideshow_slides</table></slide>
+                </entities>
+            </etheme_slideshow_resource>
+        </models>
+        
+        <resources>
+            <etheme_slideshow_setup>
+                <setup>
+                    <module>Etheme_Slideshow</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </etheme_slideshow_setup>
+            
+            <etheme_slideshow_write>
+                <connection><use>core_write</use></connection>
+            </etheme_slideshow_write> 
+        </resources>
+        
+        <etheme_slideshow>
+        <layers>
+            <types>
+                <text translate="label" module="etheme_slideshow">
+                    <label>Text</label>
+                    <render>etheme_slideshow/adminhtml_slide_edit_tab_layers_types_text</render>
+                </text>
+                <image translate="label" module="etheme_slideshow">
+                    <label>Image</label>
+                    <render>etheme_slideshow/adminhtml_slide_edit_tab_layers_types_image</render>
+                </image>
+                <video translate="label" module="etheme_slideshow">
+                    <label>Video</label>
+                    <render>etheme_slideshow/adminhtml_slide_edit_tab_layers_types_video</render>
+                </video>
+            </types>
+        </layers>
+        </etheme_slideshow>
+        
+    </global>
+    
+    <frontend>
+        <routers>
+            <etheme_slideshow>
+                <use>standard</use>
+                <args>
+                    <module>Etheme_Slideshow</module>
+                    <frontName>sliders</frontName>
+                </args>
+            </etheme_slideshow>
+        </routers>
+        
+        <layout>
+            <updates>
+                <etheme_slideshow>
+                    <file>etheme/slideshow.xml</file>
+                </etheme_slideshow>
+            </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Etheme_Slideshow.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
+
+    </frontend>
+    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <slideshow after="Mage_Adminhtml">Etheme_Slideshow_Adminhtml</slideshow>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <layout>
+            <updates>
+                <etheme_slideshow><file>etheme/sliders.xml</file></etheme_slideshow>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Etheme_Slideshow.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
+    </adminhtml>
+    
+</config>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

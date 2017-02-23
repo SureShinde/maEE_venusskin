@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <referefiframe_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>referefiframe/page/template.phtml</template>
+            </action>
+            <block type="page/html_head" name="referefiframe_head" as="referefiframe_head">
+                <action method="setTemplate">
+                    <template>referefiframe/page/html/head.phtml</template>
+                </action>
+                <block type="googleanalytics/ga" name="google_analytics" as="google_analytics" template="googleanalytics/ga.phtml" />
+                <action method="addCss"><stylesheet>css/refereriframe.css</stylesheet></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="snowreferefiframe/index" name="referefiframe_index" template="referefiframe/index.phtml"/>
+        </reference>
+    </referefiframe_index_index>
+</layout>

@@ -1,0 +1,50 @@
+.professionals-stem-cells {
+    &__container {
+        @include container();
+    }
+    &__row {
+        @include clearfix();
+        margin-top: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #000;
+    }
+    &__title {
+        font-family: $helveticaNeueLTProTh;
+        font-size: 30px;
+        line-height: 1.5;
+        font-weight: 400;
+        margin-bottom: 25px;
+        @include max-screen($screen-l) {
+            font-size: 24px;
+        }
+        @include max-screen($screen-m) {
+            font-size: 18px;
+            line-height: 1.2;
+        }
+    }
+    &__col {
+        font-family: $helveticaNeueLTProTh;
+        box-sizing: border-box;
+        @include min-screen($screen-m) {
+            float: right;
+            width: 50%;
+        }
+        &--image {
+            @include min-screen($screen-m) {
+                padding-left: 30px;
+            }
+            @include max-screen($screen-m - 1) {
+                height: 230px;
+                overflow: hidden;
+                margin-bottom: 30px;
+            }
+            img {
+                max-width: 100%;
+                @include max-screen($screen-m - 1) {
+                    margin-top: -50%;
+                }
+            }
+        }
+    }
+}

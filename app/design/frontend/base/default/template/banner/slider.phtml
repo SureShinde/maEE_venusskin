@@ -1,0 +1,25 @@
+<?php
+$result = $this->getBlockData();
+$block = $result['block'];
+$banners = $result['banners'];
+$sliderId = 'banner-slider-' . $block['alias'];
+?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('banner/jquery.nivo.slider.pack.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('banner/nivo-slider.css'); ?>" media="all" />
+<div id="<?php echo $sliderId; ?>" style="width: <?php echo $block['width']; ?>px; height: <?php echo $block['height']; ?>px;">
+	<?php foreach ($banners as $banner) : ?>
+		<a href="<?php echo $this->getUrl('banner/index/click', array('id' => $banner['id'])); ?>" alt="<?php echo $this->escapeHtml($banner['alt']); ?>" <?php echo $block['target_method'] == 'NEW' ? 'target="_blank"' : ''; ?>>
+			<img src="<?php echo Mage::getBaseUrl('media') . 'banners/' . $banner['image'] ?>" alt="<?php echo $this->escapeHtml($banner['alt']); ?>" data-thumb="<?php echo Mage::getBaseUrl('media') . 'banners/' . $banner['image'] ?>" />
+		</a>
+	<?php endforeach; ?>
+</div>
+<script type="text/javascript">
+jQuery(function ($) {
+	$("#<?php echo $sliderId; ?>").nivoSlider({
+		animSpeed        : +'<?php echo $block['speed']; ?>',
+		pauseTime        : +'<?php echo $block['delay_time']; ?>',
+		controlNavThumbs : true,
+		directionNav     : false
+	});
+});
+</script>

@@ -1,0 +1,60 @@
+<?php
+/**
+ * @var ParadoxLabs_AuthorizeNetCim_Block_Recurringprofile_Info $this
+ */
+
+if ($this->isAuthnetcim()):
+	$_card  = $this->getPaymentInfo();
+	$info   = $this->getAllCards();
+	$select = '';
+	if (count($info)) {
+		foreach ($info as $inf) {
+			$select .= '<option value="' . $inf->getPaymentId() . '">' . substr_replace($inf->getCardNumber(), '-', 4, 0) . '</option>';
+		}
+	}
+	?>
+	<table class="form-list">
+		<tbody>
+			<tr>
+				<td style="width:200px"><?php echo $this->__('Last Billed Attempt:'); ?></td>
+				<td><strong><?php echo $this->getLastBilled(); ?></strong></td>
+			</tr>
+			<tr>
+				<td><?php echo $this->__('Next Billing Attempt:'); ?></td>
+				<td><strong><?php echo $this->getNextBilled(); ?></strong></td>
+			</tr>
+			<tr>
+				<td><?php echo $this->__('Payments Made:'); ?></td>
+				<td><strong><?php echo $this->getProfile()->getAdditionalInfo('billed_count'); ?></strong></td>
+			</tr>
+			<?php if ($this->getProfile()->getAdditionalInfo('failure_count') > 0): ?>
+				<tr>
+					<td><?php echo $this->__('Payments Failed:'); ?></td>
+					<td><strong><?php echo $this->getProfile()->getAdditionalInfo('failure_count'); ?></strong></td>
+				</tr>
+				<tr>
+					<td><?php echo $this->__('Outstanding:'); ?></td>
+					<td><strong>$<?php echo round($this->getProfile()->getAdditionalInfo('outstanding'), 2); ?></strong></td>
+				</tr>
+			<?php endif; ?>
+			<tr>
+				<td><?php echo $this->__('Credit Card:') ?></td>
+				<td>
+					<?php if ($_card): ?>
+						<strong><?php echo substr_replace($_card->getCardNumber(), '-', 4, 0) ?></strong><br />
+					<?php else: ?>
+						<?php echo $this->__('None'); ?><br />
+					<?php endif; ?>
+				</td>
+			</tr>
+			<?php if ($lastErrorMessage = $this->getProfile()->getAdditionalInfo('last_error_message')): ?>
+				<tr>
+					<td><?php echo $this->__('Last Failure Message:') ?></td>
+					<td>
+						<strong><?php echo $this->escapeHtml($lastErrorMessage); ?></strong>
+					</td>
+				</tr>
+			<?php endif; ?>
+		</tbody>
+	</table>
+<?php endif; ?>

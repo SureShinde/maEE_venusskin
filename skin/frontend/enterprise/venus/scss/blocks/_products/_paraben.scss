@@ -1,0 +1,13 @@
+.paraben-inline {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    &__image {
+        padding: 0 30px;
+    }
+    &__description {
+        color: $primary-color;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Inspiratica_Banner>
+			<version>0.1.1</version>
+		</Inspiratica_Banner>
+	</modules>
+
+	<frontend>
+		<routers>
+			<banner>
+				<use>standard</use>
+				<args>
+					<module>Inspiratica_Banner</module>
+					<frontName>banner</frontName>
+				</args>
+			</banner>
+		</routers>
+		<layout>
+			<updates>
+				<banner>
+					<file>banner.xml</file>
+				</banner>
+			</updates>
+		</layout>
+	</frontend>
+
+	<admin>
+		<routers>
+			<banner>
+				<use>admin</use>
+				<args>
+					<module>Inspiratica_Banner</module>
+					<frontName>banner</frontName>
+				</args>
+			</banner>
+		</routers>
+	</admin>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<banner>
+					<file>banner.xml</file>
+				</banner>
+			</updates>
+		</layout>
+	</adminhtml>
+
+	<global>
+		<models>
+			<banner>
+				<class>Inspiratica_Banner_Model</class>
+				<resourceModel>banner_mysql4</resourceModel>
+			</banner>
+			<banner_mysql4>
+				<class>Inspiratica_Banner_Model_Mysql4</class>
+				<entities>
+					<banner>
+						<table>banner</table>
+					</banner>
+
+					<block>
+						<table>bannerblock</table>
+					</block>
+				</entities>
+			</banner_mysql4>
+		</models>
+
+		<resources>
+			<banner_setup>
+				<setup>
+					<module>Inspiratica_Banner</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</banner_setup>
+			<banner_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</banner_write>
+			<banner_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</banner_read>
+		</resources>
+
+		<blocks>
+			<banner>
+				<class>Inspiratica_Banner_Block</class>
+			</banner>
+		</blocks>
+
+		<helpers>
+			<banner>
+				<class>Inspiratica_Banner_Helper</class>
+			</banner>
+		</helpers>
+	</global>
+</config>

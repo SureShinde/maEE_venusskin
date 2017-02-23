@@ -1,0 +1,24 @@
+.professionals-comparison {
+    text-align: center;
+    font-size: 17px;
+    color: #000;
+    line-height: 1.4;
+    @include max-screen($screen-m) {
+       display: none;
+    }
+    &__container {
+        @include container();
+        padding-bottom: 30px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #000;
+    }
+    &__title {
+        width: 100%;
+        max-width: 550px;
+        margin: 0 auto 15px;
+    }
+    &__subtitle {
+        font-style: italic;
+        margin-bottom: 30px;
+    }
+}

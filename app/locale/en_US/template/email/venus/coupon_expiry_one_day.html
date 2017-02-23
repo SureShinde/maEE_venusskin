@@ -1,0 +1,71 @@
+<!--@subject Your last chance to achieve beautiful skin for $100 off! @-->
+<!--@vars
+{
+"var customer":"Customer",
+"var coupon_code":"Coupon Code",
+"var unsubscribe_link":"Unsubscribe Link",
+}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="max-width: 600px;">
+<div class="email-top" style="padding: 20px; background: #fafafa;">
+	<a href="{{store url=''}}" target="_blank" style="float: left;"><img src="{{var logo_url}}" alt="{{var logo_alt}}" border="0" /></a>
+
+	<div class="top-text" style="text-align: right; color: #222222;">
+		Hi, {{var customer.getName()}}
+		<br /><br />
+		<a class="button" href="{{store url='customer/account'}}" target="_blank" style="display: inline-block; padding: 5px 10px; border: 1px solid #dbdbdb; margin-top: 10px; text-decoration: none; color: #222222; background: #ffffff;">View Account</a>
+	</div>
+</div>
+
+<img src="{{media url='emails/vsemaillogo.jpg'}}" alt="Venus Logo" title="" style="display: block;" />
+
+<div class="email-mid" style="border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; padding: 20px;">
+	Act fast to save $100 on Venus Skin’s revolutionary skincare products!
+
+	<br /><br />
+
+	<span style="font-weight:bold;">{{var coupon_code}}</span>
+
+	<br /><br />
+
+	Rejuvenate your skin with our various skincare options and start looking and feeling better than ever. Just take 3 minutes each day to apply, and you’ll gain all the benefits of our natural, botanical ingredients.
+
+	<br /><br />
+
+	<a href="{{store direct_url='anti-aging-kit.html'}}">Anti-aging</a>, <a href="{{store direct_url='renewal-cleanser.html'}}">cleansing</a>,
+	and so much <a href="{{store direct_url='products'}}">more</a>.
+
+	<br /><br />
+
+	Your exclusive offer ends tomorrow, so make sure you order today!
+
+	<br /><br />
+
+	<a class="button" href="{{store url=''}}" target="_blank" style="display: inline-block; padding: 5px 10px; border: 1px solid #dbdbdb; margin-top: 10px; text-decoration: none; color: #222222; background: #ffffff;">Use Discount Now</a>
+</div>
+
+<a href="{{store url='invitation'}}" target="_blank">
+	<img src="{{media url='banners/get100_email_banner.jpg'}}" alt="" title="Earn Store Credit Now!" style="margin: 0 auto; display: block; max-width: 100%;" />
+</a>
+
+<div class="email-bottom" style="background: #fafafa; padding: 20px; border: 1px solid #dbdbdb; border-top: none;">
+	<div style="float: left; color: #222222;">
+		*Conditions Apply<br />
+		Click <a href="{{store direct_url='forpatients#give-get-banner'}}" target="_blank" style="color: #222222;">here</a> for more information.
+	</div>
+
+	<div class="top-text" style="text-align: right; float: right;">
+		<strong style="font-size: 22px;"><a href="{{store url=''}}" target="_blank" style="text-decoration: none; color: #222222;">VenusSkin.com</a></strong><br />
+	</div>
+
+	<div style="clear: both; display: block !important;"></div>
+</div>
+
+<div class="unsubscribe" style="text-align:center; font-size: 10px;">
+	You can unsubscribe from these emails by <a href="{{var unsubscribe_link}}">clicking here</a>.
+</div>
+</body>

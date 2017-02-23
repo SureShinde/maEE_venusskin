@@ -1,0 +1,8 @@
+@mixin container ($_max-width: 1170px) {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: $_max-width;
+  min-width: 320px;
+  width: 100%;
+  box-sizing: border-box;
+}

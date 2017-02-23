@@ -1,0 +1,21 @@
+<h1>really special</h1>
+<?php
+$imgW = 220;
+$imgH = 220;
+$max = 5;
+$this->setData('sale', 1)
+->setData('category', Mage::getModel('catalog/layer')->getCurrentCategory()->getId())
+->setData('random', 1);
+$this->prepareCollection();
+if ($products = $this->getProductCollection()): $i = 0;
+foreach ($products->getItems() as $product): if ($i == 5) break; ?>
+<div class="product" style="margin-bottom: 20px;">
+    <h5><?php echo $product->getName() ?></h5>
+    <div class="image">
+        <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize($imgW)->resize($imgH) ?>" width="<?php echo $imgW ?>" height="<?php echo $imgW ?>" alt="<?php echo $this->htmlEscape($product->getName()) ?>" />
+    </div>
+    <div class="price"><?php echo $this->getPriceHtml($product, true) ?></div>
+</div>
+<?php $i++; ?>
+<?php endforeach ?>
+<?php endif ?>

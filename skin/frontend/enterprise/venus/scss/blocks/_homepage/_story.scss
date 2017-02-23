@@ -1,0 +1,37 @@
+.home-story {
+    text-align: center;
+    margin-top: 60px;
+
+    &__row {
+        @include clearfix();
+        margin: 20px -20px;
+    }
+    &__col {
+        box-sizing: border-box;
+        margin-bottom: 50px;
+        @include min-screen($screen-m) {
+            float: left;
+            width: 33.333%;
+            padding: 20px;
+        }
+    }
+    &__title {
+        @extend .home-section__title;
+        font-family: $helveticaNeueLTProTh;
+        &:after {
+            border-width: 0;
+        }
+    }
+    &__name {
+        border-bottom: none;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 25px;
+        font-family: $helveticaNeueLTProTh;
+        text-transform: none;
+    }
+    &__info {
+        font-size: 18px;
+        color: $primary-color;
+    }
+}

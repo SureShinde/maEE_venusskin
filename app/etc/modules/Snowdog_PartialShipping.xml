@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Snowdog_PartialShipping>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+      <depends>
+        <Snowdog_Multilevel />
+      </depends>
+    </Snowdog_PartialShipping>
+  </modules>
+</config>

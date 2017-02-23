@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <!-- provided by theme -->
+            <!--
+            <action method="addJs"><script>lib/jquery.js</script></action>
+            <action method="addJs"><script>lib/noconflict.js</script></action>
+            <action method="addJs"><script>etheme/effects.js</script></action>
+            <action method="addJs"><script>etheme/jquery.slider.js</script></action>
+            <action method="addJs"><script>etheme/jquery.themepunch.revolution.min.js</script></action>
+            <action method="addJs"><script>etheme/jquery.themepunch.plugins.min.js</script></action>
+            <action method="addCss"><stylesheet>etheme_slideshow/css/captions.css</stylesheet></action>
+            <action method="addCss"><stylesheet>etheme_slideshow/css/settings.css</stylesheet></action>
+            -->
+        </reference>
+    </default>
+</layout>

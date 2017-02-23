@@ -1,0 +1,81 @@
+.results {
+    font-size: 18px;
+    line-height: 2;
+    text-align: center;
+    color: #000;
+    padding: 0 50px;
+    @include max-screen($screen-m) {
+        font-size: 14px;
+    }
+    &__image {
+        margin-bottom: 15px;
+    }
+    &__clinic {
+        font-size: 90%;
+        color: #787b7f;
+        font-style: italic;
+    }
+    .owl-carousel {
+        .owl-wrapper, .owl-item {
+            backface-visibility: visible;
+        }
+    }
+    .owl-nav {
+        display: block !important;
+        & > div {
+            top: auto;
+            bottom: 40px;
+            &:hover {
+                &:after {
+                    background-color: transparent;
+                }
+            }
+            &:after {
+                font-size: 0;
+                padding: 0;
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-radius: 0;
+            }
+        }
+    }
+    .owl-prev {
+        left: -40px;
+        @include max-screen($screen-s) {
+            left: -30px;
+        }
+        &:after {
+            border-width: 15px 30px 15px 0;
+            border-color: transparent #000000 transparent transparent;
+            @include max-screen($screen-s) {
+                border-width: 7px 15px 7px 0;
+            }
+        }
+        &:hover {
+            &:after {
+                border-color: transparent $primary-color transparent transparent;
+            }
+        }
+    }
+    .owl-next {
+        left: auto !important;
+        right: -40px;
+        @include max-screen($screen-s) {
+            right: -30px;
+        }
+        &:after {
+            border-width: 15px 0 15px 30px;
+            border-color: transparent transparent transparent #000000;
+            @include max-screen($screen-s) {
+                border-width: 7px 0 7px 15px;
+            }
+        }
+        &:hover {
+            &:after {
+                border-color: transparent transparent transparent $primary-color;
+            }
+        }
+    }
+}

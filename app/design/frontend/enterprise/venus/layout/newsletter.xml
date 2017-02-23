@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<default>
+		<reference name="footer">
+			<block type="newsletter/subscribe" name="footer.newsletter" as="newsletter" before="-" template="newsletter/subscribe.phtml" />
+		</reference>
+	</default>
+
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="addLink" translate="label" module="newsletter">
+				<name>newsletter</name>
+				<path>newsletter/manage/</path>
+				<label>Communication Preferences</label>
+			</action>
+		</reference>
+	</customer_account>
+
+	<newsletter_manage_index translate="label">
+		<label>Customer My Account Newsletter Subscriptions</label>
+		<update handle="customer_account" />
+
+		<reference name="head">
+			<action method="setTitle" translate="title">
+				<title>Communication Preferences</title>
+			</action>
+		</reference>
+
+		<reference name="my.account.wrapper">
+			<block type="customer/newsletter" name="customer_newsletter">
+				<block type="page/html_wrapper" name="customer.newsletter.form.before" as="form_before" translate="label">
+					<label>Newsletter Subscription Form Before</label>
+					<action method="setElementClass">
+						<value>rewards</value>
+					</action>
+				</block>
+			</block>
+		</reference>
+	</newsletter_manage_index>
+</layout>

@@ -1,0 +1,41 @@
+<?php
+/** @var Venus_Registration_Block_Landing $this */
+/** @var Mage_Catalog_Model_Product $product */
+$product = $this->getPhysicianLicenseProduct();
+?>
+
+<div class="page-title">
+	<h2 class="title"><?php echo $this->__('Physicians Licence'); ?></h2>
+</div>
+
+<h3 class="subtitle"><?php echo $this->__('Introducing Venus Skin - The first physician exclusive skincare line that requires no inventory to purchase or stock.'); ?></h3>
+<h3 class="subtitle"><?php echo $this->__('USE PROMO CODE <b>VSASAPS</b> TO RECEIVE <b>$500 IN FREE INVENTORY</b> ON YOUR FIRST ORDER.'); ?></h3>
+
+<div class="registration-form-content">
+	<?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+		<form action="<?php echo $this->getUrl('customer/account/loginPost'); ?>" id="loginForm" method="post">
+			<?php echo $this->getBlockHtml('formkey'); ?>
+
+			<?php echo $this->getChildHtml('login_form'); ?>
+
+			<?php echo $this->getChildHtml('form_buttons'); ?>
+		</form>
+
+		<form action="<?php echo $this->getUrl('customer/account/createPost'); ?>" id="registrationForm" method="post">
+			<?php echo $this->getChildHtml('account_form'); ?>
+
+			<?php echo $this->getChildHtml('form_buttons'); ?>
+		</form>
+
+		<script type="text/javascript">
+		//<![CDATA[
+		var registrationForm = new VarienForm('registrationForm', false);
+		var loginForm = new VarienForm('loginForm', false);
+		//]]>
+		</script>
+	<?php else: ?>
+		<h4 class="fieldset-title"><?php echo $this->__('Please press continue to proceed with the license purchasing process. <a class="button continue-button" href="%s">Continue</a>', $this->helper('checkout/cart')->getAddUrl($product)); ?></h4>
+
+		<p class="billing-notice"><?php echo $this->__('Note: Billing Address information should be the clinic address.'); ?></p>
+	<?php endif; ?>
+</div>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Venus_Registration>
+			<version>1.0.0</version>
+		</Venus_Registration>
+	</modules>
+
+	<global>
+		<blocks>
+			<registration>
+				<class>Venus_Registration_Block</class>
+			</registration>
+		</blocks>
+
+		<helpers>
+			<registration>
+				<class>Venus_Registration_Helper</class>
+			</registration>
+		</helpers>
+
+		<models>
+			<registration>
+				<class>Venus_Registration_Model</class>
+				<resourceModel>registration_mysql4</resourceModel>
+			</registration>
+		</models>
+
+		<sales>
+			<quote>
+				<item>
+					<product_attributes>
+						<physicians_only />
+					</product_attributes>
+				</item>
+			</quote>
+		</sales>
+	</global>
+
+	<frontend>
+		<routers>
+			<registration>
+				<use>standard</use>
+				<args>
+					<module>Venus_Registration</module>
+					<frontName>registration</frontName>
+				</args>
+			</registration>
+		</routers>
+
+		<layout>
+			<updates>
+				<registration>
+					<file>registration.xml</file>
+				</registration>
+			</updates>
+		</layout>
+
+		<events>
+			<checkout_onepage_controller_success_action>
+				<observers>
+					<venus_registration>
+						<type>singleton</type>
+						<class>registration/observer</class>
+						<method>checkAndCreatePhysicianBackendAccount</method>
+					</venus_registration>
+				</observers>
+			</checkout_onepage_controller_success_action>
+		</events>
+	</frontend>
+</config>

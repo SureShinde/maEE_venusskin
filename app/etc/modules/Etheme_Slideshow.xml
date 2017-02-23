@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Etheme_Slideshow>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Etheme_Slideshow>
+	</modules>
+</config>

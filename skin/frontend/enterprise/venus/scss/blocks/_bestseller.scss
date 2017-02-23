@@ -1,0 +1,40 @@
+.home-bestseller {
+    &__container {
+        @include container();
+    }
+    &__heading {
+        border-bottom: 1px solid #000;
+        padding-bottom: 25px;
+        margin-bottom: 20px;
+    }
+    &__heading-item {
+        display: inline-block;
+    }
+    &__title {
+        color: $primary-color;
+        font-family: $helveticaNeueLTProRoman;
+        padding-right: 40px;
+    }
+    &__products {
+        @include clearfix();
+    }
+    &__product {
+        padding: 0 20px 20px 20px !important;
+        @include min-screen($screen-l) {
+            float: left;
+            width: 25%;
+        }
+        @include screen($screen-s, $screen-l) {
+            width: 50%;
+        }
+        .product-image {
+            height: auto;
+        }
+        .product-name {
+            a {
+                font-family: $helveticaNeueLTProTh;
+                text-transform: none;
+            }
+        }
+    }
+}

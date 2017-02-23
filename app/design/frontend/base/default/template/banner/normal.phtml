@@ -1,0 +1,10 @@
+<?php
+$result  = $this->getBlockData();
+$block   = $result['block'];
+$banners = $result['banners'];
+?>
+<ul>
+	<?php $i = 0; foreach ($banners as $banner) : ?>
+    <li class="<?php echo $i == 0 ? 'first' : ''; ?> <?php echo $i + 1 == count($banners) ? 'last' : ''; ?>"><?php echo $this->generateBannerCode($block['target_method'], $banner); ?></li>
+	<?php $i++; endforeach; ?>
+</ul>

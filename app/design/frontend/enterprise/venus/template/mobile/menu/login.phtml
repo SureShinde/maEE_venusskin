@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var Mage_Customer_Helper_Data $_helper
+ */
+
+$_helper = Mage::helper('customer');
+?>
+<?php if ($_helper->isLoggedIn()) : ?>
+	<li><a href="<?php echo $_helper->getLogoutUrl(); ?>" title="<?php echo $this->__('Logout'); ?>"><?php echo $this->__('Logout'); ?></a></li>
+<?php else : ?>
+	<li><a href="<?php echo $_helper->getLoginUrl(); ?>" title="<?php echo $this->__('Login / Signup'); ?>"><?php echo $this->__('Login'); ?></a></li>
+	<li><a href="<?php echo $this->getUrl('customer/account/create'); ?>"><?php echo $this->__('Sign Up Now'); ?></a></li>
+<?php endif;

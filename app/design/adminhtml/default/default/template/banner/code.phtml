@@ -1,0 +1,65 @@
+<h4 class="icon-head head-edit-form fieldset-legend">Code for Banner Block</h4>
+<div id="messages">
+    <ul class="messages">
+        <li class="notice-msg">
+            <ul>
+                <li><?php echo $this->__('Please copy and paste pieces of code below to a place in one of xml layout file that you want to show the banner module. Please change <b>your_block_alias</b> variable with your actual block alias.')?></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<ul>
+    <li>
+        <code>
+            &lt;block type="banner/default" name="banner.banner" template="banner/banner.phtml"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;action method="setBannerBlock"&gt;&lt;alias&gt;your_banner_alias&lt;/alias&gt;&lt;/action&gt;<br>
+            &lt;/block&gt;
+        </code>
+    </li>
+</ul>
+<br>
+<div id="messages">
+    <ul class="messages">
+        <li class="notice-msg">
+            <ul>
+                <li><?php echo $this->__('Below is an example to show a banner block with alias left_banner on the left side of category page.')?></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<br>
+<ul>
+    <li>
+        <code>
+            &lt;?xml version="1.0"?&gt;<br>
+            &lt;layout version="0.1.0"&gt;<br>
+            &nbsp;&nbsp;&lt;catalog_category_default&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;reference name="left"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;block type="catalog/navigation" name="catalog.leftnav" after="currency" template="catalog/navigation/left.phtml"/&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;block type="banner/default" name="banner.block" template="banner/banner.phtml"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;action method="setBannerBlock"&gt;&lt;alias&gt;left_banner&lt;/alias&gt;&lt;/action&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/block&gt; <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/reference><br>
+            &nbsp;&nbsp;&lt;/catalog_category_default&gt;<br>
+            &lt;/layout&gt;
+        </code>
+    </li>
+</ul>
+<br>
+<div id="messages">
+    <ul class="messages">
+        <li class="notice-msg">
+            <ul>
+                <li><?php echo $this->__('You can put a banner block on a cms page. Below is an example which we put a banner block with alias is home_cms in a cms page')?></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<br>
+<ul>
+    <li>
+        <code>
+            {{block type="banner/default" name="banner.banner" template="banner/banner.phtml" alias="home_cms"}}
+        </code>
+    </li>
+</ul>

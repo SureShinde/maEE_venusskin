@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var Venus_Theme_Block_Catalog_Product_Collection $this
+ */
+
+$_helper     = $this->helper('catalog/output');
+$_collection = $this->getCollection();
+?>
+<ul id="mobile-dropdown-products-list" class="product-list">
+	<?php foreach ($_collection as $_product) : ?>
+		<li>
+			<a href="<?php echo $_product->getProductUrl(); ?>" title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>">
+				<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+			</a>
+		</li>
+	<?php endforeach; ?>
+
+	<li>
+		<a href="<?php echo Mage::helper('cms/page')->getPageUrl('products'); ?>" title="<?php echo $this->__('View All Products'); ?>">
+			<?php echo $this->__('View All Products'); ?>
+		</a>
+	</li>
+</ul>

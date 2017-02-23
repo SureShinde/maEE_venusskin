@@ -1,0 +1,33 @@
+<script type="text/javascript">
+//<![CDATA[
+LayerTemplateImage = '<table class="border" cellpadding="0" cellspacing="0">'+
+        '<tr class="headings">'+
+            '<th class="type-image last"><?php echo Mage::helper('catalog')->__('Settings') ?></th>'+
+            '<th class="type-image last"><?php echo Mage::helper('catalog')->__('Preview') ?></th>'+
+        '</tr>'+
+            '<?php echo $this->getAppearanceSettings() ?>' +
+        '<tr>'+
+            '<td class="type-select">'+
+                '<label for="slide_layer_{{option_id}}_animation">Animation: </label>'+
+                '<?php echo $this->getAnimationSelect() ?>'+
+            '</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td class="type-select">'+
+                '<label for="slide_layer_{{option_id}}_easing">Easing: </label>'+ 
+                '<?php echo $this->getEasingSelect() ?>'+
+            '</td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>'+
+                '<input class="input-file" name="layer_{{option_id}}" type="file" />'+
+                '<input type="hidden" name="layers[{{option_id}}][image]" value="{{image}}" />' +
+            '</td>'+
+            '<td class="type-last last">'+
+                '<img src="{{image_url}}" id="id" />'+
+            '</td>'+
+        '</tr>'+
+
+    '</table>';
+//]]>
+</script>

@@ -1,0 +1,17 @@
+<?php if ($this->hasItems()): ?>
+	<div class="box-collateral box-up-sell included-products-grid">
+		<div class="box-title">
+			<h1><?php echo $this->__('Products Included in this Kit') ?></h1>
+		</div>
+		<ul class="products-grid">
+			<?php foreach ($this->getItemCollection() as $_item): ?>
+				<li class="item">
+					<?php
+					$itemBlock = $this->getChild('catalog.product.upsell.item')->setItem($_item);
+					echo $itemBlock->toHtml(); ?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+		<script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd', 'even', 'first', 'last'])</script>
+	</div>
+<?php endif ?>

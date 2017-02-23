@@ -1,0 +1,64 @@
+<?php 
+$_cmsHelper = Mage::helper('cms');
+$_process = $_cmsHelper->getBlockTemplateProcessor();
+?> 
+<?php /* for debugging
+<h2>Slides template goes here</h2>
+<table class="data-table">
+    <thead>
+        <tr>
+        <td>slide_id</td>
+        <td>name</td>
+        <td>html</td>
+        <td>created</td>
+        <td>updated</td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->getSlides() as $slide): ?>
+        <tr>
+            <td><?php echo $slide->getSlideId() ?></td>
+            <td><?php echo $slide->getName() ?></td>
+            <td><?php echo $_process->filter($slide->getHtml()) ?></td>
+            <td><?php echo $slide->getCreatedAt() ?></td>
+            <td><?php echo $slide->getUpdatedAt() ?></td>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
+*/ ?>
+
+<div class="iosSlider" id="ios-someid"><!-- slider -->
+    <div class="slider"><!-- slides -->
+        <?php foreach ($this->getSlides() as $slide): ?>
+        <div class="slide"><?php echo $_process->filter($slide->getHtml()) ?></div>
+        <?php endforeach ?>
+    </div>
+    <div class="sliderNavi">
+    <?php for ($i = 0; $i < count($this->getSlides()); $i++): ?>
+        <span class="naviItem <?php if ($i == 0) echo 'selected' ; ?>"><?php echo $i+1 ?></span>
+    <?php endfor ?>
+    <div class="prev">&nbsp;</div>
+    <div class="next">&nbsp;</div>
+    </div>
+</div>
+
+<script>
+(function($) {
+    $('#ios-someid').iosSlider({
+        desktopClickDrag: true,
+        touchMoveThreshold:4,
+        snapToChildren: true,
+        infiniteSlider: true,
+        autoSlide: true,
+        autoSlideTimer: 3000,
+		navSlideSelector: '.sliderNavi .naviItem',                
+        navNextSelector: '#ios-someid .next',
+        navPrevSelector: '#ios-someid .prev',
+		onSlideChange: slideContentChange,
+		onSlideComplete: slideContentComplete,
+		onSliderLoaded: slideContentLoaded
+    }); 
+               	
+})(jQuery); 
+</script>

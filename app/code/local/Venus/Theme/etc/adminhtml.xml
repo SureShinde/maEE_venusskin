@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<config>
+	<menu>
+		<sales>
+			<children>
+				<order>
+					<disabled>1</disabled>
+				</order>
+
+				<processing translate="title" module="theme">
+					<title>Pending Orders</title>
+					<sort_order>5</sort_order>
+					<action>theme/adminhtml_sales_order/processing</action>
+					<resource>sales/order</resource>
+				</processing>
+
+				<view_all translate="title" module="theme">
+					<title>View All Orders</title>
+					<sort_order>10</sort_order>
+					<action>adminhtml/sales_order</action>
+					<resource>sales/order</resource>
+				</view_all>
+			</children>
+		</sales>
+
+		<customer translate="title" module="customer">
+			<title>Patients</title>
+			<children>
+				<manage translate="title" module="customer">
+					<title>Manage Patients</title>
+				</manage>
+
+				<enterprise_invitation translate="title" module="enterprise_invitation">
+					<title>Invite New Patients</title>
+				</enterprise_invitation>
+			</children>
+		</customer>
+
+		<system>
+			<title>Account</title>
+			<children>
+				<acl translate="title">
+					<title>Team Members</title>
+					<children>
+						<users translate="title">
+							<title>Manage Team Members</title>
+						</users>
+					</children>
+				</acl>
+			</children>
+		</system>
+	</menu>
+
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<sales>
+						<children>
+							<theme_order module="theme" translate="title">
+								<title>Venus Orders</title>
+								<children>
+									<processing translate="title">
+										<title>Processing Orders</title>
+									</processing>
+								</children>
+							</theme_order>
+						</children>
+					</sales>
+
+					<customer>
+						<children>
+							<manage>
+								<children>
+									<view_recurring translate="title" module="customer">
+										<title>View Recurring Profiles</title>
+										<sort_order>40</sort_order>
+									</view_recurring>
+
+									<view_tabs translate="title" module="customer">
+										<title>View Customer Tabs</title>
+										<sort_order>50</sort_order>
+										<children>
+											<cart translate="title" module="checkout">
+												<title>View Shopping Cart Tab</title>
+												<sort_order>0</sort_order>
+											</cart>
+
+											<billing_agreements translate="title" module="sales">
+												<title>View Billing Agreements Tab</title>
+												<sort_order>10</sort_order>
+											</billing_agreements>
+
+											<rma translate="title" module="enterprise_rma">
+												<title>View RMA Tab</title>
+												<sort_order>20</sort_order>
+											</rma>
+
+											<mailchimp translate="title" module="monkey">
+												<title>View MailChimp Tab</title>
+												<sort_order>30</sort_order>
+											</mailchimp>
+
+											<wishlist translate="title" module="wishlist">
+												<title>View Wishlist Tab</title>
+												<sort_order>40</sort_order>
+											</wishlist>
+										</children>
+									</view_tabs>
+
+									<delete translate="title" module="customer">
+										<title>Delete Customers (Massaction and View)</title>
+										<sort_order>1000</sort_order>
+									</delete>
+								</children>
+							</manage>
+						</children>
+					</customer>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

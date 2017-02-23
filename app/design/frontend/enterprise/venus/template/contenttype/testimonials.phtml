@@ -1,0 +1,27 @@
+<?php
+$collection = $this->getCollection();
+$link = $this->getLink();
+?>
+<?php if ($collection->getSize()): ?>
+    <div class="testimonials">
+        <div class="testimonials__container list-slider owl-carousel owl-theme">
+            <?php foreach ($collection as $content): ?>
+                <div class="testimonials__item">
+                    <div class="testimonials__content">
+                        <div class="testimonials__description">
+                            <?php echo trim($content->render('testimonial', ['html_tag' => false])); ?>
+                        </div>
+                        <div class="testimonials__author">
+                            <div class="testimonials__name">
+                                <?php echo $content->render('author_name', ['html_tag' => false]); ?>
+                            </div>
+                            <div class="testimonials__location">
+                                <?php echo $content->render('author_location', ['html_tag' => false]); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>

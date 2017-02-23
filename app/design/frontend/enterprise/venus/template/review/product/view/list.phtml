@@ -1,0 +1,76 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+    $_items = $this->getReviewsCollection()->getItems();
+?>
+<?php if (count($_items)):?>
+    <div class="reviews-list" id="reviews-list">
+        <h2 class="reviews-list__header">
+            <?= $this->__('Customer Reviews') ?>
+        </h2>
+        <div class="reviews-list__wrapper">
+            <?php foreach ($_items as $_review):?>
+                <div class="reviews-list__item">
+                    <div class="reviews-list__item-title">
+                        <?= $this->escapeHtml($_review->getTitle()) ?> /
+                        <?= $this->__('Review by %s', $this->escapeHtml($_review->getNickname())) ?>
+                    </div>
+                    <div class="ratings-summary">
+                        <?php $_votes = $_review->getRatingVotes(); ?>
+                        <?php if (count($_votes)): ?>
+                            <?php foreach ($_votes as $_vote): ?>
+                                <div class="ratings-summary__stars ratings-summary__stars--<?= $_vote->getPercent() * 5 / 100 ?>">
+                                    <span>
+                                        <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/star.svg'; ?>
+                                    </span>
+                                    <span>
+                                        <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/star.svg'; ?>
+                                    </span>
+                                    <span>
+                                        <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/star.svg'; ?>
+                                    </span>
+                                    <span>
+                                        <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/star.svg'; ?>
+                                    </span>
+                                    <span>
+                                        <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/star.svg'; ?>
+                                    </span>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="reviews-list__content">
+                        <?= nl2br($this->escapeHtml($_review->getDetail())) ?>
+                    </div>
+                    <div class="reviews-list__author">
+                        <?= $this->__('(Posted on %s)', $this->formatDate($_review->getCreatedAt()), 'long') ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif;?>

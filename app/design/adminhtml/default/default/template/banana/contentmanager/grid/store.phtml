@@ -1,0 +1,79 @@
+<?php
+/**
+ * Banana ContentManager Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to contact@advancedcontentmanager.com so we can send you a copy immediately.
+ *
+ * @category	Banana
+ * @package		Banana_ContentManager
+ * @copyright	Copyright (c) 2014 Banana Content Manager (http://www.advancedcontentmanager.com)
+ * @author		Banana Team
+ * @license		http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @version		1.2.4
+ */
+?>
+<table style="border: 0 none;">
+    <tbody style="background: none;">
+        <?php 
+            $content = Mage::getModel('contentmanager/content')->setStoreId(0)->load($this->getEntityId());
+            $stores = Mage::getModel('core/store')->getCollection();
+            $countStores = $stores->getSize();
+            $showedStore = 0;
+            
+            if($content->existsForStore(0))
+            {
+                ?>
+                <tr style="background: none;">
+                    <td style="border: 0 none;">
+                        <span class="nobr">
+                            <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'contenttype/flags/world.png'; ?>" />
+                            <?php echo Mage::helper('contentmanager')->__('Neutral language'); ?>
+                        </span>
+                    </td>
+                    <td style="border: 0 none;">
+                        <?php echo $this->createButton(Mage::helper('contentmanager')->__('Edit'), $this->getUrl('*/*/edit', array('ct_id' => $this->getRequest()->getParam('ct_id'), 'id' => $this->getRowId())), 'f-right'); ?>
+                    </td>
+                </tr>
+                <?php
+                $showedStore++;
+            }
+        ?>
+
+        <?php 
+            foreach($stores as $store)
+            {
+                $contextualized_content = Mage::getModel('contentmanager/content')->setStoreId($store->getId())->load($this->getEntityId());
+                $flag = Mage::getModel('contentmanager/flag')->load($store->getId());
+                
+                if($content->existsForStore($store->getId()))
+                {
+                    ?>
+                    <tr style="background: none;">
+                        <td style="border: 0 none;">
+                            <span class="nobr">
+                                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'contenttype/flags/'.$flag->getValue(); ?>" />
+                                <?php echo $store->getWebsite()->getName() . ' - ' . $store->getGroup()->getName() . ' - ' . $store->getName(); ?>
+                            </span>
+                        </td>
+                        <td style="border: 0 none;">
+                            <?php echo $this->createButton(Mage::helper('contentmanager')->__('Edit'), $this->getUrl('*/*/edit', array('store' => $store->getId(), 'ct_id' => $this->getRequest()->getParam('ct_id'), 'id' => $this->getRowId())), 'f-right'); ?>
+                        </td>
+                    </tr>
+                    <?php
+                    $showedStore++;
+                }
+            }
+        ?>
+    </tbody>
+</table>
+<?php if($showedStore < $countStores): ?>
+    <?php echo $this->createButton(Mage::helper('contentmanager')->__('Translate'), $this->getUrl('*/*/edit', array('ct_id' => $this->getRequest()->getParam('ct_id'), 'id' => $this->getRowId())), 'add'); ?>
+<?php endif; ?>

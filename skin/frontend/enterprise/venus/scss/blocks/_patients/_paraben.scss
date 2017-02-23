@@ -1,0 +1,54 @@
+.patients-paraben {
+    text-align: center;
+    &__row {
+        @include clearfix();
+        padding-bottom: 30px;
+        padding-top: 60px;
+        margin-bottom: 40px;
+        @include max-screen($screen-m) {
+            padding-top: 30px;
+        }
+    }
+    &__col {
+        box-sizing: border-box;
+        @include min-screen($screen-m) {
+            float: left;
+        }
+        &--content {
+            @include min-screen($screen-m) {
+                width: 70%;
+            }
+        }
+        &--image {
+            @include min-screen($screen-m) {
+                width: 30%;
+            }
+        }
+    }
+    &__container {
+        margin-bottom: 50px;
+    }
+    &__image {
+        @include min-screen($screen-m) {
+            padding-right: 30px;
+        }
+        img {
+            width: 300px;
+        }
+    }
+    &__title {
+        @extend .patients-section__title;
+        color: $primary-color;
+        @include max-screen($screen-s + 1) {
+            padding-top: 30px;
+        }
+        &:after {
+            border-color: #000;
+        }
+    }
+    &__description {
+        margin: 0 auto;
+        max-width: 550px;
+        font-family: $helveticaNeueLTProTh;
+    }
+}

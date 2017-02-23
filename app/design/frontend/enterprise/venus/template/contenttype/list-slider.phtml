@@ -1,0 +1,15 @@
+<?php
+$collection = $this->getCollection();
+$link = $this->getLink();
+?>
+<?php if ($collection->getSize()): ?>
+    <div class="<?= $collection->getSize() > 1 ? 'list-slider owl-carousel ' : null ?> owl-theme">
+        <?php foreach ($collection as $content): ?>
+            <div class="list-slider__item">
+                <a class="list-slider__link" href="<?php echo trim($content->render('link', ['html_tag' => false])); ?>">
+                    <?php echo $content->render('image', ['link' => false, 'html_tag' => false]); ?>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

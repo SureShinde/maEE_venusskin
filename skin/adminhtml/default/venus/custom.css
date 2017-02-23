@@ -1,0 +1,60 @@
+.login-container {
+	background: url('images/login_logo.gif') no-repeat;
+}
+
+.login-form {
+	background: url('images/login_box_bg.jpg') no-repeat;
+}
+
+.header {
+	background: #222222;
+}
+
+#order-items button.scalable.add:first-child,
+#order-billing_address_fields table tr:last-child,
+#order-shipping_address_fields table tr:last-child,
+#customer_account_fieds table tr:first-child,
+#customer_account_fieds table tr:nth-child(2) {
+	display: none;
+}
+
+.hidden {
+	display: block !important;
+	overflow: hidden !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 0 !important;
+	height: 0 !important;
+	border: 0 !important;
+	font-size: 0 !important;
+	line-height: 0 !important;
+}
+
+.totals-link:not(:hover) {
+	text-decoration: none;
+}
+
+.dashboard-container > table > tbody > tr > td:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+.dashboard-container > table > tbody > tr > td {
+	display: block;
+	width: 100%;
+}
+
+h3.promo-warning {
+	margin-bottom: .5em;
+	color: #d70c2d;
+	font-size: 1.75em;
+	border: 1px solid #222222;
+	padding: 10px;
+}
+
+.notification-global {
+	display: none;
+}
+
+#sales_recurring_profile_view table td {
+	vertical-align: middle;
+}

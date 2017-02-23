@@ -1,0 +1,114 @@
+<?php if (is_array($this->getChild('diagrams')->getTabsIds())) : ?>
+	<script type="text/javascript">
+	//<![CDATA[
+	function changeDiagramsPeriod(periodObj) {
+		var periodParam = periodObj.value ? 'period/' + periodObj.value + '/' : '';
+		ajaxBlockUrl = '<?php echo $this->getUrl('*/*/ajaxBlock', array('_current' => true, 'block' => 'totals', 'period' => '')) ?>' + periodParam;
+		new Ajax.Request(ajaxBlockUrl, {
+			parameters: {isAjax: 'true', form_key: FORM_KEY},
+			onSuccess : function (transport) {
+				var tabContentElementId = 'dashboard_diagram_totals';
+				try {
+					if (transport.responseText.isJSON()) {
+						var response = transport.responseText.evalJSON();
+						if (response.error) {
+							alert(response.message);
+						}
+						if (response.ajaxExpired && response.ajaxRedirect) {
+							setLocation(response.ajaxRedirect);
+						}
+					} else {
+						$(tabContentElementId).replace(transport.responseText);
+					}
+				}
+				catch (e) {
+					$(tabContentElementId).replace(transport.responseText);
+				}
+			}
+		});
+
+		periodParam = periodObj.value ? 'period/' + periodObj.value + '/' : '';
+		ajaxBlockUrl = '<?php echo $this->getUrl('theme/admin/ajaxBlock', array('_current' => true, 'block' => 'grids', 'period' => '')) ?>' + periodParam;
+		new Ajax.Request(ajaxBlockUrl, {
+			parameters: {isAjax: 'true', form_key: FORM_KEY},
+			onSuccess : function (transport) {
+				var tabContentElementId = jQuery('#grid_tabs_monthly');
+				console.log(transport.responseText);
+
+				try {
+					if (transport.responseText.isJSON()) {
+						var response = transport.responseText.evalJSON();
+						if (response.error) {
+							alert(response.message);
+						}
+						if (response.ajaxExpired && response.ajaxRedirect) {
+							setLocation(response.ajaxRedirect);
+						}
+					} else {
+						tabContentElementId.html(transport.responseText);
+						tabContentElementId.append('<div id="grid_tab_content"></div>');
+						jQuery('#grid_tab > li > div').each(function () {
+							jQuery(this).appendTo('#grid_tab_content');
+						});
+
+						jQuery('#grid_tab > li:first-child > a').addClass('active');
+						jQuery('#grid_tab_content > div:first-child').show();
+					}
+				}
+				catch (e) {
+					tabContentElementId.html(transport.responseText);
+					tabContentElementId.append('<div id="grid_tab_content"></div>');
+					jQuery('#grid_tab > li > div').each(function () {
+						jQuery(this).appendTo('#grid_tab_content');
+					});
+
+					jQuery('#grid_tab > li:first-child > a').addClass('active');
+					jQuery('#grid_tab_content > div:first-child').show();
+				}
+			}
+		});
+	}
+
+	function toggleCal(id) {
+		$('dashboard_' + id + '_cal_div').toggle();
+		$('dashboard_' + id + '_range_div').toggle();
+	}
+	//]]>
+	</script>
+<?php endif; ?>
+<div class="content-header">
+	<table cellspacing="0">
+		<tr>
+			<td><h3 class="head-dashboard"><?php echo $this->__('Dashboard') ?></h3></td>
+		</tr>
+	</table>
+</div>
+<div class="dashboard-container">
+	<?php echo $this->getChildHtml('store_switcher') ?>
+	<table cellspacing="25" width="100%">
+		<tr>
+			<td><?php echo $this->getChildHtml('sales') ?>
+				<div class="entry-edit">
+					<div class="entry-edit-head"><h4><?php echo $this->__('Last 5 Orders') ?></h4></div>
+					<fieldset class="np"><?php echo $this->getChildHtml('lastOrders'); ?></fieldset>
+				</div>
+			</td>
+			<td>
+				<div class="entry-edit" style="border:1px solid #ccc;">
+					<div class="entry-edit-head">
+						<h4><?php echo $this->__('Statistic Breakdown') ?></h4>
+					</div>
+
+					<?php echo $this->getChildHtml('date'); ?>
+					<div style="margin:20px;">
+						<?php echo $this->getChildHtml('totals') ?>
+					</div>
+					<div id="grid_tabs_monthly" style="margin:20px;">
+						<?php echo $this->getChildHtml('grids') ?>
+						<div id="grid_tab_content"></div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

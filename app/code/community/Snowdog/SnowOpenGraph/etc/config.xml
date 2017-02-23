@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Snowdog_SnowOpenGraph>
+      <version>0.1.0</version>
+    </Snowdog_SnowOpenGraph>
+  </modules>
+  <global>
+    <helpers>
+      <snowopengraph>
+        <class>Snowdog_SnowOpenGraph_Helper</class>
+      </snowopengraph>
+    </helpers>
+  </global>
+</config> 

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<snowcancelorderemail translate="title" module="cancelorderemail">
+											<title>Cancel order email Section</title>
+											<sort_order>0</sort_order>
+										</snowcancelorderemail>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

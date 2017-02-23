@@ -1,0 +1,21 @@
+<?php if ($this->getReviewsCount()): ?>
+    <?php if ($this->getRatingSummary()):?>
+        <div class="ratings-summary__stars ratings-summary__stars--main ratings-summary__stars--<?= round($this->getRatingSummary() / 20) ?>">
+            <?php for($i = 0; $i < 5; $i++): ?>
+                <span>
+                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/star.svg'; ?>
+                </span>
+            <?php endfor; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+<div class="ratings-summary__actions">
+    <?php if ($this->getReviewsCount()): ?>
+        <button type="button" class="ratings-summary__actions-button ratings-summary__actions-button--read">
+            <?= $this->__('Read reviews') ?>
+        </button>
+    <?php endif; ?>
+    <button type="button" class="ratings-summary__actions-button ratings-summary__actions-button--write">
+        <?= $this->__('Write review') ?>
+    </button>
+</div>

@@ -1,0 +1,36 @@
+<?php
+$collection = $this->getCollection();
+?>
+<?php if ($collection->getSize()): ?>
+    <div class="faq">
+        <div class="faq__container">
+            <h1 class="faq__heading">
+                <?php echo $this->__('FAQ'); ?>
+            </h1>
+            <ul class="faq__content">
+                <?php foreach ($collection as $content): ?>
+                    <li class="faq__item">
+                        <button class="faq__question">
+                            <?php echo trim($content->render('title', ['html_tag' => false])); ?>
+                        </button>
+                        <div class="faq__answer">
+                            <?php echo $content->render('answer', ['html_tag' => false]); ?>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+<?php endif; ?>
+
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(document).ready(function($) {
+        $('.faq__content').candyaccordion({
+            speed: 300,
+            titleClass: 'faq__question',
+            textClass: 'faq__answer'
+        });
+    });
+    //]]>
+</script>

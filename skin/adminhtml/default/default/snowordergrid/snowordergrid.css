@@ -1,0 +1,6 @@
+tr.totals a {
+    display: none;
+}
+tr.totals input.massaction-checkbox {
+    display: none;
+}

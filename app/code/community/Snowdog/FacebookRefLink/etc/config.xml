@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_FacebookRefLink>
+            <version>0.1.0</version>
+        </Snowdog_FacebookRefLink>
+    </modules>
+    <global>
+        <helpers>
+            <facebookreflink>
+                <class>Snowdog_FacebookRefLink_Helper</class>
+            </facebookreflink>
+        </helpers>
+        <models>
+            <facebookreflink>
+                <class>Snowdog_FacebookRefLink_Model</class>
+                <resourceModel>facebookreflink_mysql4</resourceModel>
+            </facebookreflink>
+        </models>
+        <events>
+            <customer_register_success>
+                <observers>
+                    <customer_register_success_handler>
+                        <type>model</type>
+                        <class>facebookreflink/observer</class>
+                        <method>updateRefererUrl</method>
+                    </customer_register_success_handler>
+                </observers>
+            </customer_register_success>
+        </events>
+    </global>
+</config> 

@@ -1,0 +1,15 @@
+<?php
+$result  = $this->getBlockData();
+$block   = $result['block'];
+$banners = $result['banners'];
+if ($block['status'] == 1) : ?>
+<div class="block block-banner">
+    <div class="block-content">
+		<?php foreach ($banners as $banner) : ?>
+		<?php echo $this->generateBannerCode($block['target_method'], $banner); ?>
+		<?php endforeach; ?>
+    </div>
+</div>
+<?php
+endif;
+?>

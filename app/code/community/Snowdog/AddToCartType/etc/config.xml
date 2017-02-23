@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_AddToCartType>
+            <version>0.1.0</version>
+        </Snowdog_AddToCartType>
+    </modules>
+    <global>
+        <helpers>
+            <addtocarttype>
+                <class>Snowdog_AddToCartType_Helper</class>
+            </addtocarttype>
+        </helpers>
+        <models>
+            <addtocarttype>
+                <class>Snowdog_AddToCartType_Model</class>
+                <resourceModel>addtocarttype_mysql4</resourceModel>
+            </addtocarttype>
+        </models>
+        <events>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <checkout_cart_product_add_after_handler>
+                        <type>model</type>
+                        <class>addtocarttype/observer</class>
+                        <method>checkProductType</method>
+                    </checkout_cart_product_add_after_handler>
+                </observers>
+            </checkout_cart_product_add_after>
+        </events>
+    </global>
+</config> 

@@ -1,0 +1,21 @@
+<?php
+$orders = $this->getOrders();
+?>
+
+<table>
+	<thead>
+		<tr>
+			<th class="left" style="padding: 5px;"><?php echo $this->__('Order #'); ?></th>
+			<th class="right" style="padding: 5px;"><?php echo $this->__('Created At'); ?></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<?php foreach ($orders as $order): ?>
+			<tr>
+				<td class="left" style="padding: 5px;"><?php echo $order->getIncrementId(); ?></td>
+				<td class="right" style="padding: 5px;"><?php echo $order->getCreatedAt(); ?></td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>

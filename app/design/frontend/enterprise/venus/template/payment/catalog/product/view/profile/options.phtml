@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var Venus_Multilevel_Block_Payment_Catalog_Product_View_Profile $this
+ */
+?>
+<?php if ($dateHtml = $this->getDateHtml()): ?>
+	<dl>
+		<dt>
+			<label for="<?php echo $this->getDateHtmlId() ?>"><?php echo $this->__('Recurring Profile Start Date') ?></label>
+		</dt>
+		<dd>
+			<?php echo $dateHtml ?>
+		</dd>
+	</dl>
+<?php endif; ?>
+<?php if ($periodHtml = $this->getPeriodHtml()) : ?>
+	<dl>
+		<dt>
+			<label for="<?php echo $this->getPeriodHtmlId() ?>"><?php echo $this->__('Please select a VIP Pricing Option') ?></label>
+		</dt>
+		<dd>
+			<?php echo $periodHtml ?>
+		</dd>
+	</dl>
+<?php endif; ?>

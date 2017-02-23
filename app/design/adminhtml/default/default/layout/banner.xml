@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<banner_adminhtml_banner_index>
+		<reference name="content">
+			<block type="banner/adminhtml_banner" name="banner"/>
+		</reference>
+	</banner_adminhtml_banner_index>
+
+	<banner_adminhtml_block_index>
+		<reference name="content">
+			<block type="banner/adminhtml_block" name="block"/>
+		</reference>
+	</banner_adminhtml_block_index>
+
+	<banner_adminhtml_block_custom>
+		<block type="core/text_list" name="root">
+			<block type="banner/adminhtml_block_edit_tab_custom" name="block.edit.tab.custom"/>
+			<block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+				<action method="initSerializerBlock">
+					<grid_block_name>block.edit.tab.custom</grid_block_name>
+					<data_callback>getSelectedBlockBanners</data_callback>
+					<hidden_input_name>block_banner</hidden_input_name>
+					<reload_param_name>banner</reload_param_name>
+				</action>
+				<action method="addColumnInputName">
+					<input_name>position</input_name>
+				</action>
+			</block>
+		</block>
+	</banner_adminhtml_block_custom>
+
+	<banner_adminhtml_block_customgrid>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="banner/adminhtml_block_edit_tab_custom" name="block.edit.tab.custom"/>
+		</block>
+	</banner_adminhtml_block_customgrid>
+</layout>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Venus_Registration>
+			<active>true</active>
+			<codePool>local</codePool>
+
+			<depends>
+				<Magestore_Affiliateplus />
+				<Magestore_Affiliatepluslevel />
+				<Magestore_Affiliateplusprogram />
+				<Magestore_AffiliateplusReferFriend />
+				<Venus_Theme />
+			</depends>
+		</Venus_Registration>
+
+		<Venus_Matrixrate>
+			<active>true</active>
+			<codePool>local</codePool>
+
+			<depends>
+				<Webshopapps_Matrixrate />
+			</depends>
+		</Venus_Matrixrate>
+
+		<Venus_Theme>
+			<active>true</active>
+			<codePool>local</codePool>
+
+			<depends>
+				<Ebizmarts_MageMonkey />
+				<Enterprise_Rma />
+			</depends>
+		</Venus_Theme>
+	</modules>
+</config>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<layout>
+    
+    <!-- Slider actions -->
+    
+    <adminhtml_sliders_list>
+        <reference name="content">
+            <!--block type="etheme_slideshow/slide_grid_container" name="slide_grid_container" /-->  
+            <block type="etheme_slideshow/adminhtml_slider" name="etheme_slideshow_slider_list" />
+        </reference>
+    </adminhtml_sliders_list>
+    
+    <adminhtml_sliders_edit>
+        <update handle="editor"/>
+        <reference name="content">
+             <block type="etheme_slideshow/adminhtml_slider_edit" name="slider_admin_edit" />  
+        </reference>
+        <reference name="left">
+            <block type="etheme_slideshow/adminhtml_slider_edit_tabs" name="slider_admin_edit_tabs" />  
+        </reference>
+    </adminhtml_sliders_edit>
+    
+    <adminhtml_sliders_grid>
+        <remove name="root" />
+        <block type="etheme_slideshow/adminhtml_slider_grid" name="etheme_slideshow_grid" output="toHtml" />
+    </adminhtml_sliders_grid>
+
+    <!-- Single slide actions -->
+    
+    <adminhtml_slides_list>
+        <reference name="content">
+            <!--block type="etheme_slideshow/slide_grid_container" name="slide_grid_container" /-->  
+            <block type="etheme_slideshow/adminhtml_slide" name="etheme_slideshow_slide_list" />
+        </reference>
+    </adminhtml_slides_list>
+    
+    <adminhtml_slides_edit>
+        <update handle="editor"/>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>et_slider.css</name><params/></action>
+        </reference>
+        <reference name="content">
+             <block type="etheme_slideshow/adminhtml_slide_edit" name="slide_admin_edit" />  
+        </reference>
+        <reference name="left">
+            <block type="etheme_slideshow/adminhtml_slide_edit_tabs" name="slide_admin_edit_tabs" />  
+        </reference>
+    </adminhtml_slides_edit>
+    
+    <adminhtml_slides_grid>
+        <remove name="root" />
+        <block type="etheme_slideshow/adminhtml_slide_grid" name="etheme_slideshow_grid" output="toHtml" />
+    </adminhtml_slides_grid>
+    
+    
+    
+</layout>

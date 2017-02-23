@@ -1,0 +1,54 @@
+<script type="text/javascript">
+//<![CDATA[
+LayerTemplateVideo = '<table class="border" cellpadding="0" cellspacing="0">' +
+        '<tr class="headings">' +
+            '<th class="type-video last"><?php echo Mage::helper('catalog')->__('Video') ?></th>' +
+        '</tr>' +
+            '<?php echo $this->getAppearanceSettings() ?>' +
+        '<tr>' +
+            '<td class="type-select">' +
+                '<label for="slide_layer_{{option_id}}_animation">Animation: </label>'+
+                '<?php echo $this->getAnimationSelect() ?>' +
+            '</td>' +
+        '</tr>' +
+        '<tr>' +
+            '<td class="type-select">' +
+                '<label for="slide_layer_{{option_id}}_easing">Easing: </label>'+ 
+                '<?php echo $this->getEasingSelect() ?>' +
+            '</td>' +
+        '</tr>' +
+        '<tr>' +
+            '<td class="type-last last">' +
+                '<label for="layers_{{option_id}}_url">Youtube URL: </label>'  +
+                '<input class="input-text" id="layers_{{option_id}}_url" name="layers[{{option_id}}][url]" value="{{url}}" />' +
+            '</td>' +
+        '</tr>' +
+        '<tr>' +
+            '<td class="type-last last">' +
+                '<label for="layers_{{option_id}}_width">Width: </label>'  +
+                '<input class="input-text" id="layers_{{option_id}}_width" name="layers[{{option_id}}][width]" value="{{width}}" />' +
+            '</td>' +
+            '<td class="type-last last">' +
+                '<label for="layers_{{option_id}}_height">Height: </label>' +
+                '<input class="input-text" id="layers_{{option_id}}_height" name="layers[{{option_id}}][height]" value="{{height}}" />' +
+            '</td>' +
+        '</tr>' +
+        '<tr>' +
+            '<td class="type-last last">' +
+                '<label for="layers_{{option_id}}_args">Arguments: </label>' +
+                '<input class="input-text" id="layers_{{option_id}}_args" name="layers[{{option_id}}][args]" value="{{args}}" />' +
+            '</td>' +
+        '</tr>' +
+        '<tr>' +
+            '<td class="type-checkbox">' +
+                '<label for="layers_{{option_id}}_autoplay">Autoplay: </label>' +
+                '<input type="checkbox" id="layers_{{option_id}}_autoplay" name="layers[{{option_id}}][autoplay]" checked="{{autoplay}}" />' +
+            '</td>' +
+            '<td class="type-checkbox last">' +
+                '<label for="layers_{{option_id}}_nextslideafter">Next slide at the end of video: </label>' +
+                '<input type="checkbox" id="layers_{{option_id}}_nextslideafter" name="layers[{{option_id}}][nextslideafter]" checked="{{nextslideafter}}" />' +
+            '</td>' +
+        '</tr>' + 
+    '</table>';
+//]]> 
+</script>

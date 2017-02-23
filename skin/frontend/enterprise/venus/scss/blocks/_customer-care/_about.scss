@@ -1,0 +1,50 @@
+.customer-care-about {
+    background: url("../images/media/customer-care/about.jpg") no-repeat center center / cover transparent;
+    overflow: hidden;
+    position: relative;
+    @include min-screen($screen-m) {
+        min-height: 550px;
+    }
+    @include screen($screen-s, $screen-m) {
+        min-height: 400px;
+    }
+    @include max-screen($screen-s + 1) {
+        background-size: $screen-s + 60 auto;
+        background-position: right -60px top 0;
+        padding-top: 320px;
+    }
+
+    &__content {
+        padding-top: 25px;
+        @include min-screen($screen-m) {
+            width: 100%;
+            max-width: 610px;
+        }
+        @include min-screen($screen-s) {
+            padding-top: 115px;
+        }
+    }
+    &__title {
+        font-family: $helveticaNeueLTProMd;
+        color: #000;
+        font-size: 40px;
+        @include max-screen($screen-s + 1) {
+            color: #000;
+            font-size: 30px;
+            color: $primary-color;
+        }
+    }
+    &__description {
+        max-width: 450px;
+        color: #000;
+        font-size: 19px;
+        font-weight: normal;
+        line-height: 1.4;
+        font-family: $helveticaNeueLTProRoman;
+        margin-bottom: 25px;
+        @include max-screen($screen-s + 1) {
+            color: #000;
+            font-size: 16px;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+.comparison-table {
+    position: relative;
+    overflow: hidden;
+    &__features {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    &__feature {
+        border: 1px dashed $primary-color;
+        height: 300px;
+        padding: 25px 10px 0;
+        box-sizing: border-box;
+        font-size: 17px;
+        @include max-screen($screen-l) {
+            font-size: 15px;
+        }
+
+        &:last-child {
+            height: 450px;
+            .comparison-table__vertical {
+                width: 450px;
+                transform-origin: 225px 225px;
+            }
+        }
+        &--key {
+            font-size: 17px;
+            width: 75px;
+            color: #000;
+            text-transform: uppercase;
+            background-color: rgba(#fff, 0.8);
+            padding: 0;
+            border: none;
+        }
+        &--top {
+            width: 75px;
+            border-width: 0 0 1px 0 !important;
+            border-color: #fff !important;
+            padding: 0 !important;
+            .comparison-table__vertical {
+                width: 400px;
+                transform-origin: 200px 200px;
+            }
+        }
+        img {
+            width: 190px;
+            max-width: 80%;
+            display: block;
+            margin: 0 auto 10px;
+        }
+    }
+    &__vertical {
+        transform: rotate(-90deg);
+        transform-origin: 150px 150px;
+        height: 75px;
+        width: 300px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #fff;
+    }
+    &__top-info {
+        height: 400px;
+        border: 1px dashed $primary-color;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        font-size: 17px;
+        @include max-screen($screen-l) {
+            font-size: 15px;
+        }
+        img {
+            margin-bottom: 10px;
+        }
+    }
+    &__title {
+        border: none;
+        color: $primary-color;
+    }
+    &__columns {
+        overflow: hidden;
+        margin: -1px -1px -1px 74px;
+    }
+    &__product {
+        float: left;
+        width: 25%;
+    }
+}

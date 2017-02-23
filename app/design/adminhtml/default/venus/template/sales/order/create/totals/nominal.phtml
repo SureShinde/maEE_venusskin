@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var Venus_Theme_Block_Adminhtml_Sales_Order_Create_Totals_Nominal $this
+ */
+?>
+<?php foreach ($this->getTotalItems() as $i => $item): ?>
+	<?php foreach ($this->getTotalItemDetails($item) as $j => $row): ?>
+		<tr>
+			<td colspan="<?php echo $this->getColspan(); ?>" style="<?php echo $this->getTotalStyle() ?>" class="a-right">
+				<?php echo $this->escapeHtml($this->getItemDetailsRowLabel($row)) ?>
+			</td>
+			<td class="a-right">
+				<?php echo $this->formatPrice($this->getItemDetailsRowAmount($row)) ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	<tr>
+		<td colspan="<?php echo $this->getColspan(); ?>" style="<?php echo $this->getTotalStyle() ?>" class="a-right">
+			<strong><?php echo $this->__('Grand Total'); //$this->escapeHtml($this->getItemName($item)); ?></strong>
+		</td>
+		<td class="a-right">
+			<?php echo $this->formatPrice($this->getItemRowTotal($item)) ?>
+		</td>
+	</tr>
+<?php endforeach; ?>

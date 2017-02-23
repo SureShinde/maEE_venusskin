@@ -1,0 +1,97 @@
+<?php
+/**
+ * @var $this Mage_Catalog_Block_Product_Abstract
+ */
+if (($_products = $this->getProductCollection() ? : $this->getItemCollection()) && count($_products)) : ?>
+	<div class="viewport">
+		<div id="product-carousel-container" class="category-view">
+			<?php
+			$_columnCount = $this->getColumnCount();
+			$i            = 0;
+			foreach ($_products as $_product): ?>
+				<?php if ($i++ % $_columnCount == 0): ?><ul class="products-grid <?php if ($i == 1) : ?>current-row<?php endif; ?>"><?php endif ?>
+				<li class="item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">
+					<?php echo $this->getChild('catalog.product.item')->setProduct($_product)->setPosition($i)->toHtml(); ?>
+				</li>
+				<?php if ($i % $_columnCount == 0 || $i == count($_products)): ?></ul><?php endif ?>
+			<?php endforeach; ?>
+		</div>
+
+		<span class="icon icon-angle-left carousel-control control prev <?php if ($i <= $_columnCount): ?>hidden<?php endif; ?>"></span>
+		<span class="icon icon-angle-right carousel-control control next <?php if ($i <= $_columnCount): ?>hidden<?php endif; ?>"></span>
+	</div>
+<?php
+endif; ?>
+
+<script>
+jQuery(function ($) {
+	var colCount;
+
+	$(window).on('resize', function () {
+		var oldColCount = colCount;
+		var $_pageWidth = $(window).innerWidth();
+
+		if ($_pageWidth <= 629) {
+			colCount = 1;
+		} else if ($_pageWidth <= 790) {
+			colCount = 2;
+		} else if ($_pageWidth <= 989) {
+			colCount = 3;
+		} else {
+			colCount = 4;
+		}
+
+		if (oldColCount !== colCount) {
+			if (oldColCount < colCount) {
+				gridExpand();
+			} else {
+				gridShrink();
+			}
+		}
+
+		if ($('#product-carousel-container ul').length > 1) {
+			$('.carousel-control').removeClass('hidden');
+		} else {
+			$('.carousel-control').addClass('hidden');
+		}
+	});
+
+	function gridExpand() {
+		$('ul.products-grid').each(function () {
+			$(this).children().appendTo('ul.products-grid:first');
+		});
+		$('ul.products-grid').not(':first').remove();
+		$('ul.products-grid:first').addClass('current-row');
+		gridShrink(colCount);
+	}
+
+	function gridShrink() {
+		$('ul.products-grid').each(function () {
+			var that = $(this);
+			while (that.children().length > colCount) {
+				if (that.is(':last-child')) {
+					$('#product-carousel-container').append('<ul class=\'products-grid\'></ul>');
+				}
+				that.children('li:last-child').appendTo(that.next());
+			}
+			reClass($(this));
+		});
+
+		if ($('ul.products-grid').last().children().length > colCount) {
+			gridShrink(colCount);
+		} else {
+			reClass($('ul.products-grid').last());
+		}
+	}
+
+	function reClass(ul) {
+		ul.children('li').each(function () {
+			$(this).removeClass('first').removeClass('last');
+		});
+		ul.children('li:first-child').addClass('first');
+		ul.children('li:last-child').addClass('last');
+	}
+
+	$(window).trigger('resize');
+});
+</script>

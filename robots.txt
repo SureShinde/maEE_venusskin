@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: *?q=*
+Disallow: *dir=*
+Disallow: /catalog/
+Disallow: *?___SID=U*
+Disallow: *?limit=*
+Disallow: *?p=1
+Disallow: *default-category
+Disallow: /review/
+Disallow: /cat/
+Disallow: /index/
+Disallow: */tag/*
+Disallow: */2012/*
+Disallow: */cat/*
+Disallow: *?mode=*
+Disallow: *?price=*
+Disallow: *?brand=*
+Disallow: *?cat=*
+Disallow: *?other=*
+
+

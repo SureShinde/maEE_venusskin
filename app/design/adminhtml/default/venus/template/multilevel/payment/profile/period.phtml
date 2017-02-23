@@ -1,0 +1,12 @@
+<?php
+/**
+ * @var Venus_Multilevel_Block_Adminhtml_Payment_Profile $this
+ */
+?>
+
+<?php if ($periodHtml = $this->getPeriodHtml()) : ?>
+	<tr>
+		<td class="label"><label for="<?php echo $this->getPeriodHtmlId() ?>"><?php echo $this->__('Billing Period') ?></label></td>
+		<td class="value"><?php echo $periodHtml; ?></td>
+	</tr>
+<?php endif;

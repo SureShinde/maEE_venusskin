@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Banana ContentManager Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to contact@advancedcontentmanager.com so we can send you a copy immediately.
+ *
+ * @category    Banana
+ * @package     Banana_ContentManager
+ * @copyright   Copyright (c) 2014 Banana Content Manager (http://www.advancedcontentmanager.com)
+ * @author      Banana Team
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @version     1.1.0
+ */
+ -->
+<config>
+	<modules>
+            <Banana_Core>
+                <version>1.0.1</version>
+            </Banana_Core>
+	</modules>
+	
+	<global>
+            <models>
+                <core>
+                    <rewrite>
+                        <bananafeed>Banana_Core_Model_Bananafeed</bananafeed>
+                    </rewrite>
+                </core>
+            </models>
+            <blocks>
+                <bananacore>
+                    <class>Banana_Core_Block</class>
+                </bananacore>
+            </blocks>
+	</global>
+
+	<adminhtml>
+            <layout>
+                <updates>
+                    <core>
+                        <file>banana/core.xml</file>
+                    </core>
+                    <bird_base>
+                        <file>bird/version.xml</file>
+                    </bird_base>
+                </updates>
+            </layout>
+            <translate>
+                <modules>
+                    <Banana_Core>
+                        <files>
+                            <default>Banana_Core.csv</default>
+                        </files>
+                    </Banana_Core>
+                </modules>
+            </translate>
+            <acl>
+                <resources>
+                    <admin>
+                        <children>
+                            <contentmanager>
+                                <title>Banana extensions</title>
+                                <children>
+                                    <core>
+                                        <title>Banana Core</title>
+                                    </core>
+                                </children>
+                            </contentmanager>
+                            <system>
+                                <children>
+                                    <config>
+                                        <children>
+                                            <contentmanager>
+                                                <title>Banana Core</title>
+                                            </contentmanager>
+                                        </children>
+                                    </config>
+                                </children>
+                            </system>
+                        </children>
+                    </admin>
+                </resources>
+            </acl>
+            <events>
+                <controller_action_predispatch>
+                    <observers>
+                        <banana_core_notification>
+                            <type>singleton</type>
+                            <class>core/bananafeed</class>
+                            <method>observe</method>
+                        </banana_core_notification>
+                    </observers>
+                </controller_action_predispatch>
+            </events>
+	</adminhtml>
+</config>

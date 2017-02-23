@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Inspiratica_Banner>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Inspiratica_Banner>
+
+		<Inspiratica_Git>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Inspiratica_Git>
+	</modules>
+</config>

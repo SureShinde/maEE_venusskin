@@ -1,0 +1,5 @@
+<?php if (!Mage::getSingleton('customer/session')->isLoggedIn()) : ?>
+	<a href="<?php echo $this->getUrl('sales/guest/form'); ?>" class="button button-dark after"><?php echo $this->__('Order #'); ?></a>
+<?php else : ?>
+	<a href="<?php echo $this->getUrl('sales/order/history'); ?>" class="button button-dark after"><?php echo $this->__('Order #'); ?></a>
+<?php endif; ?>

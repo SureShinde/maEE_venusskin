@@ -1,0 +1,116 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+
+
+
+<?php if ($this->getAllowWriteReviewFlag()): ?>
+    <div class="reviews-form" id="review-form-wrapper">
+        <h2 class="reviews-form__header">
+            <?= $this->__('Write Your Own Review') ?>
+        </h2>
+        <form action="<?= $this->getAction() ?>" method="post" id="review-form" class="reviews-form__wrapper">
+            <?= $this->getBlockHtml('formkey'); ?>
+            <?= $this->getChildHtml('form_fields_before')?>
+            <?php if ($this->getRatings() && $this->getRatings()->getSize()): ?>
+                <span id="input-message-box"></span>
+                <div class="reviews-form__stars" id="product-review-table">
+                    <div class="reviews-form__stars-header">
+                        <?= $this->__('How do you review this product?') ?>
+                    </div>
+                    <?php foreach ($this->getRatings() as $_rating): ?>
+                        <?php foreach ($_rating->getOptions() as $k => $_option): ?>
+                            <div class="reviews-form__star">
+                                <input type="radio" checked="checked" data-index="<?= $k ?>" name="ratings[<?= $_rating->getId() ?>]" id="<?= $this->escapeHtml($_rating->getRatingCode()) ?>_<?= $_option->getValue() ?>" value="<?= $_option->getId() ?>" class="reviews-form__star-input checked radio" />
+                                <label class="reviews-form__star-label" for="<?= $this->escapeHtml($_rating->getRatingCode()) ?>_<?= $_option->getValue() ?>">
+                                    <?php include Mage::getSingleton('core/design_package')->getSkinBaseDir().'/images/svg/star.svg'; ?>
+                                </label>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+                <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+            <?php endif ?>
+            <div class="reviews-form__inputs">
+                <div class="reviews-form__row">
+                    <label for="nickname_field" class="required reviews-form__row-label">
+                        *<?= $this->__('Nickname') ?>
+                    </label>
+                    <input type="text" name="nickname" id="nickname_field" class="input-text reviews-form__row-input required-entry" value="<?= $this->escapeHtml($data->getNickname()) ?>">
+                </div>
+                <div class="reviews-form__row">
+                    <label for="summary_field" class="required reviews-form__row-label">
+                        *<?= $this->__('Summary of Your Review') ?>
+                    </label>
+                    <input type="text" name="title" id="summary_field" class="input-text reviews-form__row-input required-entry" value="<?= $this->escapeHtml($data->getTitle()) ?>">
+                </div>
+                <div class="reviews-form__row">
+                    <label for="review_field" class="required reviews-form__row-label">
+                        *<?= $this->__('Review') ?>
+                    </label>
+                    <div class="input-box">
+                        <textarea name="detail" id="review_field" cols="5" rows="3" class="required-entry">
+                        <?= $this->escapeHtml($data->getDetail()) ?></textarea>
+                    </div>
+                </div>
+                <div class="reviews-form__row">
+                    <button type="submit" class="button reviews-form__row-button">
+                        <?= $this->__('Submit Review') ?>
+                    </button>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var dataForm = new VarienForm('review-form');
+                Validation.addAllThese(
+                    [
+                        ['validate-rating', '<?= $this->__('Please select one of each of the ratings above') ?>', function(v) {
+                            var trs = $('product-review-table').select('tr');
+                            var inputs;
+                            var error = 1;
+                            for( var j=0; j < trs.length; j++ ) {
+                                var tr = trs[j];
+                                if( j > 0 ) {
+                                    inputs = tr.select('input');
+                                    for( i in inputs ) {
+                                        if( inputs[i].checked == true ) {
+                                            error = 0;
+                                        }
+                                    }
+                                    if( error == 1 ) {
+                                        return false;
+                                    } else {
+                                        error = 1;
+                                    }
+                                }
+                            }
+                            return true;
+                        }]
+                    ]
+                );
+            </script>
+        </form>
+    </div>
+<?php endif ?>

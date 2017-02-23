@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+
+<config>
+	<sections>
+		<admin>
+			<groups>
+				<emails>
+					<fields>
+						<account_email_template translate="label" module="theme">
+							<label>New Account Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</account_email_template>
+
+						<account_email_identity translate="label" module="theme">
+							<label>New Account Email Sender</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_identity</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</account_email_identity>
+					</fields>
+				</emails>
+			</groups>
+		</admin>
+
+		<cataloginventory translate="label" module="theme">
+			<groups>
+				<item_options translate="label comment">
+					<fields>
+						<notification_recipient translate="label">
+							<label>Notification Recipient Email</label>
+							<frontend_type>text</frontend_type>
+							<validate>validate-email</validate>
+							<backend_model>adminhtml/system_config_backend_email_address</backend_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</notification_recipient>
+					</fields>
+				</item_options>
+			</groups>
+		</cataloginventory>
+
+		<sales_email>
+			<groups>
+				<shipment_alert translate="label">
+					<label>Shipment Alerts</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1000</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<send_to translate="label comment">
+							<label>Send Shipment Alert Email To</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Comma-separated.</comment>
+						</send_to>
+						<template translate="label">
+							<label>Shipment Alert Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</template>
+					</fields>
+				</shipment_alert>
+
+				<order_inactivity translate="label">
+					<label>Order Inactivity Emails</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1010</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<step translate="label">
+							<label>Send Every ___ Days Since Last Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</step>
+
+						<salesrule_id translate="label">
+							<label>Inactivity Email Sales Rule ID</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</salesrule_id>
+
+						<template translate="label">
+							<label>Order Inactivity Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</template>
+
+						<vip_template translate="label">
+							<label>VIP Program Incentive Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</vip_template>
+
+						<followup_template translate="label">
+							<label>Recurring Profile Cancellation Followup Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</followup_template>
+
+						<one_week_warning_template translate="label">
+							<label>Coupon Expiry Warning Email (One Week)</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</one_week_warning_template>
+
+						<one_day_warning_template translate="label">
+							<label>Coupon Expiry Warning Email (One Day)</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</one_day_warning_template>
+					</fields>
+				</order_inactivity>
+			</groups>
+		</sales_email>
+	</sections>
+</config>

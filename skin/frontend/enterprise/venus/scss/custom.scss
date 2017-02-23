@@ -1,0 +1,33 @@
+// Variables
+@import "variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $helveticaNeueLTProLt;
+}
+
+// Fonts
+@import "fonts";
+
+// Mixins
+@import "mixins/media-queries";
+@import "mixins/container";
+@import "mixins/clearfix";
+
+// Libraries
+@import "lib/colorbox";
+@import "lib/clipboard";
+
+// BEM structure
+@import "blocks/bestseller";
+@import "content-manager";
+@import "homepage";
+@import "patients";
+@import "account";
+@import "customer-care";
+@import "products";
+@import "professionals";
+
+@import "blocks/_header/main";
+@import "blocks/_footer/main";

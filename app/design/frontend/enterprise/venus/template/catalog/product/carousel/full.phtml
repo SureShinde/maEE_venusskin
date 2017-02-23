@@ -1,0 +1,152 @@
+<?php
+/**
+ * @var Venus_Theme_Block_Catalog_Product_Featured_List $this
+ */
+
+$_helper = $this->helper('catalog/output');
+
+if (($_products = $this->getProductCollection() ? : $this->getItemCollection()) && count($_products)) : ?>
+	<div class="carousel-full-viewport product-carousel">
+		<div id="product-carousel-full-container" class="carousel-full">
+			<ul class="carousel-full-items">
+				<?php
+				$i = 0;
+				foreach ($_products as $_product): ?>
+					<li class="carousel-full-item">
+						<div class="inner">
+							<div class="product-info clearfix">
+								<h3>
+									<a href="<?php echo $_product->getProductUrl() ?>">
+										<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+									</a>
+								</h3>
+
+								<a href="<?php echo $_product->getProductUrl() ?>" class="product-image">
+									<img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(724, 443); ?>" width="724" height="443" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+								</a>
+
+								<div class="slider-description">
+									<?php echo $_helper->productAttribute($_product, $_product->getSliderDescription(), 'slider_description') ?>
+
+									<div class="price-info">
+										<?php echo $this->getPriceHtml($_product); ?>
+										<i class="icon icon-info-sign vip-banner" title="<?php echo $this->__('What is VIP?'); ?>"></i>
+									</div>
+
+									<div class="actions">
+										<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+											<span><span><?php echo $this->__('Add to Cart') ?></span></span>
+										</button>
+
+										<a class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('Learn More'); ?></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+
+			<span class="carousel-full-nav carousel-full-nav-prev">
+				<i class="arrow-left"></i>
+			</span>
+
+			<span class="carousel-full-nav carousel-full-nav-next">
+				<i class="arrow-right"></i>
+			</span>
+		</div>
+	</div>
+<?php endif; ?>
+
+<div class="modal-content">
+	<div class="vip-modal">
+		<h2><?php echo $this->__('Are You a <strong>VIP</strong> Member?'); ?></h2>
+		<hr>
+		<p><?php echo $this->__('Never run out of your favourite products!'); ?></p>
+
+		<p><?php echo $this->__('Automatic 30, 45, 60, or 90 day delivery options.'); ?></p>
+
+		<p><?php echo $this->__('Special "Members-Only" pricing as a valued member of our program.'); ?></p>
+
+		<p><?php echo $this->__('Exclusive access to promotions and insider information.'); ?></p>
+
+		<p><strong><?php echo $this->__('Free to join, cancel at any time!'); ?></strong></p>
+		<a href="<?php echo $this->getUrl('customer/account/create'); ?>" class="button transparent join-now"><?php echo $this->__('Join Now'); ?></a>
+	</div>
+</div>
+
+<script>
+jQuery(function ($) {
+	$('.vip-banner').on('click', function () {
+		LiteModal.create({
+			overlayClose: true,
+			buttonClose : true,
+			content     : $('.modal-content').html()
+		});
+	});
+
+	$('#product-carousel-full-container').each(function (i, el) {
+		el = $(el);
+
+		var items = el.find('.carousel-full-item');
+
+		items.css({
+			left    : 0,
+			position: 'absolute',
+			top     : 0
+		}).hide().first().show();
+
+		var locked = false;
+		var timeout = null;
+
+		var slide = function (direction) {
+			if (direction == void(0)) {
+				direction = 1;
+			}
+
+			if (!locked) {
+				if (timeout != void(0)) {
+					clearTimeout(timeout);
+				}
+
+				locked = true;
+
+				var active = items.filter(':visible'),
+				    next = direction > 0 ? active.next() : active.prev();
+
+				if (!next.length) {
+					next = direction > 0 ? items.first() : items.last();
+				}
+
+				next.css('left', direction * el.width()).show().animate({left: 0});
+
+				active.animate({left: -1 * direction * el.width()},
+					function () {
+						$(this).hide();
+						locked = false;
+						timeout = setTimeout(slide, 10000);
+					}
+				);
+			}
+		};
+
+		el.on('_next_', function () {
+			slide(1);
+		});
+
+		el.on('_prev_', function () {
+			slide(-1);
+		});
+
+		el.find('.carousel-full-nav-prev').on('click', function () {
+			el.trigger('_prev_');
+		});
+
+		el.find('.carousel-full-nav-next').on('click', function () {
+			el.trigger('_next_');
+		});
+
+		timeout = setTimeout(slide, 10000);
+	});
+});
+</script>

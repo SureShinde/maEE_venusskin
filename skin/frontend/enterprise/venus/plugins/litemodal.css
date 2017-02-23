@@ -1,0 +1,30 @@
+.lite-modal-container {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	z-index: 999;
+	vertical-align: middle;
+	text-align: center;
+}
+.lite-modal-container:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.lite-modal-container .lite-modal {
+	display: inline-block;
+	padding: 20px;
+	background-color: #ffffff;
+}
+
+.lite-modal-container .lite-modal  .lite-modal-button-close {
+	display: inline-block;
+	margin-top: 10px;
+	padding: 5px 20px;
+	background-color: #e0e0e0;
+}

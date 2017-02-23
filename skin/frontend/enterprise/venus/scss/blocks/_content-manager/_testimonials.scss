@@ -1,0 +1,67 @@
+.testimonials {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    font-size: 25px;
+    color: #000;
+    line-height: 1.4;
+    @include max-screen($screen-m) {
+        font-size: 16px;
+    }
+    &__container {
+        @include container();
+    }
+    &__content {
+        @include clearfix();
+    }
+    &__description {
+        text-align: center;
+        position: relative;
+        padding: 25px 60px;
+        display: block;
+        font-size: 20px;
+        @include max-screen($screen-s) {
+            padding: 15px 30px;
+        }
+        &:after,
+        &:before {
+            content: "";
+            background: url("../images/quote.png") no-repeat top center / cover transparent;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            @include max-screen($screen-s) {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        &:before {
+            top: 0;
+            left: 0;
+        }
+        &:after {
+            background-position: bottom center;
+            bottom: 0;
+            right: 0;
+        }
+    }
+    &__author {
+        clear: both;
+        float: right;
+        color: $primary-color;
+    }
+    &__name {
+        margin-top: 30px;
+        font-size: 130%;
+    }
+    &__location {
+        font-style: italic;
+    }
+    .owl-controls {
+        display: none;
+    }
+    .owl-carousel {
+        .owl-wrapper, .owl-item {
+            backface-visibility: visible;
+        }
+    }
+}

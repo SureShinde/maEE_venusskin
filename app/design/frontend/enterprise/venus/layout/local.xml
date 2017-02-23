@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/icomoon-fonts.css</name>
+                <params/>
+            </action>
+        </reference>
+
+        <reference name="footer_links">
+            <action method="removeLinkBlock">
+                <blockName>return_link</blockName>
+            </action>
+
+            <action method="addLink" translate="label title">
+                <label>Affiliates</label>
+                <url>invitation</url>
+                <title>Affiliates</title>
+            </action>
+
+            <action method="addLink" translate="label title">
+                <label>Orders and Returns</label>
+                <url>orders-and-returns</url>
+                <title>Orders and Returns</title>
+            </action>
+
+            <action method="addLink" translate="label title">
+                <label>Privacy Policy</label>
+                <url>privacy-policy</url>
+                <title>Privacy Policy</title>
+            </action>
+
+            <action method="removeLinkByUrl">
+                <url helper="catalogsearch/getSearchTermUrl"/>
+            </action>
+            <action method="removeLinkByUrl">
+                <url helper="catalogsearch/getAdvancedSearchUrl"/>
+            </action>
+        </reference>
+    </default>
+
+    <catalog_product_view>
+        <reference name="head">
+            <!-- <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action> -->
+            <action method="addCss">
+                <stylesheet>css/product.css</stylesheet>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/product.js</name>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <block type="review/form" name="product.review.form" as="review_form" />
+            <block type="review/product_view_list" name="product.reviews" as="reviews" template="review/product/view/list.phtml" after="additional">
+                <action method="addToParentGroup"><group>detailed_info</group></action>
+                <action method="setTitle" translate="value"><value>Reviews</value></action>
+            </block>
+        </reference>
+    </catalog_product_view>
+
+</layout>

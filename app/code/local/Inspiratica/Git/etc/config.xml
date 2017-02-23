@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inspiratica_Git>
+            <version>1.0.0</version>
+        </Inspiratica_Git>
+    </modules>   
+    
+    <frontend>
+        <routers>
+            <git>
+                <use>standard</use>
+                <args>
+                    <module>Inspiratica_Git</module>
+                    <frontName>git</frontName>
+                </args>
+            </git>
+        </routers>
+    </frontend>    
+</config>

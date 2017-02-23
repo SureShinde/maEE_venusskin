@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_Multilevel>
+            <active>true</active>
+            <codePool>local</codePool>
+            <version>0.1.0</version>
+            <depends>
+                <Magestore_Affiliateplus/>
+                <Magestore_Affiliatepluslevel/>
+                <Magestore_Affiliateplusprogram/>
+                <Magestore_Affiliateplusstatistic/>
+                <Enterprise_GiftWrapping/>
+            </depends>
+        </Snowdog_Multilevel>
+    </modules>
+</config>

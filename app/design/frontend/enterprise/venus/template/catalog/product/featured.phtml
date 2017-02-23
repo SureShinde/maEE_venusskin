@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var $this WilliamAshley_Theme_Block_Catalog_Product_Featured
+ */
+if ($_html = $this->getChildHtml('featured_list')) : ?>
+	<div class="site-width featured-products-container">
+		<div class="featured-products clearfix">
+			<h1 class="light"><?php echo $this->getHeaderTitle() ? : $this->__('Skincare Products'); ?></h1>
+			<hr />
+
+			<?php echo $_html; ?>
+		</div>
+	</div>
+<?php
+endif;

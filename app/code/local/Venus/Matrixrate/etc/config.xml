@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Venus_Matrixrate>
+			<version>1.0.0</version>
+		</Venus_Matrixrate>
+	</modules>
+
+	<global>
+		<blocks>
+			<venus_matrixrate>
+				<class>Venus_Matrixrate_Block</class>
+			</venus_matrixrate>
+		</blocks>
+
+		<helpers>
+			<venus_matrixrate>
+				<class>Venus_Matrixrate_Helper</class>
+			</venus_matrixrate>
+		</helpers>
+
+		<models>
+			<venus_matrixrate>
+				<class>Venus_Matrixrate_Model</class>
+				<!--<resourceModel>theme_resource</resourceModel>-->
+			</venus_matrixrate>
+		</models>
+
+		<events>
+			<recurring_profile_before_billed>
+				<observers>
+					<venus_matrixrate>
+						<class>venus_matrixrate/observer</class>
+						<method>recurringProfileBeforeBilled</method>
+					</venus_matrixrate>
+				</observers>
+			</recurring_profile_before_billed>
+		</events>
+	</global>
+</config>

@@ -1,0 +1,112 @@
+<?php
+$_productCollection = $this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+?>
+<?php if ($_productCollection->count() != 0) : ?>
+    <div class="kit-list__section">
+        <div class="kit-list__container">
+            <h4 class="kit-list__title">
+                <?php echo $this->getTitle(); ?>
+            </h4>
+            <div class="kit-list kit-list--4col kit-list--4col-products">
+                <ul class="products-grid kit-list__products">
+                    <?php $index = -1 ?>
+                    <?php foreach ($_productCollection as $_product): ?>
+                        <?php if ($index == 6) : ?>
+                            <li class="item kit-list__product kit-list__product--paraben">
+                                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('products_paraben')->toHtml(); ?>
+                            </li>
+                        <?php endif; ?>
+                        <li class="item kit-list__product">
+                            <a href="<?php echo $_product->getProductUrl() ?>"
+                               title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+                               class="product-image"><img
+                                    src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(500); ?>"
+                                    alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/></a>
+
+                            <div class="product-info">
+                                <h3 class="product-name">
+                                    <a href="<?php echo $_product->getProductUrl() ?>"
+                                       title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+                                </h3>
+
+                                <div class="price-info">
+                                    <?php echo $this->getPriceHtml($_product, true) ?>
+                                    <i class="icon icon-info-sign vip-banner-button"
+                                       title="<?php echo $this->__('What is VIP?'); ?>"></i>
+                                </div>
+
+                                <div class="price-options">
+                                    <div class="actions">
+                                        <?php if ($_product->isSaleable()): ?>
+                                            <button type="button" title="<?php echo $this->__('Add to Cart') ?>"
+                                                    class="button btn-cart"
+                                                    onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">
+                                                <span><span><?php echo $this->__('Add to Cart') ?></span></span>
+                                            </button>
+
+                                            <button type="button" title="<?php echo $this->__('Learn More') ?>"
+                                                    class="button btn-cart"
+                                                    onclick="setLocation('<?php echo $_product->getProductUrl() ?>')">
+                                                <span><span><?php echo $this->__('Learn More') ?></span></span>
+                                            </button>
+                                        <?php elseif (!$_product->getIsSalable()): ?>
+                                            <div class="button out-of-stock">
+                                <span
+                                    class="availability out-of-stock"><span><?php echo $this->__('Out of Stock') ?></span></span>
+                                            </div>
+                                        <?php endif; ?>
+                                        <ul class="add-to-links">
+                                            <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                                <li>
+                                                    <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>"
+                                                       class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a>
+                                                </li>
+                                            <?php endif; ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <?php echo $this->getReviewsSummaryHtml($_product) ?>
+                            </div>
+                        </li>
+                        <?php $index++ ?>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        jQuery(function($) {
+
+            var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+            if (isMobile) {
+                jQuery('.kit-list__products').owlCarousel({
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: true
+                        },
+                        628: {
+                            items: 2,
+                            nav: true
+                        },
+                        970: {
+                            items: 3,
+                            nav: true
+                        },
+                        1180: {
+                            items: 3,
+                            nav: true
+                        }
+                    },
+                    loop: false,
+                    margin: 15
+                });
+            }
+
+            $('.kit-list--4col-products .kit-list__product').matchHeight();
+
+        });
+    </script>
+<?php endif; ?>

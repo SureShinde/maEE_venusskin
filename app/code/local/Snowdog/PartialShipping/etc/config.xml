@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_PartialShipping>
+            <version>0.1.0</version>
+        </Snowdog_PartialShipping>
+    </modules>
+    <global>
+        <helpers>
+            <partialshipping>
+                <class>Snowdog_PartialShipping_Helper</class>
+            </partialshipping>
+        </helpers>
+        <models>
+            <partialshipping>
+                <class>Snowdog_PartialShipping_Model</class>
+                <resourceModel>partialshipping_mysql4</resourceModel>
+            </partialshipping>
+            <sales>
+                <rewrite>
+                    <order>Snowdog_PartialShipping_Model_Sales_Order</order>
+                </rewrite>
+            </sales>
+        </models>
+        <events>
+            <sales_order_shipment_save_after>
+                <observers>
+                    <sales_order_shipment_save_after_handler>
+                        <type>model</type>
+                        <class>partialshipping/observer</class>
+                        <method>salesOrderShipmentSaveAfter</method>
+                    </sales_order_shipment_save_after_handler>
+                </observers>
+            </sales_order_shipment_save_after>
+        </events>
+    </global>
+</config> 

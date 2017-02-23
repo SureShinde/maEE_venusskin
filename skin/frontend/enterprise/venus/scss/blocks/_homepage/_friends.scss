@@ -1,0 +1,85 @@
+.home-friends {
+    text-align: center;
+    background: url("../images/media/homepage/friends.jpg") no-repeat center center / cover transparent;
+    position: relative;
+    @include min-screen($screen-m) {
+        min-height: 550px;
+    }
+    @include screen($screen-s, $screen-m) {
+        min-height: 400px;
+    }
+    @include max-screen($screen-s + 1) {
+        background-size: $screen-s + 60 auto;
+        background-position: right -60px top 0;
+        padding-top: 300px;
+    }
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(#0cabd9, 0.5);
+        @include max-screen($screen-s + 1) {
+            height: 302px;
+        }
+    }
+
+    &__content {
+        position: relative;
+        padding-top: 25px;
+        @include min-screen($screen-m) {
+            width: 100%;
+            max-width: 610px;
+        }
+        @include min-screen($screen-s) {
+            padding-top: 115px;
+        }
+    }
+    &__title {
+        @extend .home-section__title;
+        font-family: $helveticaNeueLTProMd;
+        color: #fff;
+        @include max-screen($screen-s + 1) {
+            color: #000;
+        }
+    }
+    &__description {
+        margin: 0 auto;
+        max-width: 450px;
+        color: #fff;
+        font-size: 25px;
+        font-weight: normal;
+        line-height: 1.4;
+        font-family: $helveticaNeueLTProRoman;
+        @include max-screen($screen-s + 1) {
+            color: #000;
+            font-size: 16px;
+        }
+    }
+    &__link {
+        padding: 5px 15px;
+        display: inline-block;
+        @include min-screen($screen-s + 1) {
+            margin-top: 25px;
+            color:#fff;
+            border: 3px solid #fff;
+            transition: all 0.2s;
+            &:hover {
+                color: $primary-color;
+                background-color: #fff;
+            }
+        }
+        @include max-screen($screen-s + 1) {
+            margin-top: 25px;
+            color: #fff;
+            background: $primary-color;
+            &:hover {
+                color: #fff;
+                background: lighten($primary-color, 10%);
+            }
+        }
+    }
+}

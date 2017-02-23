@@ -1,0 +1,23 @@
+.vip-member-inline {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    &__heading {
+        color: $primary-color;
+        border-bottom: none;
+        font-size: 20px;
+    }
+    &__description {
+        color: $primary-color;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    &__button {
+        display: inline-block !important;
+        width: auto !important;
+        margin-top: 20px;
+        &:hover {
+            color: #fff;
+        }
+    }
+}

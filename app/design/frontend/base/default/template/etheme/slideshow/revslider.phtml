@@ -1,0 +1,349 @@
+<?php 
+$sliderId = $this->getId();
+$slider = $this->getSlider($sliderId);
+?>
+<?php if ($slider && $slider->getIsActive()): ?>
+
+<?php /* 
+init slider settings
+*/
+
+$sliderDelay = ($slider->getDelay()) ? $slider->getDelay() : 9000;
+$sliderWidth = $slider->getGridWidth();
+$sliderHeight = $slider->getGridHeight();
+
+// Type & Size
+$sliderType = $slider->getSliderType(); 
+
+if ($sliderType == 'responsitive') {
+	$sliderWidths = array();
+	$screenWidths = array();
+	for ($i = 1; $i <= 6; ++$i) {
+		$getCurrentScreen = "getScreenWidth" . $i;
+		$getCurrentWidth = "getSliderWidth" . $i;
+		$sliderWidths[$i] = ($slider->$getCurrentWidth()) ? $slider->$getCurrentWidth() : 0;
+		$screenWidths[$i] = ($slider->$getCurrentScreen()) ? $slider->$getCurrentScreen() : 0;
+	}
+}
+
+// Appearance
+
+$sliderPosition = $slider->getSliderPosition();
+$sliderMarginLeft = ($slider->getMarginLeft()) ? $slider->getMarginLeft() : 0;
+$sliderMarginRight = ($slider->getMarginRight()) ? $slider->getMarginRight() : 0;
+$sliderMarginTop = ($slider->getMarginTop()) ? $slider->getMarginTop() : 0;
+$sliderMarginBottom = ($slider->getMarginBottom()) ? $slider->getMarginBottom() : 0;
+
+$shadowType = $slider->getShadowType();
+
+if ($showTimerline = $slider->getShowTimerline()) {
+	$timerlinePosition = $slider->getTimerlinePosition();
+}
+
+$backgroundColor = ($slider->getBackgroundColor()) ? "background-color: " . $slider->getBackgroundColor() : "";
+$backgroundImg =  ($slider->getBackgroundImg()) ? "background-image: " . $slider->getBackgroundImg() : "";
+
+$sliderPadding = ($slider->getPadding()) ? $slider->getPadding() : 0;
+
+if ($sliderShowBgImage = $slider->getShowBgImage()) {
+	$sliderBgImageUrl = $slider->getBgImageUrl();
+}
+
+$sliderHideUnder = ($slider->getHideSliderUnder()) ? $slider->getHideSliderUnder() : 0;
+$sliderHideDefinedUnder = ($slider->getHideDefinedLayersUnder()) ? $slider->getHideDefinedLayersUnder() : 0;
+$sliderHideAllUnder = ($slider->getHideAllLayersUnder()) ? $slider->getHideAllLayersUnder() : 0;
+
+//Navigation
+
+$touchEnabled = ($slider->getTouchEnabled()) ? "on" : "off";
+$stopOnHover = ($slider->getStopOnHover()) ? "on" : "off";
+
+$sliderNavType = $slider->getNavigationType();
+$sliderNavArrows = $slider->getNavigationArrows();
+$sliderNavStyle = $slider->getNavigationStyle();
+$sliderShowNav = $slider->getNavigationAlwaysOn();
+//if ($sliderShowNav)
+$sliderHideNavAfter = ($slider->getHideThumbs()) ? (int)$slider->getHideThumbs() : 0;
+
+if ($sliderNavType != 'none') {
+	$navAlignHor = $slider->getNavigationAlignHor();
+	$navAlignVert = $slider->getNavigationAlignVert();
+	$navOffsetHor = ($slider->getNavigationOffsetHor()) ? (int)$slider->getNavigationOffsetHor() : 0; 
+	$navOffsetVert = ($slider->getNavigationOffsetVert()) ? (int)$slider->getNavigationOffsetVert() : 0;
+}
+
+if ($sliderNavArrows != 'none') {
+	$leftArrAlignHor = $slider->getLeftarrowAlignHor();
+	$leftArrAlignVert = $slider->getLeftarrowAlignVert();
+	$leftArrOffsetHor = ($slider->getLeftarrowOffsetHor()) ? (int)$slider->getLeftarrowOffsetHor() : 0;
+	$leftArrOffsetVert = ($slider->getLeftarrowOffsetVert()) ? (int)$slider->getLeftarrowOffsetVert() : 0;
+	
+	$rightArrAlignHor = $slider->getRightarrowAlignHor();
+	$rightArrAlignVert = $slider->getRightarrowAlignVert();
+	$rightArrOffsetHor = ($slider->getRightarrowOffsetHor()) ? (int)$slider->getRightarrowOffsetHor() : 0;
+	$rightArrOffsetVert = ($slider->getRightarrowOffsetVert()) ? (int)$slider->getRightarrowOffsetVert() : 0;
+}
+
+
+?>
+
+<?php if ($slider): ?>
+<!-- wrapper -->
+<?php
+$sliderClass = "";
+$sliderWrapperClass = "";
+$containerStyle = "";
+$sliderStyle = "";
+switch ($sliderType) {
+	default:
+	case "fixed":
+		$sliderStyle .= "height:{$sliderHeight}px;width:{$sliderWidth}px;";
+		$containerStyle .= "height:{$sliderHeight}px;width:{$sliderWidth}px;";
+	break;
+	case "responsitive":
+		$putResponsiveStyles = true;						
+	break;
+	case "fullwidth":
+		$sliderWrapperClass .= " fullwidthbanner-container";
+		$sliderClass .= " fullwidthabanner";
+		$sliderStyle .= "max-height:{$sliderHeight}px;height:{$sliderHeight};";
+		$containerStyle .= "max-height:{$sliderHeight}px;";						
+	break;
+	case "fullscreen":
+		$sliderWrapperClass .= " fullscreen-container";
+		$sliderClass .= " fullscreenbanner";
+	break;
+}
+
+$sliderStyle = "";
+if ($sliderType == "fixed") {
+	$sliderStyle .= "width: " . $sliderWidth . "px";
+	$sliderStyle .= "height: " . $sliderHeight . "px";
+}
+
+$containerStyle .= "padding: " . $sliderPadding . "px;";
+
+if ($sliderType != "fullscreen") {
+
+	switch($sliderPosition) {
+
+		case "center":
+		default:
+			$containerStyle .= "margin:0px auto;";
+		break;
+		case "left":
+			$containerStyle .= "float:left;";
+		break;
+		case "right":
+			$containerStyle .= "float:right;";
+		break;
+	}
+
+	if ($sliderPosition != "center") {
+		$containerStyle .= "margin-left: " . $sliderMarginLeft . "px;";
+		$containerStyle .= "margin-right: " . $sliderMarginRight . "px;";
+	}
+	$containerStyle .= "margin-top: " . $sliderMarginTop . "px;";
+	$containerStyle .= "margin-bottom: " . $sliderMarginBottom . "px;";
+}
+?>
+
+<?php if ($sliderType == "responsitive"): ?>
+	<?php $heightRatio = $sliderHeight / $sliderWidth; ?>
+	<style type="text/css">
+		#rev_slider_<?php echo $sliderId ?>, #rev_slider_<?php echo $sliderId ?>_wrapper {
+			width: <?php echo $sliderWidth ?>px;
+			height: <?php echo $sliderHeight ?>px;
+		}
+
+		@media only screen and (min-width: <?php echo $screenWidths[1] ?>px) {
+
+			#rev_slider_<?php echo $sliderId ?>, #rev_slider_<?php echo $sliderId ?>_wrapper {
+				width: <?php echo $sliderWidth ?>px;
+				height: <?php echo $sliderHeight ?>px;
+			}
+		}
+		
+		<?php for ($i = 2; $i <= 6; ++$i): ?>
+			@media only screen and (min-width: <?php echo $screenWidths[$i] ?>px) and (max-width: <?php echo $screenWidths[$i-1]-1 ?>px) {
+
+			#rev_slider_<?php echo $sliderId ?>, #rev_slider_<?php echo $sliderId ?>_wrapper {
+				width: <?php echo $sliderWidths[$i-1] ?>px;
+				height: <?php echo floor($sliderWidths[$i-1] * $heightRatio) ?>px;
+			}
+		}
+		<?php if ($screenWidths[$i] == 0) break; ?>
+		<?php endfor ?>
+
+	</style>
+<?php endif ?>
+
+<?php if ($slider->getLoadGfont()): ?>
+	<link rel='stylesheet' id='rev-google-font' href='http://fonts.googleapis.com/css?family=<?php echo $slider->getGfontFamily() ?>' type='text/css' media='all' />
+<?php endif ?>
+
+<div id="rev_slider_<?php echo $sliderId ?>_wrapper" 
+	class="rev_slider_wrapper <?php echo $sliderWrapperClass ?>" 
+	style="<?php echo $containerStyle ?>">
+<!-- slider -->
+<div id="rev_slider_<?php echo $sliderId ?>" 
+	 class="rev_slider tp-simpleresponsive <?php echo $sliderClass ?>"  
+	 style="display:none; <?php echo $sliderStyle ?>">
+	<ul>
+	<!-- slides -->
+	<?php foreach ($this->getSlides() as $slide): ?>			
+	<?php if ($slide->getIsActive()): ?>
+
+	<?php if ($slideLinkEnabled = $slide->getEnableLink() && $slideLink = $slide->getSlideLink()) {
+		$linkOpenIn = $slide->getLinkOpenIn();
+	}
+	?>	
+	<li data-transition="<?php echo $slide->getTransition() ?>"
+		<?php if ($slideLinkEnabled): ?>
+		data-link="<?php echo $slideLink ?>"
+		<?php if ($linkOpenIn == 'blank'): ?>data-target="_blank"<?php endif ?>
+		<?php endif ?>
+		data-slotamount="<?php echo $slide->getSlotAmount() ?>"
+		data-masterspeed="<?php echo $slide->getTransitionDuration() ?>"
+		data-delay="<?php echo ($slide->getDelay()) ? $slide->getDelay() : $slider->getDelay(); ?>"
+	>
+	<?php
+	if ($slide->getBg())
+	 	$slideBgSrc = Mage::getBaseUrl('media') . $slide->getBg();
+	else 
+		$slideBgSrc = $this->getSkinUrl('images/etheme_slideshow/transparent.png');
+	
+	if($sliderType == "fullwidth" && $slide->getFullWidthCent())
+		$centering = ' data-fullwidthcentering="on"';
+	else
+		$centering = "";
+	?>
+	<img src="<?php echo $slideBgSrc ?>"  <?php echo $centering ?>>
+		<!-- layers -->
+		<?php if ($layers = $slide->getOrderedLayers()): ?>
+        <?php foreach($layers as $layer): ?>
+		        <?php
+		        	$additionalParams = "";
+		        	$class = " ";
+				 	switch ($layer['type']) {
+				 		case 'text': 
+				 			$content = $layer['text'];
+				 			$class .= $layer['style'];
+				 			break;
+				 		case 'video':
+				 			$args = ($layer['args']) ? $layer['args'] : $this->getYoutubeArgs();
+				 			$width = ($layer['width']) ? $layer['width'] : 320;
+				 			$height = ($layer['height']) ? $layer['height'] : 240;
+				 			$url = $layer['url'];
+				 			$content = "<iframe src='http://www.youtube.com/embed/{$url}?{$args}' width='{$width}' height='{$height}' style='width:{$width}px;height:{$height}px; border: none;'></iframe>";
+				 			if (@$layer['autoplay'])
+				 				$additionalParams .= ' data-autoplay="true"';
+				 			if (@$layer['nextslideafter'])
+				 				$additionalParams .= ' data-nextslideatend="true"';
+				 			break;
+				 		case 'image':
+				 			$content = '<img class="layer-image" src="' . $slide->getLayerImageUrl($layer['id']) . '" />';
+				 			break;
+				 		default:
+				 			$content = "";
+				 	}
+				 ?>
+				 <div class="tp-caption <?php echo $layer['animation'] . $class ?>"
+	        		data-x="<?php echo $layer['xoffset'] ?>" 
+	        		data-y="<?php echo $layer['yoffset'] ?>"
+	        		data-speed="<?php echo $layer['speed'] ?>"
+	        		data-start="<?php echo $layer['appearance_time'] ?>"
+	        		data-easing="<?php echo $layer['easing'] ?>"
+	        		<?php echo $additionalParams ?>
+		        >
+		        <?php echo $content; ?>
+	        	</div>
+        <?php endforeach; ?>
+        <?php endif; ?>
+	</li>
+	<?php endif; ?>
+	<?php endforeach; ?>
+	</ul>
+	<?php if ($showTimerline): ?>
+		<div class="tp-bannertimer<?php if ($timerlinePosition == 'bottom') echo ' tp-bottom' ?>"></div>
+	<?php endif; ?>	
+</div>
+</div>
+<script type="text/javascript">
+
+				var tpj=jQuery;
+				tpj.noConflict();
+								
+				var revapi2;
+				
+				tpj(document).ready(function() {
+				
+				if (tpj.fn.cssOriginal != undefined)
+					tpj.fn.css = tpj.fn.cssOriginal;
+				
+				if(tpj('#rev_slider_<?php echo $sliderId ?>').revolution == undefined)
+					revslider_showDoubleJqueryError('#rev_slider_<?php echo $sliderId ?>');
+				else
+				   revapi2 = tpj('#rev_slider_<?php echo $sliderId ?>').show().revolution(
+					{
+						delay: <?php echo $sliderDelay?>,
+						startwidth: <?php echo $sliderWidth ?>,
+						startheight: <?php echo $sliderHeight ?>,
+						hideThumbs: <?php echo $sliderHideNavAfter ?>,
+						
+						thumbWidth: <?php echo $slider->getThumbWidth() ?>,
+						thumbHeight:<?php echo $slider->getThumbHeight() ?>,
+						thumbAmount:<?php echo $slider->getThumbAmount() ?>,
+
+						navigationType: "<?php echo $sliderNavType ?>",
+						navigationArrows:"<?php echo $sliderNavArrows ?>",
+						navigationStyle:"<?php echo $sliderNavStyle ?>",
+						
+						touchenabled: "<?php echo $touchEnabled ?>",
+						onHoverStop: "<?php echo $stopOnHover ?>",
+						
+						<?php if ($sliderNavType != 'none'): ?>
+						navigationHAlign:"<?php echo $navAlignHor ?>",
+						navigationVAlign:"<?php echo $navAlignVert ?>",
+						navigationHOffset:<?php echo $navOffsetHor  ?>,
+						navigationVOffset:<?php echo $navOffsetVert ?>,
+						<?php endif ?>
+
+						<?php if ($sliderNavArrows != 'none'): ?>
+
+						soloArrowLeftHalign:"<?php echo $leftArrAlignHor?>",
+						soloArrowLeftValign:"<?php echo $leftArrAlignVert?>",
+						soloArrowLeftHOffset:<?php echo $leftArrOffsetHor?>,
+						soloArrowLeftVOffset:<?php echo $leftArrOffsetVert?>,
+
+						soloArrowRightHalign:"<?php echo $rightArrAlignHor?>",
+						soloArrowRightValign:"<?php echo $rightArrAlignVert?>",
+						soloArrowRightHOffset:<?php echo $rightArrOffsetHor?>,
+						soloArrowRightVOffset:<?php echo $rightArrOffsetVert?>,
+
+						<?php endif ?>
+								
+						shadow: <?php echo $slider->getShadowType() ?>,
+
+						fullWidth:"<?php echo ($sliderType == 'fullwidth' || $sliderType == 'fullscreen') ? 'on' : 'off' ?>",
+
+						stopLoop:"<?php echo ($slider->getStopSlider()) ? 'on' : 'off' ?>",
+						stopAfterLoops: <?php echo ($slider->getStopSlider()) ? $slider->getStopAfterLoops() : -1 ?>,
+						stopAtSlide: <?php echo ($slider->getStopSlider()) ? $slider->getStopAt() : -1 ?>,
+
+						shuffle:"<?php echo $slider->getShuffle() ?>",
+						
+						hideSliderAtLimit: <?php echo $sliderHideUnder ?>,
+						hideCaptionAtLimit: <?php echo $sliderHideDefinedUnder ?>,
+						hideAllCaptionAtLilmit: <?php echo $sliderHideAllUnder ?>,
+						startWithSlide:0
+						
+					});
+				
+				});	//ready
+				
+			</script>
+			
+							<!-- END REVOLUTION SLIDER -->
+<?php endif; ?> 
+<?php endif; ?> 

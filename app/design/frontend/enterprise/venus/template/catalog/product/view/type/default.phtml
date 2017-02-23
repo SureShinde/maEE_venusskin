@@ -1,0 +1,55 @@
+<?php
+/* @var $this Mage_Catalog_Block_Product_View_Abstract */
+$_product = $this->getProduct();
+?>
+<div class="product-shop__row">
+    <div class="product-shop__price">
+        <?= $this->getPriceHtml($_product) ?>
+    </div>
+    <div class="vip-banner product-shop__vip">
+        <button type="button" class="product-shop__vip-button">
+            <?= $this->__('Become a VIP') ?>
+        </button>
+        <div class="modal-content">
+            <div class="vip-modal">
+                <h2>
+                    <?= $this->__('Are You a <strong>VIP</strong> Member?') ?>
+                </h2>
+                <hr>
+                <p>
+                    <?= $this->__('Never run out of your favourite products!') ?>
+                </p>
+                <p>
+                    <?= $this->__('Automatic 30, 45, 60, or 90 day delivery options.') ?>
+                </p>
+                <p>
+                    <?= $this->__('Special "Members-Only" pricing as a valued member of our program.') ?>
+                </p>
+                <p>
+                    <?= $this->__('Exclusive access to promotions and insider information.') ?>
+                </p>
+                <p>
+                    <strong><?= $this->__('Free to join, cancel at any time!'); ?></strong>
+                </p>
+                <a href="<?= $this->getUrl('customer/account/create'); ?>" class="button transparent join-now">
+                    <?= $this->__('Join Now'); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if (!$_product->isGrouped() && $_product->getTypeId() != Mage_Catalog_Model_Product_Type::TYPE_BUNDLE): ?>
+    <div class="product-shop__qty">
+        <label class="product-shop__qty-label">
+            <?= $this->__('Qty') ?>
+        </label>
+        <select class="product-shop__qty-select" name="qty">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+<?php endif; ?>

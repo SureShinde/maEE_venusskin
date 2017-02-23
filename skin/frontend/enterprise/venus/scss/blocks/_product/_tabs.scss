@@ -1,0 +1,111 @@
+.product-tabs {
+    float: left;
+    width: 100%;
+    @include min-screen($screen-m) {
+        margin: 20px 0;
+        padding-top: 40px;
+        border-top: 1px solid #000;
+    }
+    &__trigers {
+        float: left;
+    	margin-bottom: 20px;
+    	width: 100%;
+    	position: relative;
+    	z-index: 1;
+        font-size: 0;
+        @include min-screen($screen-m) {
+            text-align: center;
+        }
+        &-item {
+            float: left;
+            width: 100%;
+        	border: 1px solid #000;
+            border-bottom: none;
+        	padding: 10px 19px;
+        	cursor: pointer;
+            text-transform: uppercase;
+            font-size: 15px;
+            color: #000;
+            font-family: $helveticaNeueLTProTh;
+            @include min-screen($screen-m) {
+                display: inline-block;
+                width: auto;
+                float: none;
+                padding: 0 25px;
+                border: none;
+                border-right: 1px solid #000;
+                line-height: 16px;
+            }
+            &:last-child {
+                border-bottom: 1px solid #000;
+                @include min-screen($screen-m) {
+                    border: none;
+                }
+            }
+            &.active {
+            	cursor: default;
+                transform: none;
+                background: #000;
+                color: #fff;
+                @include max-screen($screen-m - 1) {
+                    border: 1px solid #000;
+                }
+                @include min-screen($screen-m) {
+                    color: $primary-color;
+                    background: transparent;
+                }
+            }
+        }
+    }
+    &__content {
+        width: 100%;
+        float: left;
+        font-size: 12px;
+        font-family: $helveticaNeueLTProTh;
+        font-weight: 300;
+    }
+    &__item {
+        color: #000;
+        font-size: 14px;
+        font-family: $helveticaNeueLTProTh;
+        &:not(.active) {
+            display: none;
+        }
+    }
+}
+
+.product-key-actives {
+    width: 100%;
+    text-align: center;
+    table {
+        display: inline-block;
+        width: 100%;
+        border-collapse: collapse;
+        @include min-screen($screen-m) {
+            width: 70%;
+        }
+        tr {
+            border-bottom: 1px solid #c2c2c2;
+            &:first-child {
+                border-bottom: none;
+            }
+            th {
+                padding: 20px;
+                font-size: 18px;
+                font-weight: normal;
+                text-transform: uppercase;
+                font-family: $helveticaNeueLTProTh;
+            }
+            td {
+                width: 50%;
+                padding: 20px;
+                vertical-align: middle;;
+                text-align: center;
+                &:first-child {
+                    border-right: 1px solid #c2c2c2;
+                }
+            }
+        }
+    }
+
+}

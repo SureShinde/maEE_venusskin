@@ -1,0 +1,48 @@
+.patients-results {
+    text-align: center;
+    &__row {
+        @include clearfix();
+        padding-bottom: 60px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #000;
+        @include max-screen($screen-m) {
+            padding-top: 0;
+        }
+    }
+    &__col {
+        @include min-screen($screen-m) {
+            float: left;
+        }
+        &--content {
+            @include min-screen($screen-m) {
+                width: 40%;
+            }
+        }
+        &--slider {
+            @include min-screen($screen-m) {
+                width: 60%;
+            }
+        }
+        box-sizing: border-box;
+    }
+    &__container {
+        margin-bottom: 50px;
+    }
+    &__title {
+        @extend .patients-section__title;
+        font-family: $helveticaNeueLTProRoman;
+        @include min-screen($screen-m) {
+            padding-top: 50px;
+        }
+        @include max-screen($screen-s + 1) {
+            padding-top: 30px;
+        }
+        &--small {
+            @extend .patients-section__title--s;
+            font-family: $helveticaNeueLTProTh;
+        }
+    }
+    &__description {
+        font-family: $helveticaNeueLTProTh;
+    }
+}

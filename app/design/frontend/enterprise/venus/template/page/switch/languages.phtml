@@ -1,0 +1,28 @@
+<div class="language-select-wrap left">
+	<select id="lang-select">
+		<?php
+		/**
+		 * @var Mage_Core_Model_Website $website
+		 */
+		foreach (Mage::app()->getWebsites() as $website):
+			$defaultStore = $website->getDefaultStore();
+
+			if ($defaultStore->getIsActive()) :
+				?>
+				<option value="<?php echo $defaultStore->getUrl('*/*/*', array('_current' => true, '_use_rewrite' => true, '_query' => array(Venus_Theme_Helper_Data::URL_QUERY_WEBSITE => $website->getCode()))); ?>" <?php if ($website->getId() == Mage::app()->getWebsite()->getId()) : ?>selected="selected"<?php endif; ?>>
+					<?php echo $defaultStore->getName(); ?>
+				</option>
+			<?php
+			endif;
+		endforeach; ?>
+	</select>
+	<label for="lang-select" class="select-label"><?php echo $this->escapeHtml(Mage::app()->getStore()->getName()); ?></label>
+	<script>
+	jQuery(function ($) {
+		$('#lang-select').on('change', function () {
+			$('label[for="lang-select"]').text($(this).find('option:selected').text());
+			setLocation(this.value);
+		})
+	})
+	</script>
+</div>

@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var Mage_Checkout_Block_Cart_Totals $this
+ */
+?>
+<?php if ($this->canApplyMsrp()): ?>
+    <div
+        class="cart-msrp-totals"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></div>
+<?php else: ?>
+    <?php if ($this->getTotals()['grand_total']['value'] > 0): ?>
+        <?php // show normal items totals ?>
+        <div class="cart-summary-box">
+            <h3 class="summary-product-title">One time purchases:</h3>
+            <?php $_colspan = $this->helper('tax')->displayCartBothPrices() ? 5 : 3; ?>
+            <table>
+                <tbody>
+                <?php echo $this->renderTotals(null, $_colspan); ?>
+                <?php echo $this->getChildHtml('balance') ?>
+                </tbody>
+                <tfoot>
+                <?php echo $this->renderTotals('footer', $_colspan); ?>
+                <tr>
+                    <td class="a-right" colspan="3">
+                        <?php echo $this->helper('sales')->__('Grand Total (For one time purchases)') ?>
+                    </td>
+                    </td>
+                    <td class="a-right">
+                        <?php echo $this->displayBaseGrandtotal() ?>
+                    </td>
+                </tr>
+                </tfoot>
+
+            </table>
+        </div>
+    <?php elseif ($this->getTotals()): ?>
+        <?php // show nominalItems totals ?>
+        <div class="cart-summary-box">
+            <h3>Recurring products:</h3>
+            <?php $_colspan = $this->helper('tax')->displayCartBothPrices() ? 5 : 3; ?>
+            <?php if ($nominalTotals = $this->renderTotals('nominal', $_colspan)) : ?>
+                <table>
+                    <?php echo $this->getChildHtml('balance') ?>
+                    <?php echo $nominalTotals; ?>
+                </table>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

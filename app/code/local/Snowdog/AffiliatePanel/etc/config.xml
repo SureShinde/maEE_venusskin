@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Snowdog_AffiliatePanel>
+            <version>0.1.0</version>
+        </Snowdog_AffiliatePanel>
+    </modules>
+    <global>
+        <helpers>
+            <snowaffiliatepanel>
+                <class>Snowdog_AffiliatePanel_Helper</class>
+            </snowaffiliatepanel>
+        </helpers>
+        <blocks>
+            <affiliatepanel>
+                <class>Snowdog_AffiliatePanel_Block</class>
+            </affiliatepanel>
+            <customer>
+                <rewrite>
+                    <account_navigation>Snowdog_AffiliatePanel_Block_Customer_Account_Navigation</account_navigation>
+                </rewrite>
+            </customer>
+        </blocks>
+    </global>
+</config> 

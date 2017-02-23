@@ -1,0 +1,52 @@
+.professionals-papers {
+    text-align: center;
+
+    &__row {
+        @include clearfix();
+        padding-top: 40px;
+    }
+    &__title {
+        @extend .home-section__title;
+        font-family: $helveticaNeueLTProRoman;
+        &--small {
+            @extend .home-section__title--s;
+            font-family: $helveticaNeueLTProTh;
+        }
+    }
+    &__description {
+        margin-top: 40px;
+        font-family: $helveticaNeueLTProTh;
+    }
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__col {
+        width: 25%;
+        margin: 30px auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+        @include max-screen($screen-s) {
+            width: 50%;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+    }
+    &__text {
+        padding-top: 10px;
+        font-family: $helveticaNeueLTProTh;
+        @include max-screen($screen-s) {
+            font-size: 13px;
+        }
+    }
+    &__image {
+        img {
+            width: 140px;
+            @include max-screen($screen-s) {
+                max-width: 70%;
+            }
+        }
+    }
+}

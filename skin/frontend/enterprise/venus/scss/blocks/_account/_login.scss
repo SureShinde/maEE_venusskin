@@ -1,0 +1,107 @@
+.account-login {
+    margin-top: 30px;
+    font-size: 15px;
+    color: #000;
+    &__title {
+        color: $primary-color;
+        font-size: 28px;
+        border-bottom: 1px solid #000;
+        padding-bottom: 20px;
+        margin-bottom: 50px;
+        line-height: 1.4;
+        @include max-screen($screen-m - 1) {
+            font-size: 19px;
+        }
+    }
+    &__row {
+        overflow: hidden;
+    }
+    &__col {
+        box-sizing: border-box;
+        @include min-screen($screen-m) {
+            float: left;
+            width: 50%;
+        }
+        &--left {
+            @include min-screen($screen-m) {
+                padding-right: 70px;
+            }
+            @include max-screen($screen-m - 1) {
+                padding-bottom: 30px;
+            }
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                background-color: $primary-color;
+                @include min-screen($screen-m) {
+                    width: 2px;
+                    height: 80%;
+                    top: 10%;
+                    right: 0;
+                }
+                @include max-screen($screen-m - 1) {
+                    width: 80%;
+                    height: 2px;
+                    left: 10%;
+                    bottom: 0;
+                }
+            }
+            .button {
+                margin-top: 25px;
+            }
+        }
+        &--right {
+            @include min-screen($screen-m) {
+                padding-left: 70px;
+            }
+            @include max-screen($screen-m - 1) {
+                padding-top: 30px;
+            }
+            .button {
+                margin-top: 96px;
+                .account-login--create & {
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
+    &__content {
+        @include min-screen($screen-m) {
+            max-width: 425px;
+        }
+    }
+    &__subtitle {
+        border-bottom: none;
+        font-size: 20px;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+    &__description {
+        margin-bottom: 25px;
+    }
+    &__features {
+        padding-left: 20px;
+    }
+    &__feature {
+        list-style: disc;
+        line-height: 2;
+    }
+    &__reset {
+        margin-top: 15px;
+        color: #000;
+    }
+    &__store-switch {
+        margin-top: 30px;
+    }
+    &__store-switch-link {
+        color: $primary-color;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__back {
+        margin:15px;
+    }
+}

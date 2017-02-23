@@ -1,0 +1,47 @@
+.customer-care-paraben {
+    text-align: center;
+    &__row {
+        @include clearfix();
+        padding-bottom: 30px;
+        padding-top: 60px;
+        @include max-screen($screen-l) {
+            padding-top: 30px;
+            padding-bottom: 0;
+        }
+    }
+    &__col {
+        box-sizing: border-box;
+        @include min-screen($screen-l) {
+            float: left;
+        }
+        &--content {
+            @include min-screen($screen-l) {
+                width: 70%;
+            }
+        }
+        &--image {
+            @include min-screen($screen-l) {
+                width: 30%;
+            }
+        }
+    }
+    &__container {
+        margin-bottom: 50px;
+    }
+    &__image {
+        @include min-screen($screen-m) {
+            padding-right: 30px;
+        }
+        img {
+            width: 300px;
+        }
+    }
+    &__title {
+        @extend .customer-care-section__title;
+        border-bottom: none;
+        padding-top: 90px;
+        @include max-screen($screen-l) {
+            padding-top: 30px;
+        }
+    }
+}

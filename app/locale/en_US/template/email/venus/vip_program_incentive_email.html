@@ -1,0 +1,74 @@
+<!--@subject You deserve the best, so we’re giving it to you! @-->
+<!--@vars
+{
+"var customer":"Customer",
+"var coupon_code":"Coupon Code",
+"var unsubscribe_link":"Unsubscribe Link",
+}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="max-width: 600px;">
+<div class="email-top" style="padding: 20px; background: #fafafa;">
+	<a href="{{store url=''}}" target="_blank" style="float: left;"><img src="{{var logo_url}}" alt="{{var logo_alt}}" border="0" /></a>
+
+	<div class="top-text" style="text-align: right; color: #222222;">
+		Hi, {{var customer.getName()}}
+		<br /><br />
+		<a class="button" href="{{store url='customer/account'}}" target="_blank" style="display: inline-block; padding: 5px 10px; border: 1px solid #dbdbdb; margin-top: 10px; text-decoration: none; color: #222222; background: #ffffff;">View Account</a>
+	</div>
+</div>
+
+<img src="{{media url='emails/vsemaillogo.jpg'}}" alt="Venus Logo" title="" style="display: block;" />
+
+<div class="email-mid" style="border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; padding: 20px;">
+	You put your skin first using the natural, botanical ingredients in Venus Skin products - so we’re happy to put you first!
+
+	<br /><br />
+
+	We’re offering you a spot in our VIP Program, with exclusive benefits to make your skincare routine even easier.
+
+	<br /><br />
+
+	Easily keep your favourite items on hand, take advantage of exclusive members-only pricing, and be the first to know about new products!
+
+	<br /><br />
+
+	As your first VIP privilege, take advantage of a $100 gift card to use any time within the next 2 weeks.
+
+	<br /><br />
+
+	<span style="font-weight:bold;">{{var coupon_code}}</span>
+
+	<br /><br />
+
+	Your skincare solution for youthful, beautiful skin - with all of the exclusive benefits you deserve. Take advantage of our VIP opportunity.
+
+	<br /><br />
+
+	<a class="button" href="{{store url=''}}" target="_blank" style="display: inline-block; padding: 5px 10px; border: 1px solid #dbdbdb; margin-top: 10px; text-decoration: none; color: #222222; background: #ffffff;">Become A VIP</a>
+</div>
+
+<a href="{{store url='invitation'}}" target="_blank">
+	<img src="{{media url='banners/get100_email_banner.jpg'}}" alt="" title="Earn Store Credit Now!" style="margin: 0 auto; display: block; max-width: 100%;" />
+</a>
+
+<div class="email-bottom" style="background: #fafafa; padding: 20px; border: 1px solid #dbdbdb; border-top: none;">
+	<div style="float: left; color: #222222;">
+		*Conditions Apply<br />
+		Click <a href="{{store direct_url='forpatients#give-get-banner'}}" target="_blank" style="color: #222222;">here</a> for more information.
+	</div>
+
+	<div class="top-text" style="text-align: right; float: right;">
+		<strong style="font-size: 22px;"><a href="{{store url=''}}" target="_blank" style="text-decoration: none; color: #222222;">VenusSkin.com</a></strong><br />
+	</div>
+
+	<div style="clear: both; display: block !important;"></div>
+</div>
+
+<div class="unsubscribe" style="text-align:center; font-size: 10px;">
+	You can unsubscribe from these emails by <a href="{{var unsubscribe_link}}">clicking here</a>.
+</div>
+</body>

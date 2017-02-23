@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <snowdog translate="label" module="snowreferefiframe">
+            <label>Snowdog Extensions</label>
+            <sort_order>0</sort_order>
+        </snowdog>
+    </tabs>
+    <sections>
+        <affiliate_iframe translate="label" module="snowreferefiframe">
+            <label>Affiliate iframe</label>
+            <tab>snowdog</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <category_id translate="label">
+                            <label>Category ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Enter category id with should be displayed in iframe</comment>
+                        </category_id>
+                    </fields>
+                </general>
+            </groups>
+        </affiliate_iframe>
+    </sections>
+</config>

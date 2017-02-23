@@ -1,0 +1,26 @@
+<?php $productCollection = $this->getProducts(); ?>
+
+<div class="refer-iframe">
+    <?php foreach ($productCollection as $product) : ?>
+        <div class="refer-iframe__item">
+            <a class="refer-iframe__link"
+               href="<?php echo $this->getProductReffUrl($product->getId()); ?>"
+               target="_blank"
+               title="<?php echo $product->getName(); ?>">
+                <div class="refer-iframe__image">
+                    <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(500); ?>"
+                         alt="<?php echo $product->getName(); ?>">
+                </div>
+                <h3 class="refer-iframe__title">
+                    <?php echo $product->getName(); ?>
+                </h3>
+                <div class="refer-iframe__price">
+                    <?php echo Mage::helper('core')->currency($product->getPrice(), true, true); ?>
+                </div>
+                <div class="refer-iframe__action">
+                    <?php echo $this->__('Learn More'); ?>
+                </div>
+            </a>
+        </div>
+    <?php endforeach; ?>
+</div>

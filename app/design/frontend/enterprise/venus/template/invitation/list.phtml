@@ -1,0 +1,97 @@
+<?php
+/** @var Venus_Theme_Block_Enterprise_Invitation_Customer_List $this */
+$invitationUrl = $this->getChildHtml('list_url');
+$stats         = $this->getReferralStatsCollection();
+?>
+
+<div class="page-title">
+	<h1><?php echo Mage::helper('enterprise_invitation')->__('My Invitations'); ?></h1>
+</div>
+
+<div id="messages"><?php echo $this->getMessagesBlock()->getGroupedHtml(); ?></div>
+
+<p><?php echo $this->__('Referring a friend has never been so easy! Share this link or code with your friends and get ready to earn!'); ?></p>
+
+<div class="invite-link-fields">
+	<div class="invite-link-field">
+		<label><?php echo $this->__('Refer By Email:'); ?></label>
+		<a href="<?php echo $this->helper('enterprise_invitation')->getCustomerInvitationFormUrl(); ?>" class="button"><span><?php echo $this->__('Send Email Invitations'); ?></span></a>
+	</div>
+</div>
+
+<div class="social-media-share-links">
+	<h3><?php echo $this->__('Share your Exclusive Access Link over social media!'); ?></h3>
+	<ul class="share-links">
+		<li class="share-link">
+			<a href="Javascript:newPopup('<?php echo $this->escapeHtml('https://www.facebook.com/sharer/sharer.php?u=' . $invitationUrl . '&title=I love Venus Skin!&description=Sign up today using my promo code and get $100 off your first order! ' . $invitationUrl); ?>')"><i class="icon icon-facebook"></i></a>
+		</li>
+		<li class="share-link">
+			<a href="Javascript:newPopup('<?php echo $this->escapeHtml('https://twitter.com/home?status=' . $this->__('I love @venusskin! Sign up today using my promo code and get $100 off your first order! %s', $invitationUrl)); ?>')"><i class="icon icon-twitter"></i></a>
+		</li>
+		<li class="share-link">
+			<a href="Javascript:newPopup('<?php echo $this->escapeHtml('https://pinterest.com/pin/create/button/?url=' . $invitationUrl . '&media=' . $this->helper('snowopengraph')->getOpenGraphPromoImage() . '&description=I love venusskin! Sign up today using my promo code and get $100 off your first order! ' . $invitationUrl); ?>')"><i class="icon icon-pinterest"></i></a>
+		</li>
+		<li class="share-link">
+			<a href="Javascript:newPopup('<?php echo $this->escapeHtml('http://www.linkedin.com/shareArticle?mini=true&url=' . $invitationUrl . '&title=I love venusskin! Sign up today using my promo code and get $100 off your first order! ' . $invitationUrl); ?>')"><i class="icon icon-linkedin"></i></a>
+		</li>
+	</ul>
+</div>
+
+<?php if ($stats): ?>
+	<div class="referral-stats-table">
+		<h3><?php echo $this->__('Give 100 Get 100 Referrals'); ?></h3>
+
+		<div class="referrals">
+			<table class="referrals-table">
+				<thead>
+					<tr>
+						<th><?php echo $this->__('Friend Email'); ?></th>
+						<th><?php echo $this->__('Signed Up'); ?></th>
+						<th><?php echo $this->__('Made First Purchase'); ?></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<?php foreach ($stats as $key => $value) : ?>
+						<tr>
+							<td><?php echo $key; ?></td>
+							<td><i class="ion ion-<?php echo $value['has_signed_up'] ? 'checkmark' : 'close'; ?>"></i></td>
+							<td><i class="ion ion-<?php echo $value['has_made_purchase'] ? 'checkmark' : 'close'; ?>"></i></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<?php endif; ?>
+
+<div class="buttons-set">
+	<p class="back-link">
+		<a href="<?php echo $this->escapeUrl($this->getBackUrl()); ?>">
+			<small>&laquo; </small><?php echo $this->__('Back'); ?>
+		</a>
+	</p>
+</div>
+
+<script>
+	function newPopup(url) {
+		popupWindow = window.open(
+			url, 'popUpWindow', 'height=700,width=800,left=10,top=10,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes'
+		)
+	}
+
+	jQuery(function ($) {
+		ZeroClipboard.config({swfPath: "<?php echo $this->getJsUrl('ZeroClipboard/ZeroClipboard.swf'); ?>"});
+
+		$('.invite-link-field button.button').each(function (i, el) {
+			el = $(el);
+
+			var clipboard = new ZeroClipboard(el);
+
+			clipboard.on('copy', function (event) {
+				var clipboard = event.clipboardData;
+				clipboard.setData('text/plain', el.closest('.invite-link-field').find('.invite-link-input').val());
+			});
+		});
+	});
+</script>

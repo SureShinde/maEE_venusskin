@@ -1,0 +1,28 @@
+.customer-care-shipping {
+    margin-top: 50px;
+    &__heading {
+        @extend .customer-care-section__title;
+    }
+    &__sub-heading {
+        font-size: 24px;
+        border-bottom: none;
+        margin-bottom: 0;
+        padding: 20px 0 10px 0;
+    }
+    &__rates {
+        max-width: 90%;
+        margin: 10px auto 30px;
+    }
+    &__rate {
+        display: flex;
+    }
+    &__rate-dots {
+        flex: 1 1 auto;
+        border-bottom: 2px dotted #000;
+        height: 17px;
+        margin: 0 10px;
+    }
+    a {
+        color: $primary-color;
+    }
+}
